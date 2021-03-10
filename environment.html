@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>基本的なデータの受け渡し - ROS Practice</title>
+        <title>環境構築 - ROS Practice</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="start.html"><strong aria-hidden="true">1.</strong> はじめに</a></li><li class="chapter-item expanded "><a href="environment.html"><strong aria-hidden="true">2.</strong> 環境構築</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="environment_task.html"><strong aria-hidden="true">2.1.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="ros_tutorial.html" class="active"><strong aria-hidden="true">3.</strong> 基本的なデータの受け渡し</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="start.html"><strong aria-hidden="true">1.</strong> はじめに</a></li><li class="chapter-item expanded "><a href="environment.html" class="active"><strong aria-hidden="true">2.</strong> 環境構築</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="environment_task.html"><strong aria-hidden="true">2.1.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="ros_tutorial.html"><strong aria-hidden="true">3.</strong> 基本的なデータの受け渡し</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,66 +163,80 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h2><a class="header" href="#rosの基本的なデータの受け渡し" id="rosの基本的なデータの受け渡し"><strong>ROSの基本的なデータの受け渡し</strong></a></h2>
-<p>ROSのパッケージを作成して，Publisher，Subscriberを実行する．</p>
-<table><thead><tr><th align="center">順番</th><th align="center">日本語URL</th><th align="center">英語URL</th></tr></thead><tbody>
-<tr><td align="center">1</td><td align="center"><a href="http://wiki.ros.org/ja/ROS/Tutorials/CreatingPackage">ROSパッケージを作る</a></td><td align="center"><a href="http://wiki.ros.org/ROS/Tutorials/CreatingPackage">Creating a ROS Package</a></td></tr>
-<tr><td align="center">2</td><td align="center"><a href="http://wiki.ros.org/ja/ROS/Tutorials/BuildingPackages">ROSのパッケージをビルドする</a></td><td align="center"><a href="http://wiki.ros.org/ROS/Tutorials/BuildingPackages">Building a ROS Package</a></td></tr>
-<tr><td align="center">3</td><td align="center"><a href="http://wiki.ros.org/ja/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29">シンプルな配信者(Publisher)と購読者(Subscriber)を書く(C++)</a></td><td align="center"><a href="http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29">Writing a Simple Publisher and Subscriber (C++)</a></td></tr>
-<tr><td align="center">4</td><td align="center"><a href="http://wiki.ros.org/ja/ROS/Tutorials/WritingPublisherSubscriber%28python%29">シンプルな配信者(Publisher)と購読者(Subscriber)を書く(Python)</a></td><td align="center"><a href="http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29">Writing a Simple Publisher and Subscriber (Python)</a></td></tr>
-<tr><td align="center">5</td><td align="center"><a href="http://wiki.ros.org/ja/ROS/Tutorials/ExaminingPublisherSubscriber">シンプルなPublisherとSubscriberを実行してみる</a></td><td align="center"><a href="http://wiki.ros.org/ROS/Tutorials/ExaminingPublisherSubscriber">Examining the Simple Publisher and Subscriber</a></td></tr>
+                        <h1><a class="header" href="#やること" id="やること">やること</a></h1>
+<p><a href="http://wiki.ros.org/ROS/Tutorials">ROS Wiki</a> に準拠した内容で行います．<br />
+ROSはOSのバージョンに合わせてインストールする必要があるので気をつけてください．</p>
+<p>今回の構成はいかのようにします．</p>
+<table><thead><tr><th align="center">項目</th><th align="center">値</th></tr></thead><tbody>
+<tr><td align="center">仮想環境</td><td align="center">VMware</td></tr>
+<tr><td align="center">OS</td><td align="center">Ubuntu18.04 LTS</td></tr>
+<tr><td align="center">ROS Version</td><td align="center">Melodic</td></tr>
 </tbody></table>
-<h4><a class="header" href="#課題-2" id="課題-2">課題 2</a></h4>
-<p>Terminal上に以下の文字列が表示されるか確認（スクショ？未定）</p>
-<pre><code>[ INFO] 1251943144.400553000: Received [Hello there! This is message [1]]
-[ INFO] 1251943144.600712000: Received [Hello there! This is message [2]]
-[ INFO] 1251943144.801003000: Received [Hello there! This is message [3]]
-        :
-        :
-        :
+<h2><a class="header" href="#pc上にrosを扱える仮想環境を構築" id="pc上にrosを扱える仮想環境を構築"><strong>PC上にROSを扱える仮想環境を構築</strong></a></h2>
+<p>仮想環境については<a href="https://bcblog.sios.jp/what-is-virtualenvironment-vmware/">このサイト</a>などを参照してください．</p>
+<p>仮想環境の作り方は
+<a href="https://qiita.com/srs/items/25efd45641c274bb8415">ROS講座54 VMWare上でROSを使う</a><br />
+を参考にUbuntuの環境を作成してください．<br />
+macの人は VMWare Fusion 12 Playerで試してみてください．
+VMwareでうまくいかない人はVirtualBoxを使用してください．</p>
+<h2><a class="header" href="#rosをインストール" id="rosをインストール"><strong>ROSをインストール</strong></a></h2>
+<p>ROS Wiki は日本語ページも存在しますが，日本語版は古いものしか存在しないので，英語版を参照することをおすすめします．</p>
+<ul>
+<li><a href="http://wiki.ros.org/ja/ROS/Tutorials">日本語版</a></li>
+<li><a href="http://wiki.ros.org/ROS/Tutorials">英語版</a></li>
+</ul>
+<p>ROSのインストールは<a href="http://wiki.ros.org/melodic/Installation/Ubuntu">このサイト</a>に従って行います．</p>
+<p>以下のコマンドを順番に実行して，ROSのインストールをしてください．</p>
+<pre><code>sudo sh -c 'echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list'
+
+sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+
+sudo apt update
+
+sudo apt upgrade
+
+sudo apt install ros-melodic-desktop-full
+
+echo &quot;source /opt/ros/melodic/setup.bash&quot; &gt;&gt; ~/.bashrc
+
+source ~/.bashrc
+
+sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
+
+sudo rosdep init
+
+rosdep update
+
+mkdir -p ~/catkin_ws/src
+
+cd ~/catkin_ws &amp;&amp; catkin_make
+
+echo &quot;source ~/catkin_ws/devel/setup.bash&quot; &gt;&gt; ~/.bashrc
+
+source ~/.bashrc
 </code></pre>
-<h2><a class="header" href="#rosに流れてくるデータの保存" id="rosに流れてくるデータの保存"><strong>ROSに流れてくるデータの保存</strong></a></h2>
-<p><a href="http://wiki.ros.org/ja/ROS/Tutorials/Recording%20and%20playing%20back%20data">データを記録し，リプレイをする</a></p>
-<h4><a class="header" href="#課題-3" id="課題-3">課題 3</a></h4>
-<p>turtlesimがrosbagで動いていることを確認</p>
-<h2><a class="header" href="#rosを使ったarduinoの制御" id="rosを使ったarduinoの制御"><strong>ROSを使ったArduinoの制御</strong></a></h2>
-<p>ROSを用いたArduino制御の<a href="http://wiki.ros.org/rosserial_arduino/Tutorials">チュートリアルのリスト</a></p>
-<p>やってもらいたい項目</p>
-<ol>
-<li><a href="http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup">Arduino IDE Setup</a></li>
-<li><a href="http://wiki.ros.org/rosserial_arduino/Tutorials/Hello%20World">Hello World (example publisher)</a></li>
-<li><a href="http://wiki.ros.org/rosserial_arduino/Tutorials/Blink">Blink (example subscriber)</a></li>
-</ol>
-<p>仮想環境とホストPCでArduinoのシリアルポートを共有する方法については
-<a href="http://kazuki-room.com/how_to_connect_to_the_vmware_serial_port/">ここ</a>
-を参照</p>
-<h4><a class="header" href="#課題-4" id="課題-4">課題 4</a></h4>
-<p><code>rqt_graph</code>などでノードが繋がっているか確認してもらう．</p>
-<h2><a class="header" href="#その他" id="その他"><strong>その他</strong></a></h2>
-<h3><a class="header" href="#応用" id="応用">応用</a></h3>
-<p>ROSの強みはインターネット上のフリーのパッケージを用いることで，手軽に高度なアルゴリズムを実装できる点にあります．<br />
-<a href="https://industrial-training-jp.readthedocs.io/ja/latest/index.html">Industrial Training</a>のサイトに様々なパッケージの紹介と使い方についての説明があるので，基本的なことができるようなった人はやってみてください．</p>
-<h3><a class="header" href="#デュアルブートnvidia-gpu-あり" id="デュアルブートnvidia-gpu-あり">デュアルブート(Nvidia GPU あり)</a></h3>
-<p>デュアルブートで躓いている人が多い印象だったので，自分が参考にしたサイトのURLを載せておきます．<br />
-<a href="https://guminote.sakura.ne.jp/archives/233">【上級者向け】Ubuntuをデュアルブートする《その１：既にWindowsが入っているSSD・HDDにUbuntuを入れる》</a><br />
-<a href="https://guminote.sakura.ne.jp/archives/328">【Ubuntu】NVIDIAドライバ・CUDA・CUDNNをインストールして深層学習環境を整える</a><br />
-このサイトの方法に従ってやったら，GPUが認識されました．使用したPCはGALLERIAです．</p>
-<h3><a class="header" href="#docker" id="docker">Docker</a></h3>
-<p>Dockerを用いればROSを試す環境を簡単に構築することができます．<br />
-興味があれば以下のYoutubeを見てください．<br />
-<a href="https://www.youtube.com/watch?v=Utvf4YmMJpk&amp;list=PLbUh9y6MXvjdIB5A9uhrZVrhAaXc61Pzz&amp;index=16">ロボットシステム学第12回（Docker）</a><br />
-サンプルを<a href="https://github.com/tomson784/ros_tutorial">ここ</a>に用意しました．</p>
+<p>端末を開いて<code>roscore</code>ができることを確認してください．<br />
+<code>roscore</code>が正常に動作すればROS環境の構築完了です．</p>
+<br>
+<p>こまったとき(ROSが正常に作動しない，再インストールしたいときなど)<br />
+は以下のコマンドでROS関連のパッケージを削除することができます．</p>
+<pre><code>sudo apt-get purge ros-melodic-*
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="environment_task.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="start.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
+                        
+                            <a rel="next" href="environment_task.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -232,11 +246,15 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="environment_task.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="start.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
+                
+                    <a rel="next" href="environment_task.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                 
             </nav>
 

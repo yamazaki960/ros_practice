@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ros_tutorial.html"><strong aria-hidden="true">1.1.</strong> Install</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="start.html"><strong aria-hidden="true">1.</strong> はじめに</a></li><li class="chapter-item expanded "><a href="environment.html"><strong aria-hidden="true">2.</strong> 環境構築</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="environment_task.html"><strong aria-hidden="true">2.1.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="ros_tutorial.html"><strong aria-hidden="true">3.</strong> 基本的なデータの受け渡し</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -165,13 +165,13 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#chapter-1" id="chapter-1">Chapter 1</a></h1>
-<h1><a class="header" href="#ros入門です" id="ros入門です">ROS入門です</a></h1>
+                        <h1><a class="header" href="#ros入門です" id="ros入門です">ROS入門です</a></h1>
 <p>課題を交えてROSの使い方を勉強してもらいます．<br />
 気になったワードは逐一ググることをお勧めします．</p>
-<p>質問やわからないことがあれば，GitHubの機能にIssueというものがあるのでそこで質問を飛ばしてください．
+<p>質問やわからないことがあれば，GitHubの機能にIssueというものがあるのでそこで質問を飛ばしてください．<br />
 Githubのアカウントがあればだれでも使用できます．</p>
-<p>使い方はこちらのサイトを参照してください．https://seleck.cc/647</p>
+<p>Issueの使い方はこちらのサイトを参照してください．https://seleck.cc/647</p>
+<p><a href="https://github.com/tomson784/ros_practice/issues">Issueをたてる</a></p>
 <h3><a class="header" href="#rosの使い方参考サイト" id="rosの使い方参考サイト">ROSの使い方参考サイト</a></h3>
 <p><a href="http://forestofazumino.web.fc2.com/ros/ros_top.html">ROS(Robot Operating System)を使う</a><br />
 <a href="https://lab.ueda.tech/?page=robosys_2020">ロボットシステム学（2020/4s, 6s）</a><br />
@@ -184,15 +184,16 @@ Githubのアカウントがあればだれでも使用できます．</p>
 <li>ROSを使ったArduinoの制御</li>
 <li>ROSに流れてくるデータの保存</li>
 </ul>
-<h2><a class="header" href="#やること" id="やること"><strong>やること</strong></a></h2>
+<p>https://github.com/tomson784/ros_practice  </p>
+<h1><a class="header" href="#やること" id="やること">やること</a></h1>
 <p><a href="http://wiki.ros.org/ROS/Tutorials">ROS Wiki</a> に準拠した内容で行います．<br />
 ROSはOSのバージョンに合わせてインストールする必要があるので気をつけてください．</p>
-<p>今回の構成はいかのようにします．
-| 項目 | 値 |
-|:-:|:-:|
-| 仮想環境 | VMware |
-| OS | Ubuntu18.04 LTS |
-| ROS Version | Melodic |</p>
+<p>今回の構成はいかのようにします．</p>
+<table><thead><tr><th align="center">項目</th><th align="center">値</th></tr></thead><tbody>
+<tr><td align="center">仮想環境</td><td align="center">VMware</td></tr>
+<tr><td align="center">OS</td><td align="center">Ubuntu18.04 LTS</td></tr>
+<tr><td align="center">ROS Version</td><td align="center">Melodic</td></tr>
+</tbody></table>
 <h2><a class="header" href="#pc上にrosを扱える仮想環境を構築" id="pc上にrosを扱える仮想環境を構築"><strong>PC上にROSを扱える仮想環境を構築</strong></a></h2>
 <p>仮想環境については<a href="https://bcblog.sios.jp/what-is-virtualenvironment-vmware/">このサイト</a>などを参照してください．</p>
 <p>仮想環境の作り方は
@@ -243,7 +244,7 @@ source ~/.bashrc
 は以下のコマンドでROS関連のパッケージを削除することができます．</p>
 <pre><code>sudo apt-get purge ros-melodic-*
 </code></pre>
-<h4><a class="header" href="#課題--1" id="課題--1">課題  1</a></h4>
+<h1><a class="header" href="#課題--1" id="課題--1">課題  1</a></h1>
 <p><code>roscore</code>の正常な動作を確認する（スクショを提出する？）</p>
 <h2><a class="header" href="#rosの基本的なデータの受け渡し" id="rosの基本的なデータの受け渡し"><strong>ROSの基本的なデータの受け渡し</strong></a></h2>
 <p>ROSのパッケージを作成して，Publisher，Subscriberを実行する．</p>
