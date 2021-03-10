@@ -1,6 +1,6 @@
 [book]
 authors = ["tomson784"]
-language = "en"
+language = "ja"
 multilingual = false
 src = "src"
 title = "ROS Practice"
