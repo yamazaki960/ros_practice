@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>はじめに - ROS Practice</title>
+        <title>ROSを使ったArduinoの制御 - ROS Practice</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="start.html" class="active"><strong aria-hidden="true">1.</strong> はじめに</a></li><li class="chapter-item expanded "><a href="environment.html"><strong aria-hidden="true">2.</strong> 環境構築</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="environment_task.html"><strong aria-hidden="true">2.1.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="pub_sub.html"><strong aria-hidden="true">3.</strong> 基本的なデータの受け渡し</a></li><li class="chapter-item expanded "><a href="rosbag.html"><strong aria-hidden="true">4.</strong> ROSに流れてくるデータの保存</a></li><li class="chapter-item expanded "><a href="ros_arduino.html"><strong aria-hidden="true">5.</strong> ROSを使ったArduinoの制御</a></li><li class="chapter-item expanded "><a href="other/other.html"><strong aria-hidden="true">6.</strong> その他</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="start.html"><strong aria-hidden="true">1.</strong> はじめに</a></li><li class="chapter-item expanded "><a href="environment.html"><strong aria-hidden="true">2.</strong> 環境構築</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="environment_task.html"><strong aria-hidden="true">2.1.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="pub_sub.html"><strong aria-hidden="true">3.</strong> 基本的なデータの受け渡し</a></li><li class="chapter-item expanded "><a href="rosbag.html"><strong aria-hidden="true">4.</strong> ROSに流れてくるデータの保存</a></li><li class="chapter-item expanded "><a href="ros_arduino.html" class="active"><strong aria-hidden="true">5.</strong> ROSを使ったArduinoの制御</a></li><li class="chapter-item expanded "><a href="other/other.html"><strong aria-hidden="true">6.</strong> その他</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,35 +163,32 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#ros入門です" id="ros入門です">ROS入門です</a></h1>
-<p>課題を交えてROSの使い方を勉強してもらいます．<br />
-気になったワードは逐一ググることをお勧めします．</p>
-<p>質問やわからないことがあれば，GitHubの機能にIssueというものがあるのでそこで質問を飛ばしてください．<br />
-Githubのアカウントがあればだれでも使用できます．</p>
-<p>Issueの使い方はこちらのサイトを参照してください．https://seleck.cc/647</p>
-<p><a href="https://github.com/tomson784/ros_practice/issues">Issueをたてる</a></p>
-<h3><a class="header" href="#rosの使い方参考サイト" id="rosの使い方参考サイト">ROSの使い方参考サイト</a></h3>
-<p><a href="http://forestofazumino.web.fc2.com/ros/ros_top.html">ROS(Robot Operating System)を使う</a><br />
-<a href="https://lab.ueda.tech/?page=robosys_2020">ロボットシステム学（2020/4s, 6s）</a><br />
-<a href="https://www.youtube.com/playlist?list=PLbUh9y6MXvjdIB5A9uhrZVrhAaXc61Pzz">ロボットシステム学講義</a><br />
-<a href="https://qiita.com/srs/items/5f44440afea0eb616b4a">ROS講座</a><br />
-<a href="https://demura.net/">demura.net AI・ロボットをつくるために</a></p>
-<h2><a class="header" href="#できるようになってほしいこと" id="できるようになってほしいこと"><strong>できるようになってほしいこと</strong></a></h2>
-<ul>
-<li>ROSの基本的なデータの受け渡しについての概要を理解し，実装できること</li>
-<li>ROSを使ったArduinoの制御</li>
-<li>ROSに流れてくるデータの保存</li>
-</ul>
-<p>https://github.com/tomson784/ros_practice  </p>
+                        <h1><a class="header" href="#rosを使ったarduinoの制御" id="rosを使ったarduinoの制御">ROSを使ったArduinoの制御</a></h1>
+<p>ROSを用いたArduino制御の<a href="http://wiki.ros.org/rosserial_arduino/Tutorials">チュートリアルのリスト</a></p>
+<p>やってもらいたい項目</p>
+<ol>
+<li><a href="http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup">Arduino IDE Setup</a></li>
+<li><a href="http://wiki.ros.org/rosserial_arduino/Tutorials/Hello%20World">Hello World (example publisher)</a></li>
+<li><a href="http://wiki.ros.org/rosserial_arduino/Tutorials/Blink">Blink (example subscriber)</a></li>
+</ol>
+<p>仮想環境とホストPCでArduinoのシリアルポートを共有する方法については
+<a href="http://kazuki-room.com/how_to_connect_to_the_vmware_serial_port/">ここ</a>
+を参照</p>
+<h2><a class="header" href="#課題" id="課題">課題</a></h2>
+<p><code>rqt_graph</code>などでノードが繋がっているか確認してもらう．</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="rosbag.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
                         
-                            <a rel="next" href="environment.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="other/other.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -203,9 +200,13 @@ Githubのアカウントがあればだれでも使用できます．</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
+                    <a rel="prev" href="rosbag.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
 
                 
-                    <a rel="next" href="environment.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="other/other.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
