@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="start.html"><strong aria-hidden="true">1.</strong> はじめに</a></li><li class="chapter-item expanded "><a href="environment.html"><strong aria-hidden="true">2.</strong> 環境構築</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="environment_task.html"><strong aria-hidden="true">2.1.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="pub_sub.html"><strong aria-hidden="true">3.</strong> 基本的なデータの受け渡し</a></li><li class="chapter-item expanded "><a href="rosbag.html"><strong aria-hidden="true">4.</strong> ROSに流れてくるデータの保存</a></li><li class="chapter-item expanded "><a href="ros_arduino.html"><strong aria-hidden="true">5.</strong> ROSを使ったArduinoの制御</a></li><li class="chapter-item expanded "><a href="other/other.html"><strong aria-hidden="true">6.</strong> その他</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="intro/start.html"><strong aria-hidden="true">1.</strong> はじめに</a></li><li class="chapter-item expanded "><a href="env_setup/environment.html"><strong aria-hidden="true">2.</strong> 環境構築</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="env_setup/environment_task.html"><strong aria-hidden="true">2.1.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="pub_sub.html"><strong aria-hidden="true">3.</strong> 基本的なデータの受け渡し</a></li><li class="chapter-item expanded "><a href="rosbag.html"><strong aria-hidden="true">4.</strong> ROSに流れてくるデータの保存</a></li><li class="chapter-item expanded "><a href="ros_arduino.html"><strong aria-hidden="true">5.</strong> ROSを使ったArduinoの制御</a></li><li class="chapter-item expanded "><a href="appendix/purpose.html"><strong aria-hidden="true">6.</strong> その他</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix/advance.html"><strong aria-hidden="true">6.1.</strong> 応用</a></li><li class="chapter-item expanded "><a href="appendix/dualboot.html"><strong aria-hidden="true">6.2.</strong> デュアルブート</a></li><li class="chapter-item expanded "><a href="appendix/docker.html"><strong aria-hidden="true">6.3.</strong> Docker</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -291,6 +291,8 @@ started core service [/rosout]
         :
 </code></pre>
 <h1 id="rosに流れてくるデータの保存"><a class="header" href="#rosに流れてくるデータの保存">ROSに流れてくるデータの保存</a></h1>
+<p>rosbagを用いることで，ROSで動いているセンサや入出力情報をまとめて保存することができます．<br />
+研究には欠かすことのできなものなので，覚えて下さい．</p>
 <p><a href="http://wiki.ros.org/ja/ROS/Tutorials/Recording%20and%20playing%20back%20data">データを記録し，リプレイをする</a></p>
 <h2 id="課題-2"><a class="header" href="#課題-2">課題</a></h2>
 <p>turtlesimがrosbagで動いていることを確認</p>
@@ -309,19 +311,33 @@ started core service [/rosout]
 <p><code>rqt_graph</code>などでノードが繋がっているか確認してもらう．</p>
 <h1 id="その他"><a class="header" href="#その他">その他</a></h1>
 <p>ROSの初歩的なことができるようになった人用</p>
-<h2 id="応用"><a class="header" href="#応用">応用</a></h2>
+<h1 id="応用"><a class="header" href="#応用">応用</a></h1>
 <p>ROSの強みはインターネット上のフリーのパッケージを用いることで，手軽に高度なアルゴリズムを実装できる点にあります．<br />
-<a href="https://industrial-training-jp.readthedocs.io/ja/latest/index.html">Industrial Training</a>のサイトに様々なパッケージの紹介と使い方についての説明があるので，基本的なことができるようなった人はやってみてください．</p>
-<h2 id="デュアルブートnvidia-gpu-あり"><a class="header" href="#デュアルブートnvidia-gpu-あり">デュアルブート(Nvidia GPU あり)</a></h2>
-<p>デュアルブートで躓いている人が多い印象だったので，自分が参考にしたサイトのURLを載せておきます．<br />
-<a href="https://guminote.sakura.ne.jp/archives/233">【上級者向け】Ubuntuをデュアルブートする《その１：既にWindowsが入っているSSD・HDDにUbuntuを入れる》</a><br />
-<a href="https://guminote.sakura.ne.jp/archives/328">【Ubuntu】NVIDIAドライバ・CUDA・CUDNNをインストールして深層学習環境を整える</a><br />
-このサイトの方法に従ってやったら，GPUが認識されました．使用したPCはGALLERIAです．</p>
+<a href="https://industrial-training-jp.readthedocs.io/ja/latest/index.html">Industrial Training</a>
+のサイトに様々なパッケージの紹介と使い方についての説明があるので，基本的なことができるようなった人はやってみてください．<br />
+ただし，このサイトはROS Kineticなのでバージョン注意．</p>
+<h3 id="キーワード"><a class="header" href="#キーワード">キーワード</a></h3>
+<ul>
+<li>点群</li>
+<li>ロボットアーム</li>
+<li>画像処理</li>
+</ul>
+<h1 id="デュアルブートnvidia-gpu-あり"><a class="header" href="#デュアルブートnvidia-gpu-あり">デュアルブート(Nvidia GPU あり)</a></h1>
+<p>デュアルブートで躓いている人(ログインループになる，GPUが認識されない，など)が多い印象だったので，自分が参考にしたサイトのURLを載せておきます．</p>
+<ul>
+<li><a href="https://guminote.sakura.ne.jp/archives/233">【上級者向け】Ubuntuをデュアルブートする《その１：既にWindowsが入っているSSD・HDDにUbuntuを入れる》</a></li>
+<li><a href="https://guminote.sakura.ne.jp/archives/328">【Ubuntu】NVIDIAドライバ・CUDA・CUDNNをインストールして深層学習環境を整える</a></li>
+</ul>
+<p>このサイトの方法に従ってやったら，GPUが認識されました．
+使用したPCはGALLERIAです．</p>
 <h2 id="docker"><a class="header" href="#docker">Docker</a></h2>
 <p>Dockerを用いればROSを試す環境を簡単に構築することができます．<br />
 興味があれば以下のYoutubeを見てください．<br />
-<a href="https://www.youtube.com/watch?v=Utvf4YmMJpk&amp;list=PLbUh9y6MXvjdIB5A9uhrZVrhAaXc61Pzz&amp;index=16">ロボットシステム学第12回（Docker）</a><br />
-サンプルを<a href="https://github.com/tomson784/ros_tutorial">ここ</a>に用意しました．</p>
+Dockerの概要，メリット，初歩的な使用方法について解説しています．
+<a href="https://www.youtube.com/watch?v=Utvf4YmMJpk&amp;list=PLbUh9y6MXvjdIB5A9uhrZVrhAaXc61Pzz&amp;index=16">ロボットシステム学第12回（Docker）</a></p>
+<p>筆者が手軽にROSを試すためのサンプルを
+<a href="https://github.com/tomson784/ros_tutorial">ここ</a>
+に用意しました．</p>
 
                     </main>
 
