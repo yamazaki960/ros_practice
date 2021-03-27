@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="intro/start.html"><strong aria-hidden="true">1.</strong> はじめに</a></li><li class="chapter-item expanded "><a href="env_setup/environment.html"><strong aria-hidden="true">2.</strong> 環境構築</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="env_setup/environment_task.html"><strong aria-hidden="true">2.1.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="pub_sub.html"><strong aria-hidden="true">3.</strong> 基本的なデータの受け渡し</a></li><li class="chapter-item expanded "><a href="rosbag.html"><strong aria-hidden="true">4.</strong> ROSに流れてくるデータの保存</a></li><li class="chapter-item expanded "><a href="ros_arduino.html"><strong aria-hidden="true">5.</strong> ROSを使ったArduinoの制御</a></li><li class="chapter-item expanded "><a href="simulation.html"><strong aria-hidden="true">6.</strong> ロボットのシミュレーション</a></li><li class="chapter-item expanded "><a href="appendix/purpose.html"><strong aria-hidden="true">7.</strong> その他</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix/advance.html"><strong aria-hidden="true">7.1.</strong> 応用</a></li><li class="chapter-item expanded "><a href="appendix/dualboot.html"><strong aria-hidden="true">7.2.</strong> デュアルブート</a></li><li class="chapter-item expanded "><a href="appendix/docker.html"><strong aria-hidden="true">7.3.</strong> Docker</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="intro/start.html"><strong aria-hidden="true">1.</strong> はじめに</a></li><li class="chapter-item expanded "><a href="env_setup/environment.html"><strong aria-hidden="true">2.</strong> 環境構築</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="env_setup/environment_task.html"><strong aria-hidden="true">2.1.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="pub_sub.html"><strong aria-hidden="true">3.</strong> 基本的なデータの受け渡し</a></li><li class="chapter-item expanded "><a href="rosbag.html"><strong aria-hidden="true">4.</strong> ROSに流れてくるデータの保存</a></li><li class="chapter-item expanded "><a href="ros_arduino.html"><strong aria-hidden="true">5.</strong> ROSを使ったArduinoの制御</a></li><li class="chapter-item expanded "><a href="simulation.html"><strong aria-hidden="true">6.</strong> ロボットのシミュレーション</a></li><li class="chapter-item expanded "><a href="yolo/index.html"><strong aria-hidden="true">7.</strong> ROSでYOLOを使う</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="yolo/install.html"><strong aria-hidden="true">7.1.</strong> YOLOv3 ROS導入</a></li><li class="chapter-item expanded "><a href="yolo/training.html"><strong aria-hidden="true">7.2.</strong> YOLOv3 オリジナルデータ学習</a></li></ol></li><li class="chapter-item expanded "><a href="realsense_ros/index.html"><strong aria-hidden="true">8.</strong> realsenseをROSで使う</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="realsense_ros/install.html"><strong aria-hidden="true">8.1.</strong> RealSenseのROSでの導入について</a></li></ol></li><li class="chapter-item expanded "><a href="appendix/purpose.html"><strong aria-hidden="true">9.</strong> その他</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix/advance.html"><strong aria-hidden="true">9.1.</strong> 応用</a></li><li class="chapter-item expanded "><a href="appendix/dualboot.html"><strong aria-hidden="true">9.2.</strong> デュアルブート</a></li><li class="chapter-item expanded "><a href="appendix/docker.html"><strong aria-hidden="true">9.3.</strong> Docker</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -313,6 +313,106 @@ started core service [/rosout]
 <p>gazeboを用いることで，物理シミュレーションでロボットを動かすことができる．</p>
 <p><a href="https://qiita.com/protocol1964/items/1e63aebddd7d5bfd0d1b">turtlebot3のシミュレーション</a><br />
 <a href="https://github.com/tomson784/ros_tutorial/tree/main/turtlebot3_sample">すぐに試すためのサンプル環境</a></p>
+<h1 id="内容"><a class="header" href="#内容">内容</a></h1>
+<p>ROSによる物体検出について</p>
+<p>物体検出用のライブラリであるYOLOの使い方について</p>
+<h3 id="編集者"><a class="header" href="#編集者">編集者</a></h3>
+<p>吉澤</p>
+<h1 id="rosでdarknet_rosyoloの導入"><a class="header" href="#rosでdarknet_rosyoloの導入">ROSでdarknet_ros(YOLO)の導入</a></h1>
+<h2 id="必要なこと"><a class="header" href="#必要なこと">必要なこと</a></h2>
+<ul>
+<li>darknet_rosのパッケージを入れる。</li>
+<li>YOLOでGPUを使う場合(CPUのみだと基本遅い，リアルタイムで処理したいなら使う)，NAVIDIA ドライバ，CUDA，cuDNNを入れる。</li>
+<li>カメラにRealSenseを使用する場合，RealSenseのROSでの導入についてを参照</li>
+</ul>
+<h2 id="darknet_ros-の導入"><a class="header" href="#darknet_ros-の導入">darknet_ros の導入</a></h2>
+<ul>
+<li>以下のとおりにインストール。
+　https://demura.net/robot/16542.html</li>
+<li>動作が確認できたらGPU処理の設定に <code>darknet/Makefile</code> を以下に変更</li>
+</ul>
+<pre><code class="language-darknet/Makefile">GPU=1
+CUDNN=1
+OPENCV=0
+OPENMP=0
+DEBUG=0
+</code></pre>
+<p>動作させてfpsが変化していないようならGPUを使えるように設定する。</p>
+<h2 id="gpu-の設定"><a class="header" href="#gpu-の設定">GPU の設定()</a></h2>
+<p>NVIDIA Driver, CUDA Toolkit, cuDNNのインストールが必要。<br />
+NVIDIA Driver, CUDAが入っているのか一度確認する。</p>
+<pre><code>nvidia-smi
+</code></pre>
+<p>もし入れなおしたいとき場合，次で削除</p>
+<pre><code>sudo apt --purge remove &quot;cublas*&quot; &quot;cuda*&quot;
+sudo apt --purge remove &quot;nvidia*&quot;
+rm -rf /usr/local/cuda*
+sudo apt-get autoremove &amp;&amp; sudo apt-get autoclean
+</code></pre>
+<h2 id="nvidia-drivercudaのインストール中に勝手に入る"><a class="header" href="#nvidia-drivercudaのインストール中に勝手に入る">NVIDIA Driver(CUDAのインストール中に勝手に入る)</a></h2>
+<ol>
+<li>まずGPUを確認する。</li>
+</ol>
+<pre><code>lspci | grep -i nvidia
+</code></pre>
+<ol start="2">
+<li>推奨ドライバを確認 recommendedとなっているもの</li>
+</ol>
+<pre><code>ubuntu-drivers devices
+</code></pre>
+<p>・CUDA, cuDNN</p>
+<ol>
+<li>何もないことを確認</li>
+</ol>
+<pre><code>dpkg -l | grep cuda
+</code></pre>
+<ol start="2">
+<li>以下に従って行う。バージョンなどはしっかり確認すること(1)。<br />
+https://qiita.com/yukoba/items/3692f1cb677b2383c983<br />
+ドライバとCUDAの対応を確認(2)。</li>
+</ol>
+<h1 id="yolov3-オリジナルデータの学習について"><a class="header" href="#yolov3-オリジナルデータの学習について">YOLOv3 オリジナルデータの学習について</a></h1>
+<h1 id="内容-1"><a class="header" href="#内容-1">内容</a></h1>
+<p>realsenseをROSで使う方法</p>
+<h3 id="編集者-1"><a class="header" href="#編集者-1">編集者</a></h3>
+<p>吉澤</p>
+<h1 id="realsenseのrosでの導入について"><a class="header" href="#realsenseのrosでの導入について">RealSenseのROSでの導入について</a></h1>
+<p>必要なこと</p>
+<ul>
+<li>Intel RealSense SDK をインストール（RealSenseからデータを取得するためのC++のライブラリ）</li>
+<li>ROSラッパーのインストール</li>
+</ul>
+<h2 id="動作環境"><a class="header" href="#動作環境">動作環境</a></h2>
+<table><thead><tr><th align="center">PC</th><th align="center">RAM</th><th align="center">OS</th><th align="center">ROS version</th></tr></thead><tbody>
+<tr><td align="center">mouse-pc（山内さんのパソコン）</td><td align="center">32 GB</td><td align="center">Ubuntu 16.04</td><td align="center">Kinetic</td></tr>
+<tr><td align="center">ONE-NETBOOK OneMix3Pro (小さいやつ)</td><td align="center">8 GB</td><td align="center">Ubuntu 18.04</td><td align="center">Melodic</td></tr>
+</tbody></table>
+<h2 id="intel-realsense-sdk--ros-ラッパーのインストール"><a class="header" href="#intel-realsense-sdk--ros-ラッパーのインストール">Intel RealSense SDK &amp;&amp; ROS ラッパーのインストール</a></h2>
+<p>以下のサイトの通り<br />
+https://demura.net/robot/16525.html</p>
+<p>ページ中で<code>catkin build</code>を使っているが<code>catkin_make</code>でも問題なし。</p>
+<p>次のコマンドを実行してrealsenseの文字列があれば成功,なくても動けばよし．</p>
+<pre><code>modinfo uvcvideo | grep “version:”
+</code></pre>
+<h2 id="詰まったこと"><a class="header" href="#詰まったこと">詰まったこと</a></h2>
+<p>mouse-pc で行った際, SDKをいれるとRealSenseが使えないどころか/dev/video*が
+でなくなる（その他のカメラも使えなくなる）<br />
+→ <span style="color: red; ">カーネルを4.4.0.193から4.5.0.122に更新</span><br />
+カーネルバージョン変更方法，再起動後Ubuntuが起動できなくなる場合があるので，注意<br />
+https://qiita.com/ego/items/36e9baccc80097950195</p>
+<p>以下，確認したこと</p>
+<p>→ <code>lsusb -t</code> でドライバ確認　ドライバーが割り当てられていない(uvcvideo)<br />
+→ <code>uvcvideo</code>へのパスが変わっている<br />
+<code>/lib/modules/4.4.0-193-generic/updates/dkms/uvcvideo.ko</code><br />
+本来は<code>/lib/modules/4.4.0-193-generic/kernel/drivers/media/usb/uvc</code>にある<br />
+→ <code>modinfo uvcvideo | grep &quot;version:&quot;</code> で調べるとrealsenseの文字が入っている<br />
+公式ではそうなると書いてあるが動作確認済みのUbuntu18.04ではその文字は入っておらず，もとのversion:1.1.1のまま問題なく使える<br />
+→ さきほどの<code>/lib/modules/4.4.0-193-generic/updates/dkms/uvcvideo.ko</code>を削除し,<br />
+もとの<code>uvcvideo.ko</code>をコピーしたところ，<code>/dev/video*</code>がでて,<code>realsense-viewer</code>でカメラ
+映像を読み取れた．同時にその他のカメラも使えるように．ただし<span style="color: red; ">非推奨</span><br />
+→カーネル4.4.0.187以降の4.4シリーズでは上手く動作しないことがあるらしい．
+以下に詳しくある</p>
+<p>https://github.com/IntelRealSense/librealsense/issues/7287</p>
 <h1 id="その他"><a class="header" href="#その他">その他</a></h1>
 <p>ROSの初歩的なことができるようになった人用</p>
 <h1 id="応用"><a class="header" href="#応用">応用</a></h1>
