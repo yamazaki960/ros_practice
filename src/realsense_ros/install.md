@@ -43,7 +43,7 @@ https://qiita.com/ego/items/36e9baccc80097950195
 → さきほどの`/lib/modules/4.4.0-193-generic/updates/dkms/uvcvideo.ko`を削除し,  
 もとの`uvcvideo.ko`をコピーしたところ，`/dev/video*`がでて,`realsense-viewer`でカメラ
 映像を読み取れた．同時にその他のカメラも使えるように．ただし<span style="color: red; ">非推奨</span>  
-→カーネル4.4.0.187以降の4.4シリーズでは上手く動作しないことがあるらしい．
+→カーネル4.4.0.187以降の4.4シリーズでは上手く動作しないことがあるらしい．  
 以下に詳しくある
 
 https://github.com/IntelRealSense/librealsense/issues/7287
