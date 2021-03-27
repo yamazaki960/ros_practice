@@ -214,7 +214,38 @@ sudo apt-get autoremove &amp;&amp; sudo apt-get autoclean
 <ol start="2">
 <li>以下に従って行う。バージョンなどはしっかり確認すること(1)。<br />
 https://qiita.com/yukoba/items/3692f1cb677b2383c983<br />
-ドライバとCUDAの対応を確認(2)。</li>
+<span style="color: red; ">ドライバとCUDAの対応を確認(2)。</span></li>
+</ol>
+<p><img src="./cuda_version_list.png" alt="width:1000px" /></p>
+<p>次のコマンドでドライバーが正しいこととCUDAのバージョンが表示されるのを確認</p>
+<pre><code>navidia-smi
+nvcc -V
+</code></pre>
+<p>１行目のコマンドでCUDAのバージョンが異なる場合があるが，2行目で正しいバージョンが表
+示されれば問題ない．</p>
+<h2 id="動作確認"><a class="header" href="#動作確認">動作確認</a></h2>
+<table><thead><tr><th align="center">PC</th><th align="center">RAM</th><th align="center">OS</th><th align="center">ROS version</th><th align="center">CPU</th><th align="center">GPU</th></tr></thead><tbody>
+<tr><td align="center">mouse-pc（山内さんのパソコン）</td><td align="center">32 GB</td><td align="center">Ubuntu 16.04</td><td align="center">Kinetic</td><td align="center">CPU：Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz</td><td align="center">GPU： NVIDIA Corporation GM206M [GeForce GTX 965M]</td></tr>
+</tbody></table>
+<p>成功したもの</p>
+<p>Nvidia Driver : 455.32.00, CUDA : 9.0, cuDNN : 7.6.5</p>
+<p>darknet_ros.launch</p>
+<p>単眼カメラ　　50~70 fps D455 50~70 fps<br />
+yolo_v3.launch<br />
+単眼カメラ　　10 fps D455 10fps<br />
+→カメラのよる違いなし</p>
+<h2 id="詰まったこと"><a class="header" href="#詰まったこと">詰まったこと</a></h2>
+<p>CUDAv10.1を用いた場合,catkin_makeでエラーがでる．特定のLibraryへのアクセスが出きないらしい．</p>
+<p>→ /usr/local にcuda,cuda-10.1の他にcuda-10.2のフォルダが存在<br />
+→ 必要なヘッダファイルがわけられていまい，パスが通らないことが原因？<br />
+→ 同様のエラーがでている報告があるが，問題ない場合もある．<br />
+Ubuntuのバージョン？ドライバ？<br />
+→ CUDAのバージョンを変更して解決</p>
+<h2 id="その他参考"><a class="header" href="#その他参考">その他参考</a></h2>
+<ol>
+<li>TensorFlow を使う場合，CUDA とcuDNNのバージョンの対応は決まっている。<br />
+https://qiita.com/chin_self_driving_car/items/f00af2dbd022b65c9068</li>
+<li>https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html  </li>
 </ol>
 
                     </main>

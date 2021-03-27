@@ -369,9 +369,136 @@ sudo apt-get autoremove &amp;&amp; sudo apt-get autoclean
 <ol start="2">
 <li>以下に従って行う。バージョンなどはしっかり確認すること(1)。<br />
 https://qiita.com/yukoba/items/3692f1cb677b2383c983<br />
-ドライバとCUDAの対応を確認(2)。</li>
+<span style="color: red; ">ドライバとCUDAの対応を確認(2)。</span></li>
+</ol>
+<p><img src="yolo/./cuda_version_list.png" alt="width:1000px" /></p>
+<p>次のコマンドでドライバーが正しいこととCUDAのバージョンが表示されるのを確認</p>
+<pre><code>navidia-smi
+nvcc -V
+</code></pre>
+<p>１行目のコマンドでCUDAのバージョンが異なる場合があるが，2行目で正しいバージョンが表
+示されれば問題ない．</p>
+<h2 id="動作確認"><a class="header" href="#動作確認">動作確認</a></h2>
+<table><thead><tr><th align="center">PC</th><th align="center">RAM</th><th align="center">OS</th><th align="center">ROS version</th><th align="center">CPU</th><th align="center">GPU</th></tr></thead><tbody>
+<tr><td align="center">mouse-pc（山内さんのパソコン）</td><td align="center">32 GB</td><td align="center">Ubuntu 16.04</td><td align="center">Kinetic</td><td align="center">CPU：Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz</td><td align="center">GPU： NVIDIA Corporation GM206M [GeForce GTX 965M]</td></tr>
+</tbody></table>
+<p>成功したもの</p>
+<p>Nvidia Driver : 455.32.00, CUDA : 9.0, cuDNN : 7.6.5</p>
+<p>darknet_ros.launch</p>
+<p>単眼カメラ　　50~70 fps D455 50~70 fps<br />
+yolo_v3.launch<br />
+単眼カメラ　　10 fps D455 10fps<br />
+→カメラのよる違いなし</p>
+<h2 id="詰まったこと"><a class="header" href="#詰まったこと">詰まったこと</a></h2>
+<p>CUDAv10.1を用いた場合,catkin_makeでエラーがでる．特定のLibraryへのアクセスが出きないらしい．</p>
+<p>→ /usr/local にcuda,cuda-10.1の他にcuda-10.2のフォルダが存在<br />
+→ 必要なヘッダファイルがわけられていまい，パスが通らないことが原因？<br />
+→ 同様のエラーがでている報告があるが，問題ない場合もある．<br />
+Ubuntuのバージョン？ドライバ？<br />
+→ CUDAのバージョンを変更して解決</p>
+<h2 id="その他参考"><a class="header" href="#その他参考">その他参考</a></h2>
+<ol>
+<li>TensorFlow を使う場合，CUDA とcuDNNのバージョンの対応は決まっている。<br />
+https://qiita.com/chin_self_driving_car/items/f00af2dbd022b65c9068</li>
+<li>https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html  </li>
 </ol>
 <h1 id="yolov3-オリジナルデータの学習について"><a class="header" href="#yolov3-オリジナルデータの学習について">YOLOv3 オリジナルデータの学習について</a></h1>
+<p>作業の流れ</p>
+<ul>
+<li>darknet のパッケージを入れる．（darknet_ros をいれるときに一緒に入っているものを使用してもよい）</li>
+<li>写真をとる．画像データ収集</li>
+<li>画像をアノテーションソフトを使って対象物の範囲を指定する．</li>
+<li>画像ファイルとアノテーションで作成した範囲のデータのtxt ファイルを使い、train,test用データに分ける</li>
+<li>学習用データを使って、学習させる（yolov3）</li>
+</ul>
+<p>基本的に以下のとおりに進める．<br />
+https://demura.net/deeplearning/14458.html</p>
+<h2 id="darknetのパッケージ"><a class="header" href="#darknetのパッケージ">darknetのパッケージ</a></h2>
+<p>2種類ある　
+本家Darknet 　https://pjreddie.com/darknet/yolo/<br />
+解説　　　　How to train YOLOv2 to detect custom objects</p>
+<p>AlexeyAB さんのDarknet　https://github.com/AlexeyAB/darknet<br />
+解説も含む</p>
+<ul>
+<li>認識率は両者ほぼ互角らしい。（確認はしてない）　使い方も同じ[1]</li>
+<li>本家の方はdarknet_rosに入っているものと同じ</li>
+<li>AlexeyABのほうは単精度浮動小数点数指定ができるため、認識スピードがかなり向上できる他、<br />
+学習の経過をグラフで確認できる．（とても便利）<br />
+→　こちらを使うほうがいいかも</li>
+</ul>
+<p>コマンド</p>
+<p>本家 <code>git clone https://github.com/pjreddie/darknet.git</code><br />
+AlexeyAB <code>git clone https://github.com/AlexeyAB/darknet.git</code></p>
+<h2 id="データ収集"><a class="header" href="#データ収集">データ収集</a></h2>
+<p>1カテゴリにつき基本は1000枚，推奨は5000~10000枚ぐらいらしい[2]．</p>
+<p>収集方法</p>
+<ul>
+<li>自分で撮る
+<ul>
+<li>ロボットにカメラを取り付けて移動させながら映像をとる．rosbag で保存．<br />
+bag データから時間区切りで画像を抽出<br />
+https://demura.net/misc/14340.html</li>
+<li>ネットから入手</li>
+<li>Google画像検索から入手．google-images-download を使用．(Python3)<br />
+学習用としては使えないものも混ざるため，精査する必要がある．<br />
+githubから直接ダウンロード，pip installで入れると上手く動かない．<br />
+https://qiita.com/taedookim/items/63759e79426514c8a729</li>
+<li>データセットを公開しているサイトから入手[3]．アノテーションされているものもある．<br />
+AlexeyABのgithubにもデータセットへのリンクを確認．</li>
+<li>使ったもの<br />
+Open Images Dataset V6（アノテーション付き）<br />
+https://storage.googleapis.com/openimages/web/index.html<br />
+上記からは個々のクラスごとにダウンロードすることができず，全クラス入ってしまう．(600GiB以上)<br />
+そのため，githubから個別にダウンロードできるコードを使う．<br />
+https://github.com/DmitryRyumin/OIDv6<br />
+アノテーションされたtxtファイルもダウンロードできるが，そのままでは学習に使えないのでYOLO用に変換する必要がある．</li>
+</ul>
+</li>
+<li>データの水増し
+<ul>
+<li>いろいろプログラムがネット上にある<br />
+使ったもの<br />
+KerasのImageDataGenerator (Windows10 Anaconda3)<br />
+Python3で動作する．AnacondaやGoogle Colaboratory上でやるといい<br />
+https://newtechnologylifestyle.net/keras_imagedatagenerator/<br />
+http://wild-data-chase.com/index.php/2019/02/04/post-370/</li>
+</ul>
+</li>
+</ul>
+<h2 id="yolov3-による学習"><a class="header" href="#yolov3-による学習">YOLOv3 による学習</a></h2>
+<ul>
+<li>学習するクラス数に合わせて、最大バッチ回数を指定．学習するクラス数×2000。<br />
+ただし，学習させる画像の数や6000回を下回らない様に．22行目にstepsをmax_batchesの80%と90%に．</li>
+<li>学習中のLogや評価指標について[1][4]，参考にする．</li>
+<li>学習の際にはGPUを使用するが，GPUのメモリが小さい(自分の場合 2GiB)とメモリアウトしてしまい学習できない場合がある．
+バッチサイズやネットワークサイズを小さくすることで解決できる可能性もあるが精度は下がってしまう．<br />
+→ Google Colaboratory上で学習を行う．</li>
+</ul>
+<p>Google Colaboratory上での学習</p>
+<ol>
+<li>学習までの準備は終わらせておく．</li>
+<li>darknetを圧縮し，Google Drive上にアップロード．</li>
+<li>google colaboratoryを開く．Drive上で右クリックし「アプリで開く」から</li>
+<li>「ランタイム」タブから「ランタイムのタイプを変更」を選択し、Python3 とGPUを選択する。</li>
+<li>左のファイルからドライブをマウントする．</li>
+<li>YOLOv3_train.ipynbの通りにセルの実行</li>
+</ol>
+<p>(注意)</p>
+<ul>
+<li>Google Colabでは実行のセッションが切れてから90分経過するとランタイムがリセットされる．<br />
+実行中の処理は強制停止する．<br />
+→ ９０分に一度はPCを触る<br />
+→ 放置する際は，アドオン機能「AutoRefresh」による自動リロードやコマンドラインからスクリプトで定期的にアクセスするなど対策する．</li>
+<li>新しいインスタンスを起動してから12時間経過すると、ノートブックのセッションの接続有無にかかわらず起動したノートブックは強制的に初期化されてしまう．<br />
+→ 気にする必要なし．今回の場合，学習結果は適宜Google Drive上に保存される．</li>
+</ul>
+<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
+<ol>
+<li>http://takesan.hatenablog.com/entry/2019/01/11/134128</li>
+<li>https://www.nakasha.co.jp/future/ai/yolov3train.html</li>
+<li>https://qiita.com/ulwlu/items/90dd8d79b12e10606299</li>
+<li>https://www.nakasha.co.jp/future/ai/yolov3train.html</li>
+</ol>
 <h1 id="内容-1"><a class="header" href="#内容-1">内容</a></h1>
 <p>realsenseをROSで使う方法</p>
 <h3 id="編集者-1"><a class="header" href="#編集者-1">編集者</a></h3>
@@ -394,7 +521,7 @@ https://demura.net/robot/16525.html</p>
 <p>次のコマンドを実行してrealsenseの文字列があれば成功,なくても動けばよし．</p>
 <pre><code>modinfo uvcvideo | grep “version:”
 </code></pre>
-<h2 id="詰まったこと"><a class="header" href="#詰まったこと">詰まったこと</a></h2>
+<h2 id="詰まったこと-1"><a class="header" href="#詰まったこと-1">詰まったこと</a></h2>
 <p>mouse-pc で行った際, SDKをいれるとRealSenseが使えないどころか/dev/video*が
 でなくなる（その他のカメラも使えなくなる）<br />
 → <span style="color: red; ">カーネルを4.4.0.193から4.5.0.122に更新</span><br />
@@ -410,7 +537,7 @@ https://qiita.com/ego/items/36e9baccc80097950195</p>
 → さきほどの<code>/lib/modules/4.4.0-193-generic/updates/dkms/uvcvideo.ko</code>を削除し,<br />
 もとの<code>uvcvideo.ko</code>をコピーしたところ，<code>/dev/video*</code>がでて,<code>realsense-viewer</code>でカメラ
 映像を読み取れた．同時にその他のカメラも使えるように．ただし<span style="color: red; ">非推奨</span><br />
-→カーネル4.4.0.187以降の4.4シリーズでは上手く動作しないことがあるらしい．
+→カーネル4.4.0.187以降の4.4シリーズでは上手く動作しないことがあるらしい．<br />
 以下に詳しくある</p>
 <p>https://github.com/IntelRealSense/librealsense/issues/7287</p>
 <h1 id="その他"><a class="header" href="#その他">その他</a></h1>
