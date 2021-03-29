@@ -31,7 +31,7 @@ NVIDIA Driver, CUDAが入っているのか一度確認する。
 nvidia-smi
 ```
 
-もし入れなおしたいとき場合，次で削除
+もし入れなおしたい場合，次で削除
 
 ```
 sudo apt --purge remove "cublas*" "cuda*"
@@ -82,11 +82,11 @@ Nvidia Driver : 455.32.00, CUDA : 9.0, cuDNN : 7.6.5
 
 darknet_ros.launch
 単眼カメラ　　50-70 fps
-D455 50-70 fps  
+D455 　　　　50-70 fps  
 
 yolo_v3.launch  
 単眼カメラ　　10 fps
-D455 10fps  
+D455 　　　　10fps  
 →カメラのよる違いなし  
 
 ## 詰まったこと
