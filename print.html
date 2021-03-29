@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> はじめに</a></li><li class="chapter-item expanded "><a href="intro/index.html"><strong aria-hidden="true">2.</strong> ROSとは</a></li><li class="chapter-item expanded "><a href="env_setup/environment.html"><strong aria-hidden="true">3.</strong> 環境構築</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="env_setup/environment_task.html"><strong aria-hidden="true">3.1.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="pub_sub/pub_sub.html"><strong aria-hidden="true">4.</strong> 基本的なデータの受け渡し</a></li><li class="chapter-item expanded "><a href="rosbag/rosbag.html"><strong aria-hidden="true">5.</strong> ROSに流れてくるデータの保存</a></li><li class="chapter-item expanded "><a href="arduino_ros/arduino_ros.html"><strong aria-hidden="true">6.</strong> ROSを使ったArduinoの制御</a></li><li class="chapter-item expanded "><a href="simulation/simulation.html"><strong aria-hidden="true">7.</strong> ロボットのシミュレーション</a></li><li class="chapter-item expanded "><a href="yolo/index.html"><strong aria-hidden="true">8.</strong> ROSでYOLOを使う</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="yolo/install.html"><strong aria-hidden="true">8.1.</strong> YOLOv3 ROS導入</a></li><li class="chapter-item expanded "><a href="yolo/training.html"><strong aria-hidden="true">8.2.</strong> YOLOv3 オリジナルデータ学習</a></li></ol></li><li class="chapter-item expanded "><a href="realsense_ros/index.html"><strong aria-hidden="true">9.</strong> realsenseをROSで使う</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="realsense_ros/install.html"><strong aria-hidden="true">9.1.</strong> RealSenseのROSでの導入について</a></li></ol></li><li class="chapter-item expanded "><a href="appendix/index.html"><strong aria-hidden="true">10.</strong> その他</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix/advance.html"><strong aria-hidden="true">10.1.</strong> 応用</a></li><li class="chapter-item expanded "><a href="appendix/dualboot.html"><strong aria-hidden="true">10.2.</strong> デュアルブート</a></li><li class="chapter-item expanded "><a href="appendix/docker.html"><strong aria-hidden="true">10.3.</strong> Docker</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> はじめに</a></li><li class="chapter-item expanded "><a href="intro/index.html"><strong aria-hidden="true">2.</strong> ROSとは</a></li><li class="chapter-item expanded "><a href="env_setup/environment.html"><strong aria-hidden="true">3.</strong> 環境構築</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="env_setup/environment_task.html"><strong aria-hidden="true">3.1.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="pub_sub/pub_sub.html"><strong aria-hidden="true">4.</strong> 基本的なデータの受け渡し</a></li><li class="chapter-item expanded "><a href="rosbag/rosbag.html"><strong aria-hidden="true">5.</strong> ROSに流れてくるデータの保存</a></li><li class="chapter-item expanded "><a href="arduino_ros/arduino_ros.html"><strong aria-hidden="true">6.</strong> ROSを使ったArduinoの制御</a></li><li class="chapter-item expanded "><a href="simulation/simulation.html"><strong aria-hidden="true">7.</strong> ロボットのシミュレーション</a></li><li class="chapter-item expanded "><a href="yolo/index.html"><strong aria-hidden="true">8.</strong> ROSでYOLOを使う</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="yolo/install.html"><strong aria-hidden="true">8.1.</strong> YOLOv3 ROS導入</a></li><li class="chapter-item expanded "><a href="yolo/training.html"><strong aria-hidden="true">8.2.</strong> YOLOv3 オリジナルデータ学習</a></li></ol></li><li class="chapter-item expanded "><a href="realsense_ros/index.html"><strong aria-hidden="true">9.</strong> realsenseをROSで使う</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="realsense_ros/install.html"><strong aria-hidden="true">9.1.</strong> RealSenseのROSでの導入について</a></li></ol></li><li class="chapter-item expanded "><a href="velodyne/index.html"><strong aria-hidden="true">10.</strong> Velodyne</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="velodyne/setup.html"><strong aria-hidden="true">10.1.</strong> RealSenseのROSでの導入について</a></li></ol></li><li class="chapter-item expanded "><a href="appendix/index.html"><strong aria-hidden="true">11.</strong> その他</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix/advance.html"><strong aria-hidden="true">11.1.</strong> 応用</a></li><li class="chapter-item expanded "><a href="appendix/dualboot.html"><strong aria-hidden="true">11.2.</strong> デュアルブート</a></li><li class="chapter-item expanded "><a href="appendix/docker.html"><strong aria-hidden="true">11.3.</strong> Docker</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -544,6 +544,64 @@ https://qiita.com/ego/items/36e9baccc80097950195</p>
 →カーネル4.4.0.187以降の4.4シリーズでは上手く動作しないことがあるらしい．<br />
 以下に詳しくある</p>
 <p>https://github.com/IntelRealSense/librealsense/issues/7287</p>
+<h1 id="velodyneの使い方"><a class="header" href="#velodyneの使い方">velodyneの使い方</a></h1>
+<p>3DLidar(velodyne)の設定方法について</p>
+<h2 id="編集者-2"><a class="header" href="#編集者-2">編集者</a></h2>
+<p>見上</p>
+<h1 id="velodyne-設定手順"><a class="header" href="#velodyne-設定手順">velodyne 設定手順</a></h1>
+<p>＊ROSのインストールやチュートリアルが一通り終わってる前提です。 </p>
+<h2 id="ネットワーク設定"><a class="header" href="#ネットワーク設定">ネットワーク設定</a></h2>
+<p>＊ここは、自分は特に設定しなくて問題なくvelodyneを使用できたので１以降の操作を行ってうまく行かなかった場合に確認するくらいでいいと思います。 </p>
+<p>① すべての設定→ネットワーク設定→有線→オプション→IPv4設定 </p>
+<p>方式を手動、IPアドレスは初期設定では192.168.0.1など </p>
+<p><img src="velodyne/./config.png" alt="" /></p>
+<p>② IPアドレスの設定を行う </p>
+<p>以下のコマンドでVLP16のネットワークインターフェースを調べコピーする </p>
+<pre><code>$ ifconfig 
+</code></pre>
+<p>上で調べたものに192.168.3.Xの範囲でIPアドレスを割り当てる </p>
+<pre><code>$ sudo ifconfig eth0 192.168.3.100 
+</code></pre>
+<p>4.2で追加したアドレスにスタティクルートを追加する </p>
+<p>アドレスは付属のCDについている（らしい） </p>
+<p>例えばスタティックルートが192.168.1.201の場合， </p>
+<pre><code>$ sudo route add 192.168.1.201 eth0 
+</code></pre>
+<h2 id="諸々のインストール"><a class="header" href="#諸々のインストール">諸々のインストール</a></h2>
+<p>① ROS依存関係のインストール（[melodic]の部分は自分のROSのversionに合わせて変更。ubuntu16→[kinetic]、ubuntu18→[melodic]、ubuntu20→[noetic]） </p>
+<pre><code>$ sudo apt-get install ros-melodic-velodyne 
+</code></pre>
+<p>② VLPドライバーのインストール </p>
+<p>階層を移動し、githubからドライバをインストール </p>
+<pre><code>$ cd ~/catkin_ws/src/ &amp;&amp; git clone https://github.com/ros-drivers/velodyne.git 
+</code></pre>
+<p>③ 同じ階層で依存関係を更新 </p>
+<pre><code>$ rosdep install --from-paths src --ignore-src --rosdistro YOURDISTRO -y 
+</code></pre>
+<p>④ 階層移動＆ワークスペースの構築 </p>
+<pre><code>$ cd ~/catkin_ws/ &amp;&amp; catkin_make 
+</code></pre>
+<h2 id="データ表示"><a class="header" href="#データ表示">データ表示</a></h2>
+<p>① 点群表示をするためのコマンド </p>
+<pre><code>$ roslaunch velodyne_pointcloud VLP16_points.launch 
+</code></pre>
+<p>② 動いているノードを確認 </p>
+<pre><code>$ rosnode list 
+</code></pre>
+<p>③ 送受信されているトピックを確認 </p>
+<pre><code>$ rostopic echo /velodyne_points 
+</code></pre>
+<p>④ 新しいターミナルを開く。rvizで３次元点群を表示させる </p>
+<pre><code>$ rosrun rviz rviz -f velodyne 
+</code></pre>
+<p>⑤ rviz画面の設定 </p>
+<p>画面左の「Displays」から、下の方の「Add」をクリック→「PointCloud2」を選択 </p>
+<p>「PointCloud2」のTopicに「/velodyne_points」を選択 </p>
+<p><img src="velodyne/./view.png" alt="" /></p>
+<p>これでVelodyneのデータがrviz上に表示されるはず </p>
+<h2 id="参考-1"><a class="header" href="#参考-1">参考</a></h2>
+<p>http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16 </p>
+<p>https://github.com/open-rdc/orne_navigation/wiki/VLP16%E3%81%AE%E9%81%8B%E7%94%A8 </p>
 <h1 id="その他"><a class="header" href="#その他">その他</a></h1>
 <p>ROSの初歩的なことができるようになった人用</p>
 <h1 id="応用"><a class="header" href="#応用">応用</a></h1>
