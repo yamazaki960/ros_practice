@@ -22,7 +22,7 @@ DEBUG=0
 
 動作させてfpsが変化していないようならGPUを使えるように設定する。
 
-## GPU の設定()
+## GPU の設定
 
 NVIDIA Driver, CUDA Toolkit, cuDNNのインストールが必要。  
 NVIDIA Driver, CUDAが入っているのか一度確認する。  
