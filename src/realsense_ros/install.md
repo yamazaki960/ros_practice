@@ -21,7 +21,7 @@ https://demura.net/robot/16525.html
 次のコマンドを実行してrealsenseの文字列があれば成功,なくても動けばよし．
 
 ```
-modinfo uvcvideo | grep “version:”
+modinfo uvcvideo | grep "version:"
 ```
 
 ## 詰まったこと
