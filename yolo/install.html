@@ -188,7 +188,7 @@ DEBUG=0
 NVIDIA Driver, CUDAが入っているのか一度確認する。</p>
 <pre><code>nvidia-smi
 </code></pre>
-<p>もし入れなおしたいとき場合，次で削除</p>
+<p>もし入れなおしたい場合，次で削除</p>
 <pre><code>sudo apt --purge remove &quot;cublas*&quot; &quot;cuda*&quot;
 sudo apt --purge remove &quot;nvidia*&quot;
 rm -rf /usr/local/cuda*
@@ -231,10 +231,10 @@ nvcc -V
 <p>Nvidia Driver : 455.32.00, CUDA : 9.0, cuDNN : 7.6.5</p>
 <p>darknet_ros.launch
 単眼カメラ　　50-70 fps
-D455 50-70 fps</p>
+D455 　　　　50-70 fps</p>
 <p>yolo_v3.launch<br />
 単眼カメラ　　10 fps
-D455 10fps<br />
+D455 　　　　10fps<br />
 →カメラのよる違いなし</p>
 <h2 id="詰まったこと"><a class="header" href="#詰まったこと">詰まったこと</a></h2>
 <p>CUDAv10.1を用いた場合,catkin_makeでエラーがでる．特定のLibraryへのアクセスが出来ないらしい．</p>
