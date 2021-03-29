@@ -207,7 +207,7 @@ sudo apt-get autoremove &amp;&amp; sudo apt-get autoclean
 </code></pre>
 <p>・CUDA, cuDNN</p>
 <ol>
-<li>何もないことを確認</li>
+<li>何も表示されないことを確認</li>
 </ol>
 <pre><code>dpkg -l | grep cuda
 </code></pre>
@@ -229,13 +229,15 @@ nvcc -V
 </tbody></table>
 <p>成功したもの</p>
 <p>Nvidia Driver : 455.32.00, CUDA : 9.0, cuDNN : 7.6.5</p>
-<p>darknet_ros.launch</p>
-<p>単眼カメラ　　50~70 fps D455 50~70 fps<br />
-yolo_v3.launch<br />
-単眼カメラ　　10 fps D455 10fps<br />
+<p>darknet_ros.launch
+単眼カメラ　　50-70 fps
+D455 50-70 fps</p>
+<p>yolo_v3.launch<br />
+単眼カメラ　　10 fps
+D455 10fps<br />
 →カメラのよる違いなし</p>
 <h2 id="詰まったこと"><a class="header" href="#詰まったこと">詰まったこと</a></h2>
-<p>CUDAv10.1を用いた場合,catkin_makeでエラーがでる．特定のLibraryへのアクセスが出きないらしい．</p>
+<p>CUDAv10.1を用いた場合,catkin_makeでエラーがでる．特定のLibraryへのアクセスが出来ないらしい．</p>
 <p>→ /usr/local にcuda,cuda-10.1の他にcuda-10.2のフォルダが存在<br />
 → 必要なヘッダファイルがわけられていまい，パスが通らないことが原因？<br />
 → 同様のエラーがでている報告があるが，問題ない場合もある．<br />
