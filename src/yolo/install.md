@@ -51,7 +51,7 @@ ubuntu-drivers devices
 ```
 
 ・CUDA, cuDNN
-1. 何もないことを確認
+1. 何も表示されないことを確認
 ```
 dpkg -l | grep cuda
 ```
@@ -81,15 +81,17 @@ nvcc -V
 Nvidia Driver : 455.32.00, CUDA : 9.0, cuDNN : 7.6.5
 
 darknet_ros.launch
+単眼カメラ　　50-70 fps
+D455 50-70 fps  
 
-単眼カメラ　　50~70 fps D455 50~70 fps  
 yolo_v3.launch  
-単眼カメラ　　10 fps D455 10fps  
+単眼カメラ　　10 fps
+D455 10fps  
 →カメラのよる違いなし  
 
 ## 詰まったこと
 
-CUDAv10.1を用いた場合,catkin_makeでエラーがでる．特定のLibraryへのアクセスが出きないらしい．
+CUDAv10.1を用いた場合,catkin_makeでエラーがでる．特定のLibraryへのアクセスが出来ないらしい．
 
 → /usr/local にcuda,cuda-10.1の他にcuda-10.2のフォルダが存在  
 → 必要なヘッダファイルがわけられていまい，パスが通らないことが原因？  
