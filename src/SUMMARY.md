@@ -14,7 +14,7 @@
 - [realsenseをROSで使う](./realsense_ros/README.md)
     - [RealSenseのROSでの導入について](./realsense_ros/install.md)
 - [Velodyne](./velodyne/README.md)
-    - [RealSenseのROSでの導入について](./velodyne/setup.md)
+    - [velodyneの設定手順](./velodyne/setup.md)
 
 - [その他](./appendix/README.md)
     - [応用](./appendix/advance.md)
