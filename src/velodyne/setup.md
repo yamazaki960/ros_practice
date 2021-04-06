@@ -2,7 +2,7 @@
 
 ＊ROSのインストールやチュートリアルが一通り終わってる前提です。 
 
-## ネットワーク設定 
+## 0.ネットワーク設定 
 
 ＊ここは、自分は特に設定しなくて問題なくvelodyneを使用できたので１以降の操作を行ってうまく行かなかった場合に確認するくらいでいいと思います。 
  
@@ -36,7 +36,7 @@ $ sudo ifconfig eth0 192.168.3.100
 $ sudo route add 192.168.1.201 eth0 
 ```
 
-## 諸々のインストール 
+## 1.諸々のインストール 
 
 ① ROS依存関係のインストール（[melodic]の部分は自分のROSのversionに合わせて変更。ubuntu16→[kinetic]、ubuntu18→[melodic]、ubuntu20→[noetic]） 
 
@@ -64,7 +64,7 @@ $ rosdep install --from-paths src --ignore-src --rosdistro YOURDISTRO -y
 $ cd ~/catkin_ws/ && catkin_make 
 ```
 
-## データ表示 
+## 2.データ表示 
 
 ① 点群表示をするためのコマンド 
 
