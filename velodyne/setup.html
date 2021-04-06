@@ -165,7 +165,7 @@
                     <main>
                         <h1 id="velodyne-設定手順"><a class="header" href="#velodyne-設定手順">velodyne 設定手順</a></h1>
 <p>＊ROSのインストールやチュートリアルが一通り終わってる前提です。 </p>
-<h2 id="ネットワーク設定"><a class="header" href="#ネットワーク設定">ネットワーク設定</a></h2>
+<h2 id="0ネットワーク設定"><a class="header" href="#0ネットワーク設定">0.ネットワーク設定</a></h2>
 <p>＊ここは、自分は特に設定しなくて問題なくvelodyneを使用できたので１以降の操作を行ってうまく行かなかった場合に確認するくらいでいいと思います。 </p>
 <p>① すべての設定→ネットワーク設定→有線→オプション→IPv4設定 </p>
 <p>方式を手動、IPアドレスは初期設定では192.168.0.1など </p>
@@ -182,7 +182,7 @@
 <p>例えばスタティックルートが192.168.1.201の場合， </p>
 <pre><code>$ sudo route add 192.168.1.201 eth0 
 </code></pre>
-<h2 id="諸々のインストール"><a class="header" href="#諸々のインストール">諸々のインストール</a></h2>
+<h2 id="1諸々のインストール"><a class="header" href="#1諸々のインストール">1.諸々のインストール</a></h2>
 <p>① ROS依存関係のインストール（[melodic]の部分は自分のROSのversionに合わせて変更。ubuntu16→[kinetic]、ubuntu18→[melodic]、ubuntu20→[noetic]） </p>
 <pre><code>$ sudo apt-get install ros-melodic-velodyne 
 </code></pre>
@@ -196,7 +196,7 @@
 <p>④ 階層移動＆ワークスペースの構築 </p>
 <pre><code>$ cd ~/catkin_ws/ &amp;&amp; catkin_make 
 </code></pre>
-<h2 id="データ表示"><a class="header" href="#データ表示">データ表示</a></h2>
+<h2 id="2データ表示"><a class="header" href="#2データ表示">2.データ表示</a></h2>
 <p>① 点群表示をするためのコマンド </p>
 <pre><code>$ roslaunch velodyne_pointcloud VLP16_points.launch 
 </code></pre>
