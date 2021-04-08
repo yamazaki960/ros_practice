@@ -4,8 +4,9 @@
 
 ## 0.ネットワーク設定 
 
-＊ここは、自分は特に設定しなくて問題なくvelodyneを使用できたので(1.諸々のインストール)以降の操作を行ってうまく行かなかった場合に確認するくらいでいいと思います。 
- 
+＊ここは、自分は特に設定しなくて問題なくvelodyneを使用できたので(1.諸々のインストール)以降の操作を行ってうまく行かなかった場合に確認するくらいでいいと思います。   
+(追記)以下の①の設定は行わなければならないと感じました．一度設定すれば、再度設定する必要はないように思います．（稲川）
+
 ① すべての設定→ネットワーク設定→有線→オプション→IPv4設定 
 
 方式を手動、IPアドレスは初期設定では192.168.0.1など 
@@ -20,7 +21,8 @@
 $ ifconfig 
 ```
 
-上で調べたものに192.168.3.Xの範囲でIPアドレスを割り当てる 
+上で調べたものに192.168.3.Xの範囲でIPアドレスを割り当てる  
+※eth0に該当するものが、ifconfigで調べることできます． 
 
 ```
 $ sudo ifconfig eth0 192.168.3.100 
@@ -31,6 +33,7 @@ $ sudo ifconfig eth0 192.168.3.100
 アドレスは付属のCDについている（らしい） 
 
 例えばスタティックルートが192.168.1.201の場合， 
+※eth0に該当するものが、ifconfigで調べることできます． 
 
 ```
 $ sudo route add 192.168.1.201 eth0 
@@ -52,7 +55,8 @@ $ sudo apt-get install ros-melodic-velodyne
 $ cd ~/catkin_ws/src/ && git clone https://github.com/ros-drivers/velodyne.git 
 ```
 
-③ 同じ階層で依存関係を更新 
+③ 同じ階層で依存関係を更新   
+※YOURDISTROとは、先程のROSのバージョンのことです（例：melodic）
 
 ```
 $ rosdep install --from-paths src --ignore-src --rosdistro YOURDISTRO -y 
@@ -108,4 +112,10 @@ http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne
 https://github.com/open-rdc/orne_navigation/wiki/VLP16%E3%81%AE%E9%81%8B%E7%94%A8 
 
  
- 
+## 便利ツール
+便利ツールを以下のURLに置いておきましたのでご活用ください． 
+
+https://masausagi.github.io/hako/
+
+- [velodyne実行+rvizの実行ツール](https://masausagi.github.io/hako/tools/ros_bash/exe-velodyne-rviz/exe-velodyne-rviz.sh)
+  -  前提環境：上記を一通り行っていること
