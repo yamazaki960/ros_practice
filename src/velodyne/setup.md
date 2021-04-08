@@ -115,7 +115,7 @@ https://github.com/open-rdc/orne_navigation/wiki/VLP16%E3%81%AE%E9%81%8B%E7%94%A
 ## 便利ツール
 便利ツールを以下のURLに置いておきましたのでご活用ください． 
 
-https://masausagi.github.io/hako/
+[https://masausagi.github.io/hako/](https://masausagi.github.io/hako/)
 
 - [velodyne実行+rvizの実行ツール](https://masausagi.github.io/hako/tools/ros_bash/exe-velodyne-rviz/exe-velodyne-rviz.sh)
   -  前提環境：上記を一通り行っていること
