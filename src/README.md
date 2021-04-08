@@ -3,14 +3,15 @@
 課題を交えてROSの使い方を勉強してもらいます．  
 気になったワードは逐一ググることをお勧めします．
 
-質問やわからないこと，修正箇所などがあれば，GitHubの機能にIssueというものがあるのでそこで質問を飛ばしてください．  
-Githubのアカウントがあればだれでも使用できます．
-
-Issueの使い方はこちらのサイトを参照してください．  
+質問や，修正箇所などがあれば，GitHubの機能にIssueというものがあるのでそこで質問を飛ばしてください．  
+Githubのアカウントがあればだれでも使用できます．  
+Issueの使い方はこちらのサイトを参照してください． 
 https://seleck.cc/647
 
 [ここ](https://github.com/tomson784/ros_practice/issues)
 からこのリポジトリに対してIssueを立てることができます．
+
+わからないことがあれば，先輩たちなどに聞いてみてください
 
 ## ROSの使い方参考サイト
 [ROS(Robot Operating System)を使う](http://forestofazumino.web.fc2.com/ros/ros_top.html)  
@@ -22,6 +23,7 @@ https://seleck.cc/647
 ## **できるようになってほしいこと**
 - ROSの基本的なデータの受け渡しについての概要を理解し，実装できること
 - ROSを使ったArduinoの制御
-- ROSに流れてくるデータの保存
+- ROSに流れてくるデータの保存(実験データの保存)
 
-https://github.com/tomson784/ros_practice  
+
+[**Github Source**](https://github.com/tomson784/ros_practice)
