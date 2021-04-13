@@ -13,6 +13,7 @@
     - [YOLOv3 オリジナルデータ学習](./yolo/training.md)
 - [realsenseをROSで使う](./realsense_ros/README.md)
     - [RealSenseのROSでの導入について](./realsense_ros/install.md)
+    - [RealSenseでimuデータを取得する](./realsense_ros/imu.md)
 - [Velodyne](./velodyne/README.md)
     - [velodyneの設定手順](./velodyne/setup.md)
 
