@@ -1,17 +1,7 @@
-# ROS入門
+# ROS学習用資料
 
-課題を交えてROSの使い方を勉強してもらいます．  
-気になったワードは逐一ググることをお勧めします．
-
-質問や，修正箇所などがあれば，GitHubの機能にIssueというものがあるのでそこで質問を飛ばしてください．  
-Githubのアカウントがあればだれでも使用できます．  
-Issueの使い方はこちらのサイトを参照してください． 
-https://seleck.cc/647
-
-[ここ](https://github.com/tomson784/ros_practice/issues)
-からこのリポジトリに対してIssueを立てることができます．
-
-わからないことがあれば，先輩たちなどに聞いてみてください
+このサイトでは研究室で扱うツールの導入方法や使用方法，エラー対策などについてまとめています．  
+それらの知見をみなさんで共有したいと考えています．
 
 ## ROSの使い方参考サイト
 [ROS(Robot Operating System)を使う](http://forestofazumino.web.fc2.com/ros/ros_top.html)  
@@ -20,10 +10,31 @@ https://seleck.cc/647
 [ROS講座](https://qiita.com/srs/items/5f44440afea0eb616b4a)  
 [demura.net AI・ロボットをつくるために](https://demura.net/)  
 
-## **できるようになってほしいこと**
-- ROSの基本的なデータの受け渡しについての概要を理解し，実装できること
-- ROSを使ったArduinoの制御
-- ROSに流れてくるデータの保存(実験データの保存)
+## このサイトの編集方法
+
+```
+git clone https://github.com/tomson784/ros_practice.git
+```
+
+ディレクトリ構成は以下のようになっており`src`の部分に編集するファイルが入っています．
+```
+(root)/
+    ├─ .gitignore
+    ├─ book.toml
+    ├─ docker-compose.yml
+    ├─ Dockerfile
+    ├─ LICENSE
+    ├─ README.md
+    ├─.github
+    │  └─workflows
+    │          main.yml
+    └─src
+        ├─ README.md
+        ├─ SUMMARY.md
+        ├─    :
+        ├─    :
+        ├─    :
+```
 
 
 [**Github Source**](https://github.com/tomson784/ros_practice)
