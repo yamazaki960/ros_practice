@@ -5,13 +5,13 @@
 
 - darknet_rosのパッケージを入れる。
 - YOLOでGPUを使う場合(CPUのみだと基本遅い，リアルタイムで処理したいなら使う)，NAVIDIA ドライバ，CUDA，cuDNNを入れる。
-- カメラにRealSenseを使用する場合，RealSenseのROSでの導入についてを参照
+- カメラにRealSenseを使用する場合，別途ROS用のライブラリを入れておく。
 
 ## darknet_ros の導入
-- 以下のとおりにインストール。
-　https://demura.net/robot/16542.html
-- 動作が確認できたらGPU処理の設定に `darknet/Makefile` を以下に変更
+darknet_rosのインストールは[このサイト](https://demura.net/robot/16542.html)に従って行う。<br>
+SSH Keyについては設定しなくてもインストールできるらしい。ここは一度飛ばしてだめならやるようにする。
 
+動作が確認できたらGPU処理の設定に `darknet/Makefile` を以下に変更
 ```darknet/Makefile
 GPU=1
 CUDNN=1
@@ -80,26 +80,27 @@ nvcc -V
 
 Nvidia Driver : 455.32.00, CUDA : 9.0, cuDNN : 7.6.5
 
-darknet_ros.launch
-単眼カメラ　　50-70 fps
+darknet_ros.launch<br>
+単眼カメラ　　50-70 fps<br>
 D455 　　　　50-70 fps  
 
 yolo_v3.launch  
-単眼カメラ　　10 fps
+単眼カメラ　　10 fps<br>
 D455 　　　　10fps  
 →カメラのよる違いなし  
 
-## 詰まったこと
+## 問題と対処
+導入する過程で起こった問題とその対処について追記していきます。
 
-CUDAv10.1を用いた場合,catkin_makeでエラーがでる．特定のLibraryへのアクセスが出来ないらしい．
+1. CUDAv10.1を用いた場合,catkin_makeでエラーがでる。特定のLibraryへのアクセスが出来ない。
 
-→ /usr/local にcuda,cuda-10.1の他にcuda-10.2のフォルダが存在  
-→ 必要なヘッダファイルがわけられていまい，パスが通らないことが原因？  
-→ 同様のエラーがでている報告があるが，問題ない場合もある．  
-Ubuntuのバージョン？ドライバ？  
-→ CUDAのバージョンを変更して解決  
+   → /usr/local にcuda,cuda-10.1の他にcuda-10.2のフォルダが存在  
+   → 必要なヘッダファイルがわけられていまい，パスが通らないことが原因？  
+   → 同様のエラーがでている報告があるが，問題ない場合もある。Ubuntuのバージョン？ドライバ？  
+  
+&emsp;→ CUDAのバージョンを変更して解決  
 
-## その他参考
+## 参考
 1) TensorFlow を使う場合，CUDA とcuDNNのバージョンの対応は決まっている。  
 https://qiita.com/chin_self_driving_car/items/f00af2dbd022b65c9068  
 2) https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html  
