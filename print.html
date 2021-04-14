@@ -353,14 +353,12 @@ started core service [/rosout]
 <ul>
 <li>darknet_rosのパッケージを入れる。</li>
 <li>YOLOでGPUを使う場合(CPUのみだと基本遅い，リアルタイムで処理したいなら使う)，NAVIDIA ドライバ，CUDA，cuDNNを入れる。</li>
-<li>カメラにRealSenseを使用する場合，RealSenseのROSでの導入についてを参照</li>
+<li>カメラにRealSenseを使用する場合，別途ROS用のライブラリを入れておく。</li>
 </ul>
 <h2 id="darknet_ros-の導入"><a class="header" href="#darknet_ros-の導入">darknet_ros の導入</a></h2>
-<ul>
-<li>以下のとおりにインストール。
-　https://demura.net/robot/16542.html</li>
-<li>動作が確認できたらGPU処理の設定に <code>darknet/Makefile</code> を以下に変更</li>
-</ul>
+<p>darknet_rosのインストールは<a href="https://demura.net/robot/16542.html">このサイト</a>に従って行う。<br>
+SSH Keyについては設定しなくてもインストールできるらしい。ここは一度飛ばしてだめならやるようにする。</p>
+<p>動作が確認できたらGPU処理の設定に <code>darknet/Makefile</code> を以下に変更</p>
 <pre><code class="language-darknet/Makefile">GPU=1
 CUDNN=1
 OPENCV=0
@@ -414,21 +412,25 @@ nvcc -V
 </tbody></table>
 <p>成功したもの</p>
 <p>Nvidia Driver : 455.32.00, CUDA : 9.0, cuDNN : 7.6.5</p>
-<p>darknet_ros.launch
-単眼カメラ　　50-70 fps
+<p>darknet_ros.launch<br>
+単眼カメラ　　50-70 fps<br>
 D455 　　　　50-70 fps</p>
 <p>yolo_v3.launch<br />
-単眼カメラ　　10 fps
+単眼カメラ　　10 fps<br>
 D455 　　　　10fps<br />
 →カメラのよる違いなし</p>
-<h2 id="詰まったこと"><a class="header" href="#詰まったこと">詰まったこと</a></h2>
-<p>CUDAv10.1を用いた場合,catkin_makeでエラーがでる．特定のLibraryへのアクセスが出来ないらしい．</p>
+<h2 id="問題と対処"><a class="header" href="#問題と対処">問題と対処</a></h2>
+<p>導入する過程で起こった問題とその対処について追記していきます。</p>
+<ol>
+<li>
+<p>CUDAv10.1を用いた場合,catkin_makeでエラーがでる。特定のLibraryへのアクセスが出来ない。</p>
 <p>→ /usr/local にcuda,cuda-10.1の他にcuda-10.2のフォルダが存在<br />
 → 必要なヘッダファイルがわけられていまい，パスが通らないことが原因？<br />
-→ 同様のエラーがでている報告があるが，問題ない場合もある．<br />
-Ubuntuのバージョン？ドライバ？<br />
-→ CUDAのバージョンを変更して解決</p>
-<h2 id="その他参考"><a class="header" href="#その他参考">その他参考</a></h2>
+→ 同様のエラーがでている報告があるが，問題ない場合もある。Ubuntuのバージョン？ドライバ？</p>
+</li>
+</ol>
+<p> → CUDAのバージョンを変更して解決</p>
+<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
 <ol>
 <li>TensorFlow を使う場合，CUDA とcuDNNのバージョンの対応は決まっている。<br />
 https://qiita.com/chin_self_driving_car/items/f00af2dbd022b65c9068</li>
@@ -524,7 +526,7 @@ http://wild-data-chase.com/index.php/2019/02/04/post-370/</li>
 <li>新しいインスタンスを起動してから12時間経過すると、ノートブックのセッションの接続有無にかかわらず起動したノートブックは強制的に初期化されてしまう．<br />
 → 気にする必要なし．今回の場合，学習結果は適宜Google Drive上に保存される．</li>
 </ul>
-<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
+<h2 id="参考-1"><a class="header" href="#参考-1">参考</a></h2>
 <ol>
 <li>http://takesan.hatenablog.com/entry/2019/01/11/134128</li>
 <li>https://www.nakasha.co.jp/future/ai/yolov3train.html</li>
@@ -553,7 +555,7 @@ https://demura.net/robot/16525.html</p>
 <p>次のコマンドを実行してrealsenseの文字列があれば成功,なくても動けばよし．</p>
 <pre><code>modinfo uvcvideo | grep &quot;version:&quot;
 </code></pre>
-<h2 id="詰まったこと-1"><a class="header" href="#詰まったこと-1">詰まったこと</a></h2>
+<h2 id="詰まったこと"><a class="header" href="#詰まったこと">詰まったこと</a></h2>
 <p>mouse-pc で行った際, SDKをいれるとRealSenseが使えないどころか/dev/video*が
 でなくなる（その他のカメラも使えなくなる）<br />
 → <span style="color: red; ">カーネルを4.4.0.193から4.5.0.122に更新</span><br />
@@ -615,7 +617,7 @@ if __name__ == '__main__':
     listener()
 </code></pre>
 <p>取得したimuの個別の値を抽出する方法は<code>realsense2_camera/scripts/rs2_listener.py</code>の<code>callback(self, data)</code>を見るとなんとなくわかる．</p>
-<h2 id="参考-1"><a class="header" href="#参考-1">参考</a></h2>
+<h2 id="参考-2"><a class="header" href="#参考-2">参考</a></h2>
 <ul>
 <li><a href="https://qiita.com/shrimp-f/items/6c6820b88f162731dd94">IMUからのトピックをTFに変換する</a></li>
 <li><a href="http://wiki.ros.org/tf2/Tutorials/Writing%20a%20tf2%20static%20broadcaster%20%28Python%29">Writing a tf2 static broadcaster (Python)</a></li>
@@ -686,7 +688,7 @@ if __name__ == '__main__':
 <p>「PointCloud2」のTopicに「/velodyne_points」を選択 </p>
 <p><img src="velodyne/./view.png" alt="" /></p>
 <p>これでVelodyneのデータがrviz上に表示されるはず </p>
-<h2 id="参考-2"><a class="header" href="#参考-2">参考</a></h2>
+<h2 id="参考-3"><a class="header" href="#参考-3">参考</a></h2>
 <p>http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16 </p>
 <p>https://github.com/open-rdc/orne_navigation/wiki/VLP16%E3%81%AE%E9%81%8B%E7%94%A8 </p>
 <h2 id="便利ツール"><a class="header" href="#便利ツール">便利ツール</a></h2>
