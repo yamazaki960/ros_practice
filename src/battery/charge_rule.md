@@ -46,5 +46,6 @@
 3. 通電 OFF にする時間を設定<br>
 ・ON を設定するときと同じ。<br>
 ・表示がOFFになっていることを確認。
+
 ![width;300px](./timer1.png)![width;300px](./timer2.png)
 
