@@ -7,4 +7,4 @@ rosbagを用いることで，ROSで動いているセンサや入出力情報�
 
 ## 課題
 
-turtlesimがrosbagで動いていることを確認
+turtlesimがrosbagで動いていることを確認する．
