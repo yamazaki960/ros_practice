@@ -20,3 +20,4 @@
     - [応用](./appendix/advance.md)
     - [デュアルブート](./appendix/dualboot.md)
     - [Docker](./appendix/docker.md)
+    - [バッテリー充電](./battery/charge_rule.md)
