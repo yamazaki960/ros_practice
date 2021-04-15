@@ -22,3 +22,4 @@
     - [デュアルブート](./appendix/dualboot.md)
     - [Docker](./appendix/docker.md)
     - [バッテリー充電](./battery/charge_rule.md)
+    - [gitテスト](./appendix/git_test.md)
