@@ -163,16 +163,14 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="ros学習用資料"><a class="header" href="#ros学習用資料">ROS学習用資料</a></h1>
+                        <h1 id="ros資料"><a class="header" href="#ros資料">ROS資料</a></h1>
 <p>このサイトでは研究室で扱うツールの導入方法や使用方法，エラー対策などについてまとめています．<br />
 それらの知見をみなさんで共有したいと考えています．</p>
-<h2 id="rosの使い方参考サイト"><a class="header" href="#rosの使い方参考サイト">ROSの使い方参考サイト</a></h2>
-<p><a href="http://forestofazumino.web.fc2.com/ros/ros_top.html">ROS(Robot Operating System)を使う</a><br />
-<a href="https://lab.ueda.tech/?page=robosys_2020">ロボットシステム学（2020/4s, 6s）</a><br />
-<a href="https://www.youtube.com/playlist?list=PLbUh9y6MXvjdIB5A9uhrZVrhAaXc61Pzz">ロボットシステム学講義</a><br />
-<a href="https://qiita.com/srs/items/5f44440afea0eb616b4a">ROS講座</a><br />
-<a href="https://demura.net/">demura.net AI・ロボットをつくるために</a></p>
+<p>また，新しく配属された人がROSの使い方を勉強するためのチュートリアルも兼ねていますので，ぜひ活用してください．</p>
 <h2 id="このサイトの編集方法"><a class="header" href="#このサイトの編集方法">このサイトの編集方法</a></h2>
+<h3 id="書き方"><a class="header" href="#書き方">書き方</a></h3>
+<p>事前準備としてこのリポジトリを編集する権限を与える必要がありますが，それに関しては省略します．</p>
+<p>このリポジトリをGithubからダウンロードする．</p>
 <pre><code>git clone https://github.com/tomson784/ros_practice.git
 </code></pre>
 <p>ディレクトリ構成は以下のようになっており<code>src</code>の部分に編集するファイルが入っています．</p>
@@ -193,7 +191,40 @@
         ├─    :
         ├─    :
 </code></pre>
-<p><a href="https://github.com/tomson784/ros_practice"><strong>Github Source</strong></a></p>
+<p><code>src/SUMMARY.md</code>の内容は以下のような内容になっています．</p>
+<pre><code class="language-markdown">- [このサイトについて](./README.md)
+- [chapter-1](./chapter-1/README.md)
+    - [section-1-1](./chapter-1/section-1-1.md)
+    - [section-1-2](./chapter-1/section-1-2.md)
+- [chapter-2](./chapter-2/README.md)
+    - [section-2-1](./chapter-2/section-2-2.md)
+    - [section-2-2](./chapter-2/section-2-2.md)
+</code></pre>
+<p><code>src</code>に対して相対的なパスを設定することで，個別に編集したファイルを章立てでまとめることができます．<br />
+ファイルはマークダウンで書く必要があります．それについては<a href="https://qiita.com/Minalinsky_1911/items/b684cfabe0f2fde0c67b">このサイト</a>などを調べてみてください．</p>
+<h3 id="書いた内容を反映する"><a class="header" href="#書いた内容を反映する">書いた内容を反映する．</a></h3>
+<p>編集が終わったらgitを使って変更履歴を更新し，それをアップロードすることで変更内容が反映されます．<br />
+<a href="https://tomson784.github.io/memo/git/2021/03/20/git.html">このリンク</a>でもgitの使いかたを説明していますが，ここでは必要なコマンドのみ説明します．</p>
+<p>以下の手順を行うことで変更内容の反映ができます．</p>
+<pre><code>git add .
+git commit -m &quot;どのような変更を加えたかについて説明&quot;
+</code></pre>
+<p><code>git remote -v</code>で以下のような表示が出ると思う．</p>
+<pre><code>origin  https://github.com/tomson784/ros_practice.git (fetch)
+origin  https://github.com/tomson784/ros_practice.git (push) 
+</code></pre>
+<p>次のコマンドでGithub上に反映することができる．</p>
+<pre><code>git push origin main
+</code></pre>
+<p>これで終了</p>
+<h2 id="rosの使い方参考サイト"><a class="header" href="#rosの使い方参考サイト">ROSの使い方参考サイト</a></h2>
+<p><a href="http://forestofazumino.web.fc2.com/ros/ros_top.html">ROS(Robot Operating System)を使う</a><br />
+<a href="https://lab.ueda.tech/?page=robosys_2020">ロボットシステム学（2020/4s, 6s）</a><br />
+<a href="https://www.youtube.com/playlist?list=PLbUh9y6MXvjdIB5A9uhrZVrhAaXc61Pzz">ロボットシステム学講義</a><br />
+<a href="https://qiita.com/srs/items/5f44440afea0eb616b4a">ROS講座</a><br />
+<a href="https://demura.net/">demura.net AI・ロボットをつくるために</a></p>
+<p>このサイトのソースコードはこちらになります↓<br />
+<a href="https://github.com/tomson784/ros_practice"><strong>Github Source</strong></a></p>
 
                     </main>
 
