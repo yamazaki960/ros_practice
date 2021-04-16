@@ -5,7 +5,7 @@
 
 - darknet_rosのパッケージを入れる。
 - YOLOでGPUを使う場合(CPUのみだと基本遅い，リアルタイムで処理したいなら使う)，NAVIDIA ドライバ，CUDA，cuDNNを入れる。
-- カメラにRealSenseを使用する場合，別途ROS用のライブラリを入れておく。
+- カメラにRealSenseを使用する場合，別途[ROS用のライブラリを入れておく](../realsense_ros/install.md)。
 
 ## darknet_ros の導入
 darknet_rosのインストールは[このサイト](https://demura.net/robot/16542.html)に従って行う。<br>
