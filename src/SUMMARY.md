@@ -16,6 +16,7 @@
     - [RealSenseでimuデータを取得する](./realsense_ros/imu.md)
 - [Velodyne](./velodyne/README.md)
     - [velodyneの設定手順](./velodyne/setup.md)
+    - [Velodyne複数接続（ネット編）](./velodyne/multi_net.md)
 - [Rviz](./rviz/README.md)
 - [その他](./appendix/README.md)
     - [応用](./appendix/advance.md)
