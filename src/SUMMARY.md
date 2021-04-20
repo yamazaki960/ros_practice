@@ -18,6 +18,7 @@
     - [velodyneの設定手順](./velodyne/setup.md)
     - [Velodyne複数接続（ネット編）](./velodyne/multi_net.md)
 - [Rviz](./rviz/README.md)
+- [SLAM](./slam/README.md)
 - [その他](./appendix/README.md)
     - [応用](./appendix/advance.md)
     - [デュアルブート](./appendix/dualboot.md)
