@@ -1,6 +1,6 @@
-# xarmの動かし方
+# xArmの動かし方
 
-xarmをROSで扱う方法
+xArm7をROSで動かす方法
 
 ## 編集者
 
