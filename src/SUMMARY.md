@@ -14,6 +14,7 @@
 - [realsenseをROSで使う](./realsense_ros/README.md)
     - [RealSenseのROSでの導入について](./realsense_ros/install.md)
     - [RealSenseでimuデータを取得する](./realsense_ros/imu.md)
+    - [rosbagで保存する際の注意点](./realsense_ros/topic_list.md)
 - [Velodyne](./velodyne/README.md)
     - [velodyneの設定手順](./velodyne/setup.md)
     - [Velodyne複数接続（ネット編）](./velodyne/multi_net.md)
