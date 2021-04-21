@@ -8,11 +8,9 @@ Moveitというライブラリを用いてアームを制御する。
 以下のリンクから必要なパッケージをインストールする。
 それぞれROSのバージョンに合わせたものをインストールする。
 
-gazebo_ros_pkgs: http://gazebosim.org/tutorials?tut=ros_installing 
-
-ros_control: http://wiki.ros.org/ros_control
-
-moveit_core: https://moveit.ros.org/install/
+- gazebo_ros_pkgs: http://gazebosim.org/tutorials?tut=ros_installing 
+- ros_control: http://wiki.ros.org/ros_control
+- moveit_core: https://moveit.ros.org/install/
 
 xarmのパッケージをインストールする。
 
