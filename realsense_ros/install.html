@@ -165,41 +165,86 @@
                     <main>
                         <h1 id="realsenseのrosでの導入について"><a class="header" href="#realsenseのrosでの導入について">RealSenseのROSでの導入について</a></h1>
 <p>必要なこと</p>
-<ul>
-<li>Intel RealSense SDK をインストール（RealSenseからデータを取得するためのC++のライブラリ）</li>
+<ol>
+<li>Intel RealSense SDK をインストール（RealSenseからデータを取得するためのC++のライブラリ)</li>
 <li>ROSラッパーのインストール</li>
-</ul>
+</ol>
 <h2 id="動作環境"><a class="header" href="#動作環境">動作環境</a></h2>
+<p>以下のPCで動作を確認した。</p>
 <table><thead><tr><th align="center">PC</th><th align="center">RAM</th><th align="center">OS</th><th align="center">ROS version</th></tr></thead><tbody>
 <tr><td align="center">mouse-pc（山内さんのパソコン）</td><td align="center">32 GB</td><td align="center">Ubuntu 16.04</td><td align="center">Kinetic</td></tr>
 <tr><td align="center">ONE-NETBOOK OneMix3Pro (小さいやつ)</td><td align="center">8 GB</td><td align="center">Ubuntu 18.04</td><td align="center">Melodic</td></tr>
+<tr><td align="center"><br></td><td align="center"></td><td align="center"></td><td align="center"></td></tr>
 </tbody></table>
-<h2 id="intel-realsense-sdk--ros-ラッパーのインストール"><a class="header" href="#intel-realsense-sdk--ros-ラッパーのインストール">Intel RealSense SDK &amp;&amp; ROS ラッパーのインストール</a></h2>
-<p>以下のサイトの通り<br />
-https://demura.net/robot/16525.html</p>
-<p>ページ中で<code>catkin build</code>を使っているが<code>catkin_make</code>でも問題なし。</p>
-<p>次のコマンドを実行してrealsenseの文字列があれば成功,なくても動けばよし．</p>
+<h2 id="1-intel-realsense-sdkのインストール"><a class="header" href="#1-intel-realsense-sdkのインストール">1. Intel RealSense SDKのインストール</a></h2>
+<p><a href="https://demura.net/robot/16525.html">[1]</a>の通り, 以下のコマンドをターミナルにうつ。</p>
+<p>① サーバーの公開鍵を登録 ( ここだけ<a href="https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md">[2]</a>参照,うまくいかない場合[1]のコマンドで試してみる。)</p>
+<pre><code>$ sudo apt-key adv --keyserver keys.gnupg.net --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
+</code></pre>
+<p>② リポジトリにIntelサーバーを追加<br />
+Ubuntu 16 LTS:</p>
+<pre><code>$ sudo add-apt-repository &quot;deb https://librealsense.intel.com/Debian/apt-repo xenial main&quot; -u
+</code></pre>
+<p>Ubuntu 18 LTS:</p>
+<pre><code>$ sudo add-apt-repository &quot;deb https://librealsense.intel.com/Debian/apt-repo bionic main&quot; -u
+</code></pre>
+<p>Ubuntu 20 LTS:</p>
+<pre><code>$ sudo add-apt-repository &quot;deb https://librealsense.intel.com/Debian/apt-repo focal main&quot; -u
+</code></pre>
+<p>③ ライブラリのインストール</p>
+<pre><code>$ sudo apt update
+$ sudo apt install librealsense2-dkms
+$ sudo apt install librealsense2-utils
+$ sudo apt install librealsense2-dev
+$ sudo apt install librealsense2-dbg
+</code></pre>
+<p>④ 動作確認<br />
+　RealSenseのUSBケーブルを抜き差しして以下のコマンドを実行する。<br />
+　ウインドウが開くので、左サイドバーにあるStereo ModuleとRGB Cameraをoffからonにして表示されたらOK。</p>
+<pre><code>$ realsense-viewer
+</code></pre>
+<p>⑤ 次のコマンドを実行して, <code>realsense</code> の文字列があれば成功,なくても動けばよし．</p>
 <pre><code>modinfo uvcvideo | grep &quot;version:&quot;
 </code></pre>
-<h2 id="詰まったこと"><a class="header" href="#詰まったこと">詰まったこと</a></h2>
+<br>
+<h2 id="2-rosラッパーのインストール"><a class="header" href="#2-rosラッパーのインストール">2. ROSラッパーのインストール</a></h2>
+<p>① githubからクローンする。以下を実行。<br />
+　<code>catkin_make</code> は <code>catkin build</code> でも問題なし</p>
+<pre><code>$ cd ~/catkin_ws/src
+$ git clone https://github.com/pal-robotics/ddynamic_reconfigure.git
+$ catkin_make
+$ git clone https://github.com/IntelRealSense/realsense-ros.git
+$ catkin_make
+</code></pre>
+<p>② 動作確認
+　以下を実行して，トピックを確認できればOK。</p>
+<pre><code>$ roslaunch realsense2_camera rs_camera.launch
+</code></pre>
+<h2 id="問題と対処"><a class="header" href="#問題と対処">問題と対処</a></h2>
+<ol>
+<li>
 <p>mouse-pc で行った際, SDKをいれるとRealSenseが使えないどころか/dev/video*が
 でなくなる（その他のカメラも使えなくなる）<br />
 → <span style="color: red; ">カーネルを4.4.0.193から4.5.0.122に更新</span><br />
-カーネルバージョン変更方法，再起動後Ubuntuが起動できなくなる場合があるので，注意<br />
-https://qiita.com/ego/items/36e9baccc80097950195</p>
-<p>以下，確認したこと</p>
-<p>→ <code>lsusb -t</code> でドライバ確認　ドライバーが割り当てられていない(uvcvideo)<br />
-→ <code>uvcvideo</code>へのパスが変わっている<br />
-<code>/lib/modules/4.4.0-193-generic/updates/dkms/uvcvideo.ko</code><br />
-本来は<code>/lib/modules/4.4.0-193-generic/kernel/drivers/media/usb/uvc</code>にある<br />
-→ <code>modinfo uvcvideo | grep &quot;version:&quot;</code> で調べるとrealsenseの文字が入っている<br />
-公式ではそうなると書いてあるが動作確認済みのUbuntu18.04ではその文字は入っておらず，もとのversion:1.1.1のまま問題なく使える<br />
-→ さきほどの<code>/lib/modules/4.4.0-193-generic/updates/dkms/uvcvideo.ko</code>を削除し,<br />
-もとの<code>uvcvideo.ko</code>をコピーしたところ，<code>/dev/video*</code>がでて,<code>realsense-viewer</code>でカメラ
-映像を読み取れた．同時にその他のカメラも使えるように．ただし<span style="color: red; ">非推奨</span><br />
-→カーネル4.4.0.187以降の4.4シリーズでは上手く動作しないことがあるらしい．<br />
-以下に詳しくある</p>
-<p>https://github.com/IntelRealSense/librealsense/issues/7287</p>
+　<a href="https://qiita.com/ego/items/36e9baccc80097950195">カーネルバージョン変更方法</a><br />
+　再起動後Ubuntuが起動できなくなる場合があるので，注意して行う。</p>
+<details><summary> 確認したこと </summary>
+ → `lsusb -t` でドライバ確認　ドライバーが割り当てられていない(uvcvideo)<br>
+ → `uvcvideo`へのパスが変わっている<br>
+ 　`/lib/modules/4.4.0-193-generic/updates/dkms/uvcvideo.ko`<br>  
+ 　本来は`/lib/modules/4.4.0-193-generic/kernel/drivers/media/usb/uvc`にある<br>
+ → `modinfo uvcvideo | grep "version:"` で調べるとrealsenseの文字が入っている<br>  
+ 　動作確認済みのUbuntu18.04でも同じ表示だが，もとのversion:1.1.1のまま問題なく使える<br>  
+ → `/lib/modules/4.4.0-193-generic/updates/dkms/uvcvideo.ko`を削除し, もとの`uvcvideo.ko`をコピーしたところ、`/dev/video*`がでて,`realsense-viewer`でカメラ映像を読み取れた。同時にその他のカメラも使えるように。<span style="color: red; ">非推奨</span>  <br>
+ →カーネル4.4.0.187以降の4.4シリーズでは上手く動作しないことがあるらしい。[3](https://github.com/IntelRealSense/librealsense/issues/7287)
+ </details>
+</li>
+</ol>
+<br>
+<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
+<p>[1] <a href="https://demura.net/robot/16525.html">Ubuntu18.04: RealSense D435iをROS Melodicで使う</a> <br>
+[2] <a href="https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md">Intel® RealSense™</a> <br>
+[3] <a href="https://github.com/IntelRealSense/librealsense/issues/7287">All USB cameras are not working anymore after librealsense-dkms update</a></p>
 
                     </main>
 
