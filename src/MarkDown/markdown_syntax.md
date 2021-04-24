@@ -302,7 +302,8 @@ MarkDown記法では画像のサイズや位置を変えられないのでHTML�
 <br>
 
 ## 文字装飾
-多いのでテーブルで表す。  
+多いのでテーブルで表す。
+最後のカスタムについてはHTMLのタグ。中央寄せなどもできる。
 <br>
 
 | 装飾内容 | コード | 表示結果 |
@@ -314,7 +315,7 @@ MarkDown記法では画像のサイズや位置を変えられないのでHTML�
 | 下線 | \<u>下線\</u> | <u>下線</u> |
 | 下付き | 下付き\<sub>2\</sub> | 下付き<sub>2</sub> |
 | 上付き | 上付き\<sup>2\</sup> | 上付き<sup>2</sup> |
-| 色付き | 32 GB | Ubuntu 16.04 |
+| カスタム | \<span style="color:green; font-size:10pt; border: 1px red solid; padding: 2px;">text\</span> | <span style="color:green; font-size:10pt; border: 1px red solid; padding: 2px;">text</span> |
 <br>
 
 ## 水平線
