@@ -26,5 +26,7 @@
     - [応用](./appendix/advance.md)
     - [デュアルブート](./appendix/dualboot.md)
     - [Docker](./appendix/docker.md)
+    - [MarkDownファイル](./MarkDown/README.md)
+        - [MarkDownファイルの書き方について](./MarkDown/markdown_syntax.md)
     - [バッテリー充電](./battery/charge_rule.md)
     - [gitテスト](./appendix/git_test.md)    
