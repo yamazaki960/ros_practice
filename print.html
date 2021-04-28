@@ -1103,6 +1103,8 @@ VSCodeで動作確認。</p>
 <p><strong><u>コード</u></strong></p>
 <pre><code>&lt;details&gt;&lt;summary&gt; 折りたたみ &lt;/summary&gt;
 本文
+
+- 箇条書き
 &lt;/details&gt;
 </code></pre>
 <br>
@@ -1232,14 +1234,14 @@ VSCodeで動作確認。</p>
 | __column__ | `column`    | column       |
 </code></pre>
 <br>
-<p><strong><u>表示結果</u></strong>
-| header     | ヘッダー     |見出し        |
-|:-----------|------------:|:------------:|
-|左寄せ      | 右寄せ      | 中央寄せ      |
-| column     | column      | column       |
-| <em>column</em>   | <em>column</em>    | <strong>column</strong>   |
-| <strong>column</strong> | <code>column</code>    | column       |
-<br></p>
+<p><strong><u>表示結果</u></strong></p>
+<table><thead><tr><th align="left">header</th><th align="right">ヘッダー</th><th align="center">見出し</th></tr></thead><tbody>
+<tr><td align="left">左寄せ</td><td align="right">右寄せ</td><td align="center">中央寄せ</td></tr>
+<tr><td align="left">column</td><td align="right">column</td><td align="center">column</td></tr>
+<tr><td align="left"><em>column</em></td><td align="right"><em>column</em></td><td align="center"><strong>column</strong></td></tr>
+<tr><td align="left"><strong>column</strong></td><td align="right"><code>column</code></td><td align="center">column</td></tr>
+<tr><td align="left"><br></td><td align="right"></td><td align="center"></td></tr>
+</tbody></table>
 <h2 id="文字装飾"><a class="header" href="#文字装飾">文字装飾</a></h2>
 <p>多いのでテーブルで表す。
 最後のカスタムについてはHTMLのタグ。中央寄せなどもできる。
