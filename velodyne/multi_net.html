@@ -185,6 +185,23 @@
 
 &lt;/launch&gt;
 </code></pre>
+<p>~/.bashrcにマスター側のIPアドレスと自分のIPを設定する
+例）マスター側のIP 192.168.11.100で，サブの側が192.168.11.101の場合</p>
+<pre><code>export ROS_MASTER_URI=http://192.168.11.100:11311
+export ROS_IP=192.168.11.101
+</code></pre>
+<p>書き終わったら，以下を実行</p>
+<pre><code>source ~/.bashrc
+</code></pre>
+<p>次に，/etc/hostsを追加する．<br />
+多分ある程度書いてあるので，以下の文を追加する<br />
+例）マスター側のホスト名がHostNameで，IPが192.168.11.100の場合</p>
+<pre><code>192.168.11.100 HostName
+</code></pre>
+<p>サブ同士で通信するときも，それぞれホスト名を書き加える<br />
+例）サブ側のホスト名がHostNameSubで，IPが192.168.11.101の場合</p>
+<pre><code>192.168.11.101 HostNameSub
+</code></pre>
 
                     </main>
 
