@@ -1009,6 +1009,7 @@ VSCodeで動作確認。</p>
 <li><a href="MarkDown/markdown_syntax.html#%E6%B0%B4%E5%B9%B3%E7%B7%9A">水平線</a></li>
 <li><a href="MarkDown/markdown_syntax.html#%E3%82%A8%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%97">エスケープ</a>(Markdownの無効化)</li>
 <li><a href="MarkDown/markdown_syntax.html#%E5%BC%95%E7%94%A8">引用</a></li>
+<li><a href="MarkDown/markdown_syntax.html#%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%82%A2%E3%82%A6%E3%83%88">コメントアウト</a></li>
 </ul>
 <!--- 新しくコードを加える際のテンプレ
 
@@ -1326,11 +1327,40 @@ ___
 <p>引用文２</p>
 </blockquote>
 <br>
+<!---->
+<h2 id="コメントアウト"><a class="header" href="#コメントアウト">コメントアウト</a></h2>
+<p>表示はされないが残しておきたいときに。HTML表記が一番楽。
+<br></p>
+<p><strong><u>コード</u></strong></p>
+<pre><code>&lt;!-- コメントアウトしたい内容 複数行も可 --&gt;
+
+[](
+単行コメントアウト
+)
+
+[](
+複数行のときは\
+改行直前に\
+バックスラッシュ\
+)
+</code></pre>
+<br>
+<p><strong><u>表示結果</u></strong><br />
+表示されない。Visual Code上ではHTML表記で書いた場合は緑文字になる。</p>
+<!-- コメントアウトしたい内容 複数行も可 -->
+<p><a href="MarkDown/%E5%8D%98%E8%A1%8C%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%82%A2%E3%82%A6%E3%83%88"></a></p>
+<p>[](
+複数行のときは<br />
+改行直前に<br />
+バックスラッシュ<br />
+)</p>
+<br>
 <h2 id="参考-7"><a class="header" href="#参考-7">参考</a></h2>
 <p><a href="https://qiita.com/tbpgr/items/989c6badefff69377da7">Markdown記法 サンプル集</a> <br>
 <a href="https://qiita.com/kamorits/items/6f342da395ad57468ae3">Qiita マークダウン記法 一覧表・チートシート</a><br />
 <a href="https://atmarksharp.v01.jp/posts/markdown-cheat-sheet.html">Markdownチートシート</a><br />
-<a href="https://qiita.com/Nukioman/items/01cd7ff819bc2e69b652#-%E3%82%A8%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%97">Markdown 記法 サンプル 一覧</a></p>
+<a href="https://qiita.com/Nukioman/items/01cd7ff819bc2e69b652#-%E3%82%A8%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%97">Markdown 記法 サンプル 一覧</a><br />
+<a href="https://qiita.com/yu0819ki/items/e1e1d20cedc68706ba23">Markdown記法でコメントアウトする</a></p>
 <h1 id="鉛蓄電池充電方法"><a class="header" href="#鉛蓄電池充電方法">鉛蓄電池充電方法</a></h1>
 <p>ここでは研究室で使用している鉛蓄電池の充電方法について説明する。</p>
 <h2 id="注意事項"><a class="header" href="#注意事項">注意事項</a></h2>
