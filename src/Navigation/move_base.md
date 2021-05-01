@@ -48,16 +48,16 @@ move_baseは複数のパラメータファイルを実行時に読み込む必�
 <launch>
     <!-- move_base -->
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
-      <rosparam file="$(find {ymalファイルのあるパッケージ名})/config/move_base.yaml" command="load" />
+          <rosparam file="$(find {ymalファイルのあるパッケージ名})/config/move_base.yaml" command="load" />
 	  <rosparam file="$(find {ymalファイルのあるパッケージ名})/config/costmap_common.yaml" command="load" ns="global_costmap" />
 	  <rosparam file="$(find {ymalファイルのあるパッケージ名})/config/costmap_common.yaml" command="load" ns="local_costmap" />
 	  <rosparam file="$(find {ymalファイルのあるパッケージ名})/config/costmap_local.yaml" command="load" />
 	  <rosparam file="$(find {ymalファイルのあるパッケージ名})/config/costmap_global.yaml" command="load" />
 	  <rosparam file="$(find {ymalファイルのあるパッケージ名})/config/planner.yaml" command="load" />
 
-      <!-- move_baseのパラメーラはここでも変更できる
+         <!-- move_baseのパラメーラはここでも変更できる
 	  <remap from="/cmd_vel" to="/ypspur_ros/cmd_vel" />
-      -->
+         -->
     </node>
  
 </launch>
