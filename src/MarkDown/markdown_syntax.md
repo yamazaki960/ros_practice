@@ -16,6 +16,7 @@
 - [水平線](#水平線)
 - [エスケープ](#エスケープ)(Markdownの無効化)
 - [引用](#引用)
+- [コメントアウト](#コメントアウト)
 
 <!--- 新しくコードを加える際のテンプレ
 
@@ -387,9 +388,48 @@ ___
 > 引用文２
 
 <br>
+<!---->
+
+## コメントアウト  
+表示はされないが残しておきたいときに。HTML表記が一番楽。
+<br>
+
+**<u>コード</u>**
+```
+<!-- コメントアウトしたい内容 複数行も可 -->
+
+[](
+単行コメントアウト
+)
+
+[](
+複数行のときは\
+改行直前に\
+バックスラッシュ\
+)
+```
+<br>
+
+**<u>表示結果</u>**   
+表示されない。Visual Code上ではHTML表記で書いた場合は緑文字になる。
+
+<!-- コメントアウトしたい内容 複数行も可 -->
+
+[](
+単行コメントアウト
+)
+
+[](
+複数行のときは\
+改行直前に\
+バックスラッシュ\
+)
+
+<br>
 
 ## 参考
 [Markdown記法 サンプル集](https://qiita.com/tbpgr/items/989c6badefff69377da7) <br>
 [Qiita マークダウン記法 一覧表・チートシート](https://qiita.com/kamorits/items/6f342da395ad57468ae3)  
 [Markdownチートシート](https://atmarksharp.v01.jp/posts/markdown-cheat-sheet.html)  
-[Markdown 記法 サンプル 一覧](https://qiita.com/Nukioman/items/01cd7ff819bc2e69b652#-%E3%82%A8%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%97)
+[Markdown 記法 サンプル 一覧](https://qiita.com/Nukioman/items/01cd7ff819bc2e69b652#-%E3%82%A8%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%97)  
+[Markdown記法でコメントアウトする](https://qiita.com/yu0819ki/items/e1e1d20cedc68706ba23)
