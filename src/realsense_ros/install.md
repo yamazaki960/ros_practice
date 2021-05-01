@@ -10,8 +10,9 @@
 
 | PC | RAM | OS | ROS version |
 |:-:|:-:|:-:|:-:|
-| mouse-pc（山内さんのパソコン） | 32 GB | Ubuntu 16.04 | Kinetic |
+| mouse-pc（古いパソコン） | 32 GB | Ubuntu 16.04 | Kinetic |
 | ONE-NETBOOK OneMix3Pro (小さいやつ) | 8 GB | Ubuntu 18.04 | Melodic |
+| GALLERIA GCR2070RGF-QC | 16 GB | Ubuntu 18.04 | Melodic |
 <br>
 
 ## 1. Intel RealSense SDKのインストール
