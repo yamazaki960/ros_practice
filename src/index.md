@@ -36,7 +36,7 @@ git clone https://github.com/tomson784/ros_practice.git
     │  └─workflows
     │          main.yml
     └─src
-        ├─ README.md
+        ├─ index.md
         ├─ SUMMARY.md
         ├─    :
         ├─    :
@@ -45,11 +45,11 @@ git clone https://github.com/tomson784/ros_practice.git
 
 `src/SUMMARY.md`の内容は以下のような内容になっています．
 ```markdown
-- [このサイトについて](./README.md)
-- [chapter-1](./chapter-1/README.md)
+- [このサイトについて](./index.md)
+- [chapter-1](./chapter-1/index.md)
     - [section-1-1](./chapter-1/section-1-1.md)
     - [section-1-2](./chapter-1/section-1-2.md)
-- [chapter-2](./chapter-2/README.md)
+- [chapter-2](./chapter-2/index.md)
     - [section-2-1](./chapter-2/section-2-2.md)
     - [section-2-2](./chapter-2/section-2-2.md)
 ```
