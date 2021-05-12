@@ -13,4 +13,9 @@ move_base実行時に必要なパラメータについてのメモ。(move_base�
 ## 作成方法
 以下の内容のyamlファイルを作成する。
 
+<u>costmap_common.yaml</u>
+```
+
+```
+
 
