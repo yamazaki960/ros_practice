@@ -4,3 +4,7 @@ language = "ja"
 multilingual = false
 src = "src"
 title = "ROS学習用資料"
+
+[output.html.fold]
+enable = true
+level = 0
