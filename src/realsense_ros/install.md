@@ -24,17 +24,9 @@
 $ sudo apt-key adv --keyserver keys.gnupg.net --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
 ```
 ② リポジトリにIntelサーバーを追加  
-Ubuntu 16 LTS:
+Ubuntu 16,18,20 LTS:
 ```
-$ sudo add-apt-repository "deb https://librealsense.intel.com/Debian/apt-repo xenial main" -u
-```
-Ubuntu 18 LTS:
-```
-$ sudo add-apt-repository "deb https://librealsense.intel.com/Debian/apt-repo bionic main" -u
-```
-Ubuntu 20 LTS:
-```
-$ sudo add-apt-repository "deb https://librealsense.intel.com/Debian/apt-repo focal main" -u
+$ sudo add-apt-repository "deb https://librealsense.intel.com/Debian/apt-repo $(lsb_release -cs) main" -u
 ```
 
 ③ ライブラリのインストール
