@@ -14,12 +14,7 @@ move_base実行時に必要なパラメータについてのメモ。(move_base�
 以下の内容のyamlファイルを作成する。  
 
 <u>costmap_common.yaml</u>
-<<<<<<< HEAD
-```
 
-```
-
-=======
 ```py
 obstacle_range: 2.5   
 raytrace_range: 3.0   
@@ -224,5 +219,4 @@ oscillation_distance: 0.5
 <br>
 
 ## 参考
->>>>>>> b47414496b4fbc604fab4aabf1c93a2793f8e230
 
