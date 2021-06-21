@@ -27,7 +27,7 @@
 - [xArm](./xarm/index.md)
     - [xArm7の使用手順](./xarm/setup.md)
 - [SLAM](./slam/index.md)
-  [turtlebot3](./turtlebot3/index.md)
+- [turtlebot3](./turtlebot3/index.md)
 - [Raspberry Pi](./raspberrypi/index.md)
     - [Raspberry Pi OSのインストール](./raspberrypi/os_install.md)
     - [ROS Melodicのインストール](./raspberrypi/ros_install.md)

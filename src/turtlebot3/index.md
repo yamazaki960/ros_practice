@@ -1,10 +1,10 @@
-#　gazeboでの強化学習
+# gazeboでの強化学習
 
 gazebo上でturtlebotを使って強化学習をすることができる
 
 [参考にしたコード](https://github.com/ROBOTIS-GIT/turtlebot3_machine_learning)
 
-##　実行時の環境
+## 実行時の環境
 
 Ubuntu20.04
 
