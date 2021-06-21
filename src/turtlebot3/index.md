@@ -11,8 +11,10 @@ Ubuntu20.04
 ## 実行方法
 
 1.githubからコードをクローンする
+
 `$ git clone https://github.com/ROBOTIS-GIT/turtlebot3_machine_learning`
 2.コードの修正を行う
+
 ・nodes/turtlebot3_dqn_stage_1 ~ 4
 31~33行目（tensorflowを追加する）
 `from tensorflow.keras.models import Sequential, load_model`
@@ -40,8 +42,13 @@ Ubuntu20.04
 `from src.turtlebot3_dqn.respawnGoal import Respawn`
 
 3.実行
+
 gazebo上に実行環境を表示
+
 `$ export TURTLEBOT3_MODEL=burger`
+
 `$ roslaunch turtlebot_gazebo turtlebot3_stage_1.lauch`
+
 新しいウィンドウのターミナルを開いて
+
 `$ roslaunch turtlebot3_dqn turtlebot3_dqn_stage_1.launch`
