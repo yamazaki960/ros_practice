@@ -32,7 +32,8 @@ nodes/turtlebot3_dqn_stage_3
 
 
 nodes/turtlebot3_dqn_stage_4
- 後に記述
+ 151行目
+ `state_size = 364`
 
 
 src/enviroment_stage_1~4
