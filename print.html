@@ -1303,26 +1303,26 @@ $ rosdep check --from-paths . --ignore-src --rosdistro kinetic
 <p>1.githubからコードをクローンする
 <code>$ git clone https://github.com/ROBOTIS-GIT/turtlebot3_machine_learning</code>
 2.コードの修正を行う
-nodes/turtlebot3_dqn_stage_1~4
+・nodes/turtlebot3_dqn_stage_1 ~ 4
 31~33行目（tensorflowを追加する）
 <code>from tensorflow.keras.models import Sequential, load_model</code>
 <code>from tensorflow.keras.optimizers import RMSprop</code>
 <code>from tensorflow.keras.layers import Dense, Dropout, Activation</code></p>
-<p>nodes/turtlebot3_dqn_stage_1
+<p>・nodes/turtlebot3_dqn_stage_1
 151行目
 <code>state_size = 362</code></p>
-<p>nodes/turtlebot3_dqn_stage_2
+<p>・nodes/turtlebot3_dqn_stage_2
 151行目
 <code>state_size = 364</code></p>
-<p>nodes/turtlebot3_dqn_stage_3
+<p>・nodes/turtlebot3_dqn_stage_3
 後に記述</p>
-<p>nodes/turtlebot3_dqn_stage_4
+<p>・nodes/turtlebot3_dqn_stage_4
 151行目
 <code>state_size = 364</code></p>
-<p>src/enviroment_stage_1~4
+<p>・src/enviroment_stage_1 ~ 4
 29行目（src.turtlebot3_dqnを追加）
-<code>from src.turtlebot3_dqn.respawnGoal import Respawn</code>
-3.実行
+<code>from src.turtlebot3_dqn.respawnGoal import Respawn</code></p>
+<p>3.実行
 gazebo上に実行環境を表示
 <code>$ export TURTLEBOT3_MODEL=burger</code>
 <code>$ roslaunch turtlebot_gazebo turtlebot3_stage_1.lauch</code>
