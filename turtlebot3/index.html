@@ -169,10 +169,10 @@
 <h2 id="実行時の環境"><a class="header" href="#実行時の環境">実行時の環境</a></h2>
 <p>Ubuntu20.04</p>
 <h2 id="実行方法"><a class="header" href="#実行方法">実行方法</a></h2>
-<p>1.githubからコードをクローンする
-<code>$ git clone https://github.com/ROBOTIS-GIT/turtlebot3_machine_learning</code>
-2.コードの修正を行う
-・nodes/turtlebot3_dqn_stage_1 ~ 4
+<p>1.githubからコードをクローンする</p>
+<p><code>$ git clone https://github.com/ROBOTIS-GIT/turtlebot3_machine_learning</code>
+2.コードの修正を行う</p>
+<p>・nodes/turtlebot3_dqn_stage_1 ~ 4
 31~33行目（tensorflowを追加する）
 <code>from tensorflow.keras.models import Sequential, load_model</code>
 <code>from tensorflow.keras.optimizers import RMSprop</code>
@@ -191,12 +191,12 @@
 <p>・src/enviroment_stage_1 ~ 4
 29行目（src.turtlebot3_dqnを追加）
 <code>from src.turtlebot3_dqn.respawnGoal import Respawn</code></p>
-<p>3.実行
-gazebo上に実行環境を表示
-<code>$ export TURTLEBOT3_MODEL=burger</code>
-<code>$ roslaunch turtlebot_gazebo turtlebot3_stage_1.lauch</code>
-新しいウィンドウのターミナルを開いて
-<code>$ roslaunch turtlebot3_dqn turtlebot3_dqn_stage_1.launch</code></p>
+<p>3.実行</p>
+<p>gazebo上に実行環境を表示</p>
+<p><code>$ export TURTLEBOT3_MODEL=burger</code></p>
+<p><code>$ roslaunch turtlebot_gazebo turtlebot3_stage_1.lauch</code></p>
+<p>新しいウィンドウのターミナルを開いて</p>
+<p><code>$ roslaunch turtlebot3_dqn turtlebot3_dqn_stage_1.launch</code></p>
 
                     </main>
 
