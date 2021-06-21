@@ -1301,27 +1301,27 @@ $ rosdep check --from-paths . --ignore-src --rosdistro kinetic
 <p>Ubuntu20.04</p>
 <h2 id="実行方法"><a class="header" href="#実行方法">実行方法</a></h2>
 <p>1.githubからコードをクローンする</p>
-<p><code>$ git clone https://github.com/ROBOTIS-GIT/turtlebot3_machine_learning</code>
-2.コードの修正を行う</p>
-<p>・nodes/turtlebot3_dqn_stage_1 ~ 4
-31~33行目（tensorflowを追加する）
-<code>from tensorflow.keras.models import Sequential, load_model</code>
-<code>from tensorflow.keras.optimizers import RMSprop</code>
-<code>from tensorflow.keras.layers import Dense, Dropout, Activation</code></p>
-<p>・nodes/turtlebot3_dqn_stage_1
-151行目
-<code>state_size = 362</code></p>
-<p>・nodes/turtlebot3_dqn_stage_2
-151行目
-<code>state_size = 364</code></p>
-<p>・nodes/turtlebot3_dqn_stage_3
-後に記述</p>
-<p>・nodes/turtlebot3_dqn_stage_4
-151行目
-<code>state_size = 364</code></p>
-<p>・src/enviroment_stage_1 ~ 4
-29行目（src.turtlebot3_dqnを追加）
-<code>from src.turtlebot3_dqn.respawnGoal import Respawn</code></p>
+<p><code>$ git clone https://github.com/ROBOTIS-GIT/turtlebot3_machine_learning</code></p>
+<p>2.コードの修正を行う</p>
+<p>・nodes/turtlebot3_dqn_stage_1 ~ 4</p>
+<p>31~33行目（tensorflowを追加する）</p>
+<p><code>from tensorflow.keras.models import Sequential, load_model</code></p>
+<p><code>from tensorflow.keras.optimizers import RMSprop</code></p>
+<p><code>from tensorflow.keras.layers import Dense, Dropout, Activation</code></p>
+<p>・nodes/turtlebot3_dqn_stage_1</p>
+<p>151行目</p>
+<p><code>state_size = 362</code></p>
+<p>・nodes/turtlebot3_dqn_stage_2</p>
+<p>151行目</p>
+<p><code>state_size = 364</code></p>
+<p>・nodes/turtlebot3_dqn_stage_3</p>
+<p>後に記述</p>
+<p>・nodes/turtlebot3_dqn_stage_4</p>
+<p>151行目</p>
+<p><code>state_size = 364</code></p>
+<p>・src/enviroment_stage_1 ~ 4</p>
+<p>29行目（src.turtlebot3_dqnを追加）</p>
+<p><code>from src.turtlebot3_dqn.respawnGoal import Respawn</code></p>
 <p>3.実行</p>
 <p>gazebo上に実行環境を表示</p>
 <p><code>$ export TURTLEBOT3_MODEL=burger</code></p>
