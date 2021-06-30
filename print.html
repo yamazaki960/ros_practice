@@ -291,7 +291,10 @@ origin  https://github.com/tomson784/ros_practice.git (push)
 </ul>
 </li>
 <li><a href="./slam/index.html">SLAM</a></li>
-<li><a href="./turtlebot3/index.html">turtlebot3</a></li>
+<li><a href="./turtlebot3/index.html">turtlebot3</a>
+<a href="./open3d/index.html">Open3d</a>
+<a href="./open3d/reconstructionsystem_sample.html">Open3dのreconstructionsystemのサンプルについて</a>
+<a href="./open3d/reconstructionsystem.html">reconstructionsystemを自分で取得したデータで実行</a></li>
 <li><a href="./raspberrypi/index.html">Raspberry Pi</a>
 <ul>
 <li><a href="./raspberrypi/os_install.html">Raspberry Pi OSのインストール</a></li>
@@ -1300,9 +1303,13 @@ $ rosdep check --from-paths . --ignore-src --rosdistro kinetic
 <h2 id="実行時の環境"><a class="header" href="#実行時の環境">実行時の環境</a></h2>
 <p>Ubuntu20.04</p>
 <h2 id="実行方法"><a class="header" href="#実行方法">実行方法</a></h2>
-<p>1.githubからコードをクローンする</p>
+<ol>
+<li>githubからコードをクローンする</li>
+</ol>
 <p><code>$ git clone https://github.com/ROBOTIS-GIT/turtlebot3_machine_learning</code></p>
-<p>2.コードの修正を行う</p>
+<ol start="2">
+<li>コードの修正を行う</li>
+</ol>
 <p>・nodes/turtlebot3_dqn_stage_1 ~ 4</p>
 <p>31~33行目（tensorflowを追加する）</p>
 <p><code>from tensorflow.keras.models import Sequential, load_model</code></p>
@@ -1322,7 +1329,9 @@ $ rosdep check --from-paths . --ignore-src --rosdistro kinetic
 <p>・src/enviroment_stage_1 ~ 4</p>
 <p>29行目（src.turtlebot3_dqnを追加）</p>
 <p><code>from src.turtlebot3_dqn.respawnGoal import Respawn</code></p>
-<p>3.実行</p>
+<ol start="3">
+<li>実行</li>
+</ol>
 <p>gazebo上に実行環境を表示</p>
 <p><code>$ export TURTLEBOT3_MODEL=burger</code></p>
 <p><code>$ roslaunch turtlebot_gazebo turtlebot3_stage_1.lauch</code></p>
