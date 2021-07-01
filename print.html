@@ -1361,18 +1361,17 @@ $ rosdep check --from-paths . --ignore-src --rosdistro kinetic
 </li>
 <li>
 <p>画像を入れておくファイルの作成</p>
-<p>先程ダウンロードした画像016を、ソースコード内の<code>examples/python/reconstruction_system/config</code>の中に新しいファイル（例：dataset）を作成し、その中に移動させる。</p>
+<p>先程ダウンロードした画像016のファイルを、ソースコード内の<code>examples/python/reconstruction_system/config</code>の中に移動させる。</p>
 </li>
 <li>
 <p>コードのpathを書き直す</p>
 <p>ソースコード内の<code>examples/python/reconstruction_system/config</code>の中にあるturorial.jsonを開く</p>
-<p>3行目のpath_datasetがクローンしたままの状態だと、<code>dataset/tutorial/</code>となっているので正しく書き直す</p>
-<p>2でファイルの名前を例と同じようにした場合、下記のように書き換えると良い。（違う名前にした場合は、datasetの部分をその名前に変える）</p>
+<p>3行目のpath_datasetがクローンしたままの状態だと、<code>dataset/tutorial/</code>となっているので下記のおように書き直す</p>
 </li>
 </ol>
 <pre><code>     {
          &quot;name&quot;: &quot;Open3D reconstruction tutorial http://open3d.org/docs/release/tutorial/reconstruction_system/system_overview.html&quot;,
-         &quot;path_dataset&quot;: &quot;config/dataset/016/&quot;,
+         &quot;path_dataset&quot;: &quot;config/016/&quot;,
          &quot;path_intrinsic&quot;: &quot;&quot;,
          &quot;max_depth&quot;: 3.0,
          &quot;voxel_size&quot;: 0.05,
@@ -1393,9 +1392,14 @@ $ rosdep check --from-paths . --ignore-src --rosdistro kinetic
 </li>
 </ol>
 <h1 id="自分で取得したデータでreconstructionsystemの実行"><a class="header" href="#自分で取得したデータでreconstructionsystemの実行">自分で取得したデータでreconstructionsystemの実行</a></h1>
+<h2 id="実行環境"><a class="header" href="#実行環境">実行環境</a></h2>
+<p>Ubuntu20.04(noetic)</p>
 <h2 id="注意"><a class="header" href="#注意">注意</a></h2>
-<p>この章を実行するには、すでにrealsenseを実装し使えるようになっている必要があります。</p>
+<p>この章を実行するには、realsense、anacondaを実装し、opencv,pyreslsense2のインストールをしておく必要があります。</p>
 <p><a href="https://github.com/tomson784/ros_practice/blob/main/src/realsense_ros/index.md">realsenseの実装方法</a></p>
+<p><a href="https://www.pc-koubou.jp/magazine/38846">anacondaの実装方法</a></p>
+<p>opencvのインストール　<code>$ pip install opencv-python</code></p>
+<p>pyrealsense2のインストール　<code>$ pip install pyrealsense2</code></p>
 <h2 id="実行方法-1"><a class="header" href="#実行方法-1">実行方法</a></h2>
 <ol>
 <li>
@@ -1403,7 +1407,7 @@ $ rosdep check --from-paths . --ignore-src --rosdistro kinetic
 <p>サンプルコードを実行したときと同じように<code>examples/python/reconstruction_system/config</code>の中に新しいファイルを作成する。</p>
 </li>
 <li>
-<p>コードのpathを書き直す</p>
+<p>コードを書き直す</p>
 <p>ソースコード内の<code>examples/python/reconstruction_system/config</code>の中にあるrealsense.jsonを開く</p>
 <p>3行目のpath_datasetはサンプルコードと同じように<code>config/{画像を保存するファイル名}</code>と書き直す</p>
 <p>4行目のpath_intrinsicは<code>config/realsense/camera_intrinsic.json</code>と書き直す</p>
@@ -1411,7 +1415,7 @@ $ rosdep check --from-paths . --ignore-src --rosdistro kinetic
 </ol>
 <pre><code>   {
        &quot;name&quot;: &quot;Realsense bag file&quot;,
-       &quot;path_dataset&quot;: &quot;dataset/{画像を保存するファイル名}/&quot;,
+       &quot;path_dataset&quot;: &quot;config/{画像を保存するファイル名}/&quot;,
        &quot;path_intrinsic&quot;: &quot;config/realsense/camera_intrinsic.json&quot;,
        &quot;max_depth&quot;: 3.0,
        &quot;voxel_size&quot;: 0.05,
@@ -1424,6 +1428,8 @@ $ rosdep check --from-paths . --ignore-src --rosdistro kinetic
        &quot;python_multi_threading&quot;: true
    }
 </code></pre>
+<p>次に、<code>examples/python/reconstruction_system/sensor</code>の中にあるrealsense_recorder.pyを開く</p>
+<p>71行目のdefaultを<code>../dataset/{画像を保存するファイル名}</code>に書き換える</p>
 <ol start="3">
 <li>
 <p>realsenseで画像の取得　</p>

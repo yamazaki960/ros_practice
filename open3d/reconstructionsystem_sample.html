@@ -174,18 +174,17 @@
 </li>
 <li>
 <p>画像を入れておくファイルの作成</p>
-<p>先程ダウンロードした画像016を、ソースコード内の<code>examples/python/reconstruction_system/config</code>の中に新しいファイル（例：dataset）を作成し、その中に移動させる。</p>
+<p>先程ダウンロードした画像016のファイルを、ソースコード内の<code>examples/python/reconstruction_system/config</code>の中に移動させる。</p>
 </li>
 <li>
 <p>コードのpathを書き直す</p>
 <p>ソースコード内の<code>examples/python/reconstruction_system/config</code>の中にあるturorial.jsonを開く</p>
-<p>3行目のpath_datasetがクローンしたままの状態だと、<code>dataset/tutorial/</code>となっているので正しく書き直す</p>
-<p>2でファイルの名前を例と同じようにした場合、下記のように書き換えると良い。（違う名前にした場合は、datasetの部分をその名前に変える）</p>
+<p>3行目のpath_datasetがクローンしたままの状態だと、<code>dataset/tutorial/</code>となっているので下記のおように書き直す</p>
 </li>
 </ol>
 <pre><code>     {
          &quot;name&quot;: &quot;Open3D reconstruction tutorial http://open3d.org/docs/release/tutorial/reconstruction_system/system_overview.html&quot;,
-         &quot;path_dataset&quot;: &quot;config/dataset/016/&quot;,
+         &quot;path_dataset&quot;: &quot;config/016/&quot;,
          &quot;path_intrinsic&quot;: &quot;&quot;,
          &quot;max_depth&quot;: 3.0,
          &quot;voxel_size&quot;: 0.05,
