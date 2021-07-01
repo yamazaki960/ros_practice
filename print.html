@@ -1404,7 +1404,7 @@ $ rosdep check --from-paths . --ignore-src --rosdistro kinetic
 <ol>
 <li>
 <p>取得した画像を保存するファイルを作成</p>
-<p>サンプルコードを実行したときと同じように<code>examples/python/reconstruction_system/config</code>の中に新しいファイルを作成する。</p>
+<p><code>examples/python/reconstruction_system/config</code>の中に画像を保存する新しいファイルを作成する。</p>
 </li>
 <li>
 <p>コードを書き直す</p>
@@ -1429,7 +1429,7 @@ $ rosdep check --from-paths . --ignore-src --rosdistro kinetic
    }
 </code></pre>
 <p>次に、<code>examples/python/reconstruction_system/sensor</code>の中にあるrealsense_recorder.pyを開く</p>
-<p>71行目のdefaultを<code>../dataset/{画像を保存するファイル名}</code>に書き換える</p>
+<p>71行目のdefaultを<code>../config/{画像を保存するファイル名}</code>に書き換える</p>
 <ol start="3">
 <li>
 <p>realsenseで画像の取得　</p>
