@@ -166,8 +166,8 @@
                         <h1 id="oveleafのセットアップ"><a class="header" href="#oveleafのセットアップ">Oveleafのセットアップ</a></h1>
 <p>論文をTeX文書で書きたかったので、TeX文章用オンラインエディターである「Overleaf」のセットアップを行いました．<br />
 このページではSICE SI2021の<a href="https://sice-si.org/conf/si2021/paper_instructions.html">予稿論文</a>をOverleafで編集できるようにするまでの流れを示します。<br />
-「Wordで良くね?」って思った方は下記に示す利点を読んで考え直してください。（書いておいてなんですが僕もまだよくわかってません）<br />
-[TeX文書の利点]<br />
+「Wordで良くね?」って思った方は下記に示す利点を読んで考え直してください。（書いておいてなんですが僕もまだよくわかってません）</p>
+<p>TeX文書の利点<br />
 ・数式を綺麗に書ける<br />
 ・参照文献のリスト作成が用意<br />
 ・文章体裁を整えやすい</p>
@@ -201,15 +201,13 @@ Googleアカウントを利用するのが一番楽だと思います。</p>
 </ul>
 </li>
 </ol>
-<p><code>latexmkrc</code>
-$latex = 'platex';
+<pre><code class="language-latexmkrc">$latex = 'platex';
 $bibtex = 'pbibtex';
 $dvipdf = 'dvipdfmx %O -o %D %S';
 $makeindex = 'mendex -U %O -o %D %S';
-$pdf_mode = 3;</p>
-<pre><code>
-最後に画面中央のRecompileを押して右側にエラー無しでフォーマットがプレビューできたら完了です。
+$pdf_mode = 3;
 </code></pre>
+<p>最後に画面中央のRecompileを押して右側にフォーマットがプレビューできたら完了です。</p>
 
                     </main>
 
