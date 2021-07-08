@@ -176,35 +176,29 @@
 <li><a href="https://qiita.com/kazutaka708/items/bd474bddf50cb4405c1f">OverLeafで日本語論文(IPSJ向け)を作成する</a></li>
 </ul>
 <h4 id="手順"><a class="header" href="#手順">手順</a></h4>
-<ul>
-<li>
 <ol>
-<li>Overleafのアカウント作成
+<li>
+<p>Overleafのアカウント作成
 <a href="https://github.com/tomson784/ros_tutorial">このサイト</a>にアクセスしてアカウントを登録してください。
-Googleアカウントを利用するのが一番楽だと思います。</li>
-</ol>
+Googleアカウントを利用するのが一番楽だと思います。</p>
 </li>
 <li>
-<ol start="2">
-<li>プロジェクト作成
+<p>プロジェクト作成
 -New ProjectのBlank Projectを選択してプロジェクト名を入力。(今回は「SI2021」とする)
 -SI2021というプロジェクトのフォルダとmain.texができるが、今回はmain.texを削除。
 -[予稿論文]のLaTex形式による原稿サンプルをダウンロードする。
 -zipを解答して中の2つのファイルを任意のフォルダに設置。
--プロジェクトを開いた状態で画面左上にあるUploadを押して2つのファイルをそれぞれアップロードする。</li>
-</ol>
+-プロジェクトを開いた状態で画面左上にあるUploadを押して2つのファイルをそれぞれアップロードする。</p>
 </li>
 <li>
-<ol start="3">
-<li>日本語対応設定
-日本語の含んでいるTeX文書をコンパイルできるようにするために設定を行います。</li>
-</ol>
+<p>日本語対応設定
+日本語の含んでいるTeX文書をコンパイルできるようにするために設定を行います。</p>
 <ul>
 <li>MenuからCompilerの設定をデフォルトの「pdfLaTex」から「LateX」に変更する。</li>
 <li>おなじプロジェクト内にNew Fileでlatexmkrcというファイル(拡張子なし)を作成。</li>
 </ul>
 </li>
-</ul>
+</ol>
 <pre><code>$latex = 'platex';
 $bibtex = 'pbibtex';
 $dvipdf = 'dvipdfmx %O -o %D %S';
