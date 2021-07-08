@@ -3,7 +3,8 @@
 論文をTeX文書で書きたかったので、TeX文章用オンラインエディターである「Overleaf」のセットアップを行いました．  
 このページではSICE SI2021の[予稿論文](https://sice-si.org/conf/si2021/paper_instructions.html)をOverleafで編集できるようにするまでの流れを示します。  
 「Wordで良くね?」って思った方は下記に示す利点を読んで考え直してください。（書いておいてなんですが僕もまだよくわかってません）  
-[TeX文書の利点]  
+
+TeX文書の利点   
     ・数式を綺麗に書ける  
     ・参照文献のリスト作成が用意  
     ・文章体裁を整えやすい  
@@ -29,13 +30,12 @@
     - MenuからCompilerの設定をデフォルトの「pdfLaTex」から「LateX」に変更する。
     - おなじプロジェクト内にNew Fileでlatexmkrcというファイル(拡張子なし)を作成。
 
- ```latexmkrc```
+ ```latexmkrc
  $latex = 'platex';
  $bibtex = 'pbibtex';
  $dvipdf = 'dvipdfmx %O -o %D %S';
  $makeindex = 'mendex -U %O -o %D %S';
  $pdf_mode = 3;
-
  ```
 
-最後に画面中央のRecompileを押して右側にエラー無しでフォーマットがプレビューできたら完了です。
+最後に画面中央のRecompileを押して右側にフォーマットがプレビューできたら完了です。
