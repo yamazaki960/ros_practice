@@ -1591,8 +1591,8 @@ Dockerの概要，メリット，初歩的な使用方法について解説し�
 このページではSICE SI2021の<a href="https://sice-si.org/conf/si2021/paper_instructions.html">予稿論文</a>をOverleafで編集できるようにするまでの流れを示します。<br />
 「Wordで良くね?」って思った方は下記に示す利点を読んで考え直してください。（書いておいてなんですが僕もまだよくわかってません）<br />
 [TeX文書の利点]<br />
-・数式を綺麗に書ける
-・参照文献のリスト作成が用意
+・数式を綺麗に書ける<br />
+・参照文献のリスト作成が用意<br />
 ・文章体裁を整えやすい</p>
 <p>ちなみに参考にしたサイトはこちらです↓</p>
 <ul>
@@ -1602,7 +1602,7 @@ Dockerの概要，メリット，初歩的な使用方法について解説し�
 <ol>
 <li>
 <p>Overleafのアカウント作成<br />
-<a href="https://github.com/tomson784/ros_tutorial">このサイト</a>にアクセスしてアカウントを登録してください。
+<a href="https://github.com/tomson784/ros_tutorial">このサイト</a>にアクセスしてアカウントを登録してください。<br />
 Googleアカウントを利用するのが一番楽だと思います。</p>
 </li>
 <li>
@@ -1610,7 +1610,7 @@ Googleアカウントを利用するのが一番楽だと思います。</p>
 <ul>
 <li>New ProjectのBlank Projectを選択してプロジェクト名を入力。(今回は「SI2021」とする)</li>
 <li>SI2021というプロジェクトのフォルダとmain.texができるが、今回はmain.texを削除。</li>
-<li>[予稿論文]のLaTex形式による原稿サンプルをダウンロードする。</li>
+<li><a href="https://sice-si.org/conf/si2021/paper_instructions.html">予稿論文</a>のLaTex形式による原稿サンプルをダウンロードする。</li>
 <li>zipを解凍して中の2つのファイルをPC内の任意のフォルダに設置。</li>
 <li>プロジェクトを開いた状態で画面左上にあるUploadを押して2つのファイルをそれぞれアップロードする。</li>
 </ul>
@@ -1624,14 +1624,15 @@ Googleアカウントを利用するのが一番楽だと思います。</p>
 </ul>
 </li>
 </ol>
-<pre><code>$latex = 'platex';
+<p><code>latexmkrc</code>
+$latex = 'platex';
 $bibtex = 'pbibtex';
 $dvipdf = 'dvipdfmx %O -o %D %S';
 $makeindex = 'mendex -U %O -o %D %S';
-$pdf_mode = 3;
-
+$pdf_mode = 3;</p>
+<pre><code>
+最後に画面中央のRecompileを押して右側にエラー無しでフォーマットがプレビューできたら完了です。
 </code></pre>
-<p>最後に画面中央のRecompileを押して右側にエラー無しでフォーマットがプレビューできたら完了。</p>
 <h1 id="markdown記法"><a class="header" href="#markdown記法">Markdown記法</a></h1>
 <p>mdファイルをつくる際のMarkdown記法についてまとめていく。githubで使えるもの。<br />
 MarkDown記法にない装飾等は、HTMLタグが使える。つかえないタグもある。<br />
