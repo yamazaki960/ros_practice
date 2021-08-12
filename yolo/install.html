@@ -164,64 +164,108 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="rosでdarknet_rosyoloの導入"><a class="header" href="#rosでdarknet_rosyoloの導入">ROSでdarknet_ros(YOLO)の導入</a></h1>
+<p>ROSでカメラを用いた物体検出・認識ができる。<br />
+認識された物体はラベル付けとその座標群がトピックとしてパブリッシュされる。</p>
 <h2 id="必要なこと"><a class="header" href="#必要なこと">必要なこと</a></h2>
 <ul>
 <li>darknet_rosのパッケージを入れる。</li>
-<li>YOLOでGPUを使う場合(CPUのみだと基本遅い，リアルタイムで処理したいなら使う)，NAVIDIA ドライバ，CUDA，cuDNNを入れる。</li>
-<li>カメラにRealSenseを使用する場合，別途<a href="../realsense_ros/install.html">ROS用のライブラリを入れておく</a>。</li>
+<li>YOLOでGPUを使う場合，NAVIDIA ドライバ，CUDA，cuDNNを入れる。</li>
+<li>カメラにRealSenseを使用する場合，別途<a href="../realsense_ros/install.html">ROS用のライブラリ</a>を入れる。</li>
 </ul>
 <h2 id="darknet_ros-の導入"><a class="header" href="#darknet_ros-の導入">darknet_ros の導入</a></h2>
-<p>darknet_rosのインストールは<a href="https://demura.net/robot/16542.html">このサイト</a>に従って行う。<br>
-SSH Keyについては設定しなくてもインストールできるらしい。ここは一度飛ばしてだめならやるようにする。</p>
-<p>動作が確認できたらGPU処理の設定に <code>darknet/Makefile</code> を以下に変更</p>
+<p>インストールは<a href="https://demura.net/robot/16542.html">このサイト</a>に従って以下のように行う。</p>
+<p>① SSH keyの設定<br />
+　Ubuntuとgithubで設定しないとインストールできないとある。<br />
+　設定しなくてもできるという例もあるので省略。うまくいかなかったらやる。</p>
+<p>② ライブラリのインストール&amp;ビルド<br />
+　ビルドに少し時間がかかる。</p>
+<pre><code>$ cd ~/catkin_ws/src
+$ git clone --recursive git@github.com:leggedrobotics/darknet_ros.git
+$ cd ..
+$ catkin_make -DCMAKE_BUILD_TYPE=Release
+                  or
+$ catkin build -DCMAKE_BUILD_TYPE=Release
+</code></pre>
+<p>③ 重みファイルのダウンロード<br />
+　学習済みの重みデータ。お好みで。ビルド時にいくつか自動でダウンロード済み。<br />
+　以下のファイル確認<br />
+ ~/catkin_ws/src/darknet_ros/darknet_ros/yolo_network_config/weights/how_to_download_weights.txt</p>
+<p>④ テスト</p>
+<ul>
+<li>カメラの起動<br />
+ここではRealSenseの例のみ。Webカメラも使える。</li>
+</ul>
+<pre><code>$ roslaunch realsense2_camera rs_camera.launch
+</code></pre>
+<ul>
+<li>darknet_ros起動<br />
+かなり重い。数fps程度。</li>
+</ul>
+<pre><code>$ roslaunch darknet_ros yolo_v3.launch
+</code></pre>
+<p> GPUを使う場合, <code>darknet/Makefile</code> を以下に変更。</p>
 <pre><code class="language-darknet/Makefile">GPU=1
 CUDNN=1
 OPENCV=0
 OPENMP=0
 DEBUG=0
 </code></pre>
-<p>動作させてfpsが変化していないようならGPUを使えるように設定する。</p>
-<h2 id="gpu-の設定"><a class="header" href="#gpu-の設定">GPU の設定</a></h2>
+<p> 動作させてfpsが変化していないようならGPUを使えるように設定する。次を参照。</p>
+<h2 id="gpu-の設定nvidia限定"><a class="header" href="#gpu-の設定nvidia限定">GPU の設定(Nvidia限定)</a></h2>
 <p>NVIDIA Driver, CUDA Toolkit, cuDNNのインストールが必要。<br />
-NVIDIA Driver, CUDAが入っているのか一度確認する。</p>
+CUDAは対応したバージョンを選ぶ。
+以下の手順で決めると良い。</p>
+<ol>
+<li>Driverのバージョン確認</li>
+<li>Driverのバージョンに応じて，CUDAのバージョン決定</li>
+<li>CUDAのバージョンに応じて，cuDNNのバージョン決定<br />
+Tensorflowを使うor予定の場合，さらに制限</li>
+</ol>
+<p><u><strong>Driver,CUDA,cuDNNの確認</strong></u></p>
+<ul>
+<li>NVIDIA Driverが入っているのか一度確認する。</li>
+</ul>
 <pre><code>nvidia-smi
 </code></pre>
-<p>もし入れなおしたい場合，次で削除</p>
+<p>　表示されれば入っている,CUDA のバージョンも表示されるがドライバが対応している CUDA のバージョンを表示しているに過ぎない。</p>
+<ul>
+<li>もし入れなおしたい場合，次で削除</li>
+</ul>
 <pre><code>sudo apt --purge remove &quot;cublas*&quot; &quot;cuda*&quot;
 sudo apt --purge remove &quot;nvidia*&quot;
 rm -rf /usr/local/cuda*
 sudo apt-get autoremove &amp;&amp; sudo apt-get autoclean
 </code></pre>
-<h2 id="nvidia-drivercudaのインストール中に勝手に入る"><a class="header" href="#nvidia-drivercudaのインストール中に勝手に入る">NVIDIA Driver(CUDAのインストール中に勝手に入る)</a></h2>
+<p><u><strong>NVIDIA Driverのインストール(CUDAのインストール中に勝手に入る)</strong></u></p>
 <ol>
 <li>まずGPUを確認する。</li>
 </ol>
 <pre><code>lspci | grep -i nvidia
 </code></pre>
 <ol start="2">
-<li>推奨ドライバを確認 recommendedとなっているもの</li>
+<li>推奨ドライバを確認 recommendedとなっているを入れる。</li>
 </ol>
 <pre><code>ubuntu-drivers devices
 </code></pre>
-<p>・CUDA, cuDNN</p>
+<p><u><strong>CUDAのインストール(CUDAのインストール中に勝手に入る)</strong></u></p>
 <ol>
 <li>何も表示されないことを確認</li>
 </ol>
 <pre><code>dpkg -l | grep cuda
 </code></pre>
 <ol start="2">
-<li>以下に従って行う。バージョンなどはしっかり確認すること(1)。<br />
-https://qiita.com/yukoba/items/3692f1cb677b2383c983<br />
-<span style="color: red; ">ドライバとCUDAの対応を確認(2)。</span></li>
+<li><a href="https://qiita.com/yukoba/items/3692f1cb677b2383c983">こちら</a>に従って行う。下図より<span style="color: red; ">ドライバとCUDAの対応を確認</span>。参照元<a href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html">[1]</a>(2021.8.12時点)</li>
 </ol>
-<p><img src="./cuda_version_list.png" alt="width:1000px" /></p>
-<p>次のコマンドでドライバーが正しいこととCUDAのバージョンが表示されるのを確認</p>
+<img src="./cuda_version_list.png" width="400px"/>
+<ol start="3">
+<li>次のコマンドでドライバーが正しいこととCUDAのバージョンが表示されるのを確認</li>
+</ol>
 <pre><code>navidia-smi
 nvcc -V
 </code></pre>
-<p>１行目のコマンドでCUDAのバージョンが異なる場合があるが，2行目で正しいバージョンが表
-示されれば問題ない．</p>
-<h2 id="動作確認"><a class="header" href="#動作確認">動作確認</a></h2>
+<p><u><strong>cuDNNのインストール</strong></u></p>
+<br>
+<h2 id="動作確認例"><a class="header" href="#動作確認例">動作確認例</a></h2>
 <table><thead><tr><th align="center">PC</th><th align="center">RAM</th><th align="center">OS</th><th align="center">ROS version</th><th align="center">CPU</th><th align="center">GPU</th></tr></thead><tbody>
 <tr><td align="center">mouse-pc（山内さんのパソコン）</td><td align="center">32 GB</td><td align="center">Ubuntu 16.04</td><td align="center">Kinetic</td><td align="center">CPU：Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz</td><td align="center">GPU： NVIDIA Corporation GM206M [GeForce GTX 965M]</td></tr>
 </tbody></table>
@@ -237,19 +281,18 @@ D455 　　　　10fps<br />
 <h2 id="問題と対処"><a class="header" href="#問題と対処">問題と対処</a></h2>
 <p>導入する過程で起こった問題とその対処について追記していきます。</p>
 <ol>
-<li>
-<p>CUDAv10.1を用いた場合,catkin_makeでエラーがでる。特定のLibraryへのアクセスが出来ない。</p>
-<p>→ /usr/local にcuda,cuda-10.1の他にcuda-10.2のフォルダが存在<br />
+<li>CUDAv10.1を用いた場合,catkin_makeでエラーがでる。特定のLibraryへのアクセスが出来ない。<br />
+→ <span style="color: red; ">CUDAのバージョンを変更して解決</span> 
+　　<details><summary> 確認したこと </summary>
+→ /usr/local にcuda,cuda-10.1の他にcuda-10.2のフォルダが存在<br />
 → 必要なヘッダファイルがわけられていまい，パスが通らないことが原因？<br />
-→ 同様のエラーがでている報告があるが，問題ない場合もある。Ubuntuのバージョン？ドライバ？</p>
-</li>
+→ 同様のエラーがでている報告があるが，問題ない場合もある。Ubuntuのバージョン？ドライバ？<br />
+</detail> </li>
 </ol>
-<p> → CUDAのバージョンを変更して解決</p>
 <h2 id="参考"><a class="header" href="#参考">参考</a></h2>
 <ol>
-<li>TensorFlow を使う場合，CUDA とcuDNNのバージョンの対応は決まっている。<br />
-https://qiita.com/chin_self_driving_car/items/f00af2dbd022b65c9068</li>
-<li>https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html</li>
+<li><a href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html">Nvidia GPUとCUDAの対応 (Table.3参照)</a> </li>
+<li><a href="https://www.tensorflow.org/install/source?hl=ja#gpu_support_2">TensorFlow</a> </li>
 </ol>
 
                     </main>
