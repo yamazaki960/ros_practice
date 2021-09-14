@@ -6,7 +6,7 @@ MacおよびLinuxのどちらも基本的な手順は同じ。手順は以下の
 
 - [事前準備(Macのみ)](#事前準備)
 - [Clientのインストール](#Clientのインストール)
-- [Clientの起動(Mac,Linuxで異なる)](Clientの起動)
+- [Clientの起動(Mac,Linuxで異なる)](#Clientの起動)
 
 ### 事前準備
 ***
