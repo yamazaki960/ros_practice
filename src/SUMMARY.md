@@ -39,6 +39,8 @@
     - [デュアルブート](./appendix/dualboot.md)
     - [Docker](./appendix/docker.md)
     - [Overleaf](./appendix/overleaf.md)
+    - [VPN](./VPN/README.md)    
+        - [SoftEtherによるVPN](./VPN/softether_setup.md)    
     - [MarkDownファイル](./MarkDown/index.md)
         - [MarkDownファイルの書き方について](./MarkDown/markdown_syntax.md)
     - [バッテリー充電](./battery/charge_rule.md)
