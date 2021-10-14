@@ -197,6 +197,17 @@ AccountCreate コマンド - 新しい接続設定の作成
 4. パスワード認証の設定
 ```
 VPN Client>AccountPasswordSet
+AccountPasswordSet コマンド - 接続設定のユーザー認証の種類をパスワード認証に設定
+接続設定の名前: vpn_to_lab        
+
+パスワードを入力してください。キャンセルするには Ctrl+D キーを押してください。
+
+パスワード: 
+確認入力  : 
+
+standard または radius の指定: standard
+
+コマンドは正常に終了しました。
 ```
 
 ## 参考
