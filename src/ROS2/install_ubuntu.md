@@ -77,7 +77,7 @@ $ ros2 run demo_nodes_cpp talker
 $ source /opt/ros/foxy/setup.bash
 $ ros2 run demo_nodes_py listener
 ```
-taikerとlistenerからメッセージが出ていれば成功。
+talkerとlistenerからメッセージが出ていれば成功。
 
 
 ## 参考
