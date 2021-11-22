@@ -141,12 +141,12 @@ talkerとlistenerからメッセージが出ていれば成功。
 ### 動作確認でエラーが出たとき
 ・C:\dev\ros2\Scripts\ros2-script.pyの先頭行を実際のpython実行ファイルがある場所に変更する
 　例：#!C:\Program Files\Python37\python.exe
-<br>・listenerのdemo_nodes_pyをdemo_nodes_cppに変更する
+<br><br>・listenerのdemo_nodes_pyをdemo_nodes_cppに変更する
 
 ## 参考
 
-[1]https://docs.ros.org/en/foxy/Installation/Windows-Install-Binary.html
-[2]https://gbiggs.github.io/rosjp_ros2_intro/computer_prep_windows.html
-[3]https://qiita.com/matryorobotics/items/beab21d4cf3199b1f6ff
-[4]https://webkaru.net/dev/install-visual-studio-2017/
-[5]https://www.kkaneko.jp/tools/win/dashing.html
+[1]https://docs.ros.org/en/foxy/Installation/Windows-Install-Binary.html <br>
+[2]https://gbiggs.github.io/rosjp_ros2_intro/computer_prep_windows.html <br>
+[3]https://qiita.com/matryorobotics/items/beab21d4cf3199b1f6ff <br>
+[4]https://webkaru.net/dev/install-visual-studio-2017/ <br>
+[5]https://www.kkaneko.jp/tools/win/dashing.html <br>
