@@ -85,5 +85,5 @@ $ ros2 run demo_nodes_cpp listener
 publishとsubscribeを逆にすることも可能。
 
 ## 参考
-[1]https://industrial-training-master.readthedocs.io/en/melodic/_source/session7/ROS1-ROS2-bridge.html
+[1]https://industrial-training-master.readthedocs.io/en/melodic/_source/session7/ROS1-ROS2-bridge.html <br>
 [2]https://qiita.com/kei_mo/items/c4c39bce051dd9dacc3c
