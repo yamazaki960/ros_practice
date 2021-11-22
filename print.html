@@ -1871,9 +1871,9 @@ $ ros2 run demo_nodes_py listener
 <pre><code>&gt; setx -m OPENSSL_CONF C:\OpenSSL-Win64\bin\openssl.cfg
 </code></pre>
 <h3 id="3opensslをpath環境変数に追加する"><a class="header" href="#3opensslをpath環境変数に追加する">3.OpenSSLをPATH環境変数に追加する</a></h3>
-<p>1.設定を開き、｢環境変数｣で検索して｢環境変数を編集｣を選択する。
-2.｢Path｣を選択し、編集をクリックする。
-3.新規をクリックし、C:\OpenSSL-Win64\bin\ を追加する。</p>
+<p>1.設定を開き、｢環境変数｣で検索して｢環境変数を編集｣を選択する。<br>
+2.｢Path｣を選択し、編集をクリックする。<br>
+3.新規をクリックし、C:\OpenSSL-Win64\bin\ を追加する。<br></p>
 <h2 id="visual-studio-2017のインストール"><a class="header" href="#visual-studio-2017のインストール">Visual Studio 2017のインストール</a></h2>
 <p>以下のURLからMicrosoftのアカウントにログイン後Visual Studio Community 2017 (version 15.9)をダウンロードする。</p>
 <p>https://my.visualstudio.com/Downloads?q=visual%20studio%202017&amp;wt.mc_id=o~msft~vscom~older-downloads</p>
@@ -1888,10 +1888,10 @@ $ ros2 run demo_nodes_py listener
 <pre><code>&gt; setx -m OpenCV_DIR C:\opencv
 </code></pre>
 <h3 id="3opensslをpath環境変数に追加する-1"><a class="header" href="#3opensslをpath環境変数に追加する-1">3.OpenSSLをPATH環境変数に追加する</a></h3>
-<p>1.設定を開き、｢環境変数｣で検索して｢環境変数を編集｣を選択する。
-2.｢Path｣を選択し、編集をクリックする。
-3.新規をクリックし、C:\OpenSSL-Win64\bin\ を追加する。</p>
-<p>##　依存関係のインストール</p>
+<p>1.設定を開き、｢環境変数｣で検索して｢環境変数を編集｣を選択する。<br>
+2.｢Path｣を選択し、編集をクリックする。<br>
+3.新規をクリックし、C:\OpenSSL-Win64\bin\ を追加する。<br>　</p>
+<h2 id="依存関係のインストール"><a class="header" href="#依存関係のインストール">依存関係のインストール</a></h2>
 <p>1.CMaKeのインストール</p>
 <pre><code>&gt; choco install -y cmake
 </code></pre>
@@ -1914,8 +1914,8 @@ $ ros2 run demo_nodes_py listener
 <p>1.以下のURLからWindows用の最新パッケージをダウンロードする。(2021年11月現在はros2-foxy-20211013-windows-release-amd64.zip)</p>
 <p>https://github.com/ros2/ros2/releases</p>
 <p>2.C:\dev\ros2に解凍する。</p>
-<p>3.環境変数を設定する。
-　ros2_windowsという名前のファイルの中にlocal_setup.batが入っているため、ファイルを外に取り出すor下記のパスに\ros2-windowsを追加する作業が必要。</p>
+<p>3.環境変数を設定する。<br>
+ros2_windowsという名前のファイルの中にlocal_setup.batが入っているため、ファイルを外に取り出すor下記のパスに\ros2-windowsを追加する作業が必要。</p>
 <pre><code>&gt; call C:\dev\ros2\local_setup.bat
 </code></pre>
 <p>「Warning」の警告メッセージが出るが問題なし。</p>
@@ -1932,13 +1932,20 @@ $ ros2 run demo_nodes_py listener
 <h3 id="動作確認でエラーが出たとき"><a class="header" href="#動作確認でエラーが出たとき">動作確認でエラーが出たとき</a></h3>
 <p>・C:\dev\ros2\Scripts\ros2-script.pyの先頭行を実際のpython実行ファイルがある場所に変更する
 　例：#!C:\Program Files\Python37\python.exe
-・listenerのdemo_nodes_pyをdemo_nodes_cppに変更する</p>
-<p>##　参考</p>
+<br>・listenerのdemo_nodes_pyをdemo_nodes_cppに変更する</p>
+<h2 id="参考-11"><a class="header" href="#参考-11">参考</a></h2>
 <p>[1]https://docs.ros.org/en/foxy/Installation/Windows-Install-Binary.html
 [2]https://gbiggs.github.io/rosjp_ros2_intro/computer_prep_windows.html
 [3]https://qiita.com/matryorobotics/items/beab21d4cf3199b1f6ff
 [4]https://webkaru.net/dev/install-visual-studio-2017/
 [5]https://www.kkaneko.jp/tools/win/dashing.html</p>
+<h1 id="ros1_bridgeの導入"><a class="header" href="#ros1_bridgeの導入">ros1_bridgeの導入</a></h1>
+<h2 id="導入環境-2"><a class="header" href="#導入環境-2">導入環境</a></h2>
+<table><thead><tr><th align="center">OS</th><th align="center">ROS version</th><th align="center">ROS2 version</th></tr></thead><tbody>
+<tr><td align="center">Ubuntu 20.04</td><td align="center">Noetic</td><td align="center">Foxy</td></tr>
+</tbody></table>
+<br>
+<h2 id=""><a class="header" href="#"></a></h2>
 <h1 id="その他"><a class="header" href="#その他">その他</a></h1>
 <p>ROSの初歩的なことができるようになった人用</p>
 <h1 id="応用"><a class="header" href="#応用">応用</a></h1>
@@ -2260,7 +2267,7 @@ standard または radius の指定: standard
 
 コマンドは正常に終了しました。
 </code></pre>
-<h2 id="参考-11"><a class="header" href="#参考-11">参考</a></h2>
+<h2 id="参考-12"><a class="header" href="#参考-12">参考</a></h2>
 <p>[1] <a href="https://ja.softether.org/">筑波大学大学院研究プロジェクト SoftEther VPN</a><br />
 [2] <a href="https://ja.softether.org/4-docs/1-manual/6/6.5">6.5 VPN Client の管理コマンドリファレンス</a><br />
 [3] <a href="https://qiita.com/ask/items/9ff1529d228ec093aa07">MacでSoftEther VPN Clientを使う</a><br />
@@ -2627,7 +2634,7 @@ ___
 <!-- コメントアウトしたい内容 複数行も可 -->
 <p><a href="MarkDown/%E5%8D%98%E8%A1%8C%E3%81%AE%E3%81%BF%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%82%A2%E3%82%A6%E3%83%88"></a></p>
 <br>
-<h2 id="参考-12"><a class="header" href="#参考-12">参考</a></h2>
+<h2 id="参考-13"><a class="header" href="#参考-13">参考</a></h2>
 <p><a href="https://qiita.com/tbpgr/items/989c6badefff69377da7">Markdown記法 サンプル集</a> <br>
 <a href="https://qiita.com/kamorits/items/6f342da395ad57468ae3">Qiita マークダウン記法 一覧表・チートシート</a><br />
 <a href="https://atmarksharp.v01.jp/posts/markdown-cheat-sheet.html">Markdownチートシート</a><br />
