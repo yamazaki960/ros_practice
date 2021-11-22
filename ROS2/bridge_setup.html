@@ -169,7 +169,53 @@
 <tr><td align="center">Ubuntu 20.04</td><td align="center">Noetic</td><td align="center">Foxy</td></tr>
 </tbody></table>
 <br>
-<h2 id=""><a class="header" href="#"></a></h2>
+<h2 id="ros1のパッケージをビルド"><a class="header" href="#ros1のパッケージをビルド">ROS1のパッケージをビルド</a></h2>
+<pre><code>$ source ~/catkin_ws/devel/setup.bash
+$ cd ros2_ws/
+$ colcon build
+</code></pre>
+<h2 id="ros2のパッケージをビルド"><a class="header" href="#ros2のパッケージをビルド">ROS2のパッケージをビルド</a></h2>
+<pre><code>$ source /opt/ros/foxy/setup.bash
+$ cd ~/catkin_ws
+$ catkin_make
+</code></pre>
+<h2 id="ros1_bridgeのビルド"><a class="header" href="#ros1_bridgeのビルド">ros1_bridgeのビルド</a></h2>
+<h3 id="パッケージの作成"><a class="header" href="#パッケージの作成">パッケージの作成</a></h3>
+<pre><code>$ mkdir -p ros1_bridge_ws/src
+$ cd ~/ros1_bridge_ws/src
+$ git clone -b foxy https://github.com/ros2/ros1_bridge.git
+</code></pre>
+<h3 id="ビルド"><a class="header" href="#ビルド">ビルド</a></h3>
+<pre><code>$ source /opt/ros/noetic/setup.bash
+$ source /opt/ros/foxy/setup.bash
+# ROS_DISTRO was set to 'noetic' before. Please...という文がでるが問題なし。
+$ cd ~/ros1_bridge_ws
+$ colcon build --symlink-install --packages-select ros1_bridge --cmake-force-configure
+</code></pre>
+<h2 id="実行"><a class="header" href="#実行">実行</a></h2>
+<h3 id="ターミナルa"><a class="header" href="#ターミナルa">ターミナルA</a></h3>
+<pre><code>$ source /opt/ros/noetic/setup.bash
+$ roscore
+</code></pre>
+<h3 id="ターミナルb"><a class="header" href="#ターミナルb">ターミナルB</a></h3>
+<pre><code>$ source /opt/ros/noetic/setup.bash
+$ source /opt/ros/foxy/setup.bash
+$ source ros1_bridge_ws/install/setup.bash
+$ export ROS_MASTER_URI=http://localhost:11311
+$ ros2 run ros1_bridge dynamic_bridge
+</code></pre>
+<h3 id="ターミナルc"><a class="header" href="#ターミナルc">ターミナルC</a></h3>
+<pre><code>$ source /opt/ros/noetic/setup.bash
+$ rosrun rospy_tutorials talker
+</code></pre>
+<h3 id="ターミナルd"><a class="header" href="#ターミナルd">ターミナルD</a></h3>
+<pre><code>$ source /opt/ros/foxy/setup.bash
+$ ros2 run demo_nodes_cpp listener
+</code></pre>
+<p>ターミナルCのROS1からpublishされたメッセージを、ターミナルDのROS2ノードでsubscribeしていることが確認できれば成功。</p>
+<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
+<p>[1]https://industrial-training-master.readthedocs.io/en/melodic/_source/session7/ROS1-ROS2-bridge.html
+[2]https://qiita.com/kei_mo/items/c4c39bce051dd9dacc3c</p>
 
                     </main>
 
