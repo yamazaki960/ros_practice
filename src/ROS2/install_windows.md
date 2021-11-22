@@ -46,11 +46,11 @@ https://slproweb.com/products/Win32OpenSSL.html
 ```
 ### 3.OpenSSLをPATH環境変数に追加する
 
-1.設定を開き、｢環境変数｣で検索して｢環境変数を編集｣を選択する。
-2.｢Path｣を選択し、編集をクリックする。
-3.新規をクリックし、C:\OpenSSL-Win64\bin\ を追加する。
+1.設定を開き、｢環境変数｣で検索して｢環境変数を編集｣を選択する。<br>
+2.｢Path｣を選択し、編集をクリックする。<br>
+3.新規をクリックし、C:\OpenSSL-Win64\bin\ を追加する。<br>
 
-## Visual Studio 2017のインストール
+## Visual Studio 2017のインストール 
 
 以下のURLからMicrosoftのアカウントにログイン後Visual Studio Community 2017 (version 15.9)をダウンロードする。
 
@@ -76,11 +76,11 @@ https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.1-vc15
 ```
 ### 3.OpenSSLをPATH環境変数に追加する
 
-1.設定を開き、｢環境変数｣で検索して｢環境変数を編集｣を選択する。
-2.｢Path｣を選択し、編集をクリックする。
-3.新規をクリックし、C:\OpenSSL-Win64\bin\ を追加する。
+1.設定を開き、｢環境変数｣で検索して｢環境変数を編集｣を選択する。<br>
+2.｢Path｣を選択し、編集をクリックする。<br>
+3.新規をクリックし、C:\OpenSSL-Win64\bin\ を追加する。<br>　
 
-##　依存関係のインストール
+## 依存関係のインストール
 
 1.CMaKeのインストール
 ```
@@ -117,8 +117,8 @@ https://github.com/ros2/ros2/releases
 
 2.C:\dev\ros2に解凍する。
 
-3.環境変数を設定する。
-　ros2_windowsという名前のファイルの中にlocal_setup.batが入っているため、ファイルを外に取り出すor下記のパスに\ros2-windowsを追加する作業が必要。
+3.環境変数を設定する。<br>
+ros2_windowsという名前のファイルの中にlocal_setup.batが入っているため、ファイルを外に取り出すor下記のパスに\ros2-windowsを追加する作業が必要。
 ```
 > call C:\dev\ros2\local_setup.bat
 ```
@@ -141,10 +141,9 @@ talkerとlistenerからメッセージが出ていれば成功。
 ### 動作確認でエラーが出たとき
 ・C:\dev\ros2\Scripts\ros2-script.pyの先頭行を実際のpython実行ファイルがある場所に変更する
 　例：#!C:\Program Files\Python37\python.exe
-・listenerのdemo_nodes_pyをdemo_nodes_cppに変更する
+<br>・listenerのdemo_nodes_pyをdemo_nodes_cppに変更する
 
-
-##　参考
+## 参考
 
 [1]https://docs.ros.org/en/foxy/Installation/Windows-Install-Binary.html
 [2]https://gbiggs.github.io/rosjp_ros2_intro/computer_prep_windows.html
