@@ -12,17 +12,17 @@
 ## ROS1のパッケージをビルド
 
 ```
-$ source ~/catkin_ws/devel/setup.bash
-$ cd ros2_ws/
-$ colcon build
+$ source /opt/ros/foxy/setup.bash
+$ cd ~/catkin_ws
+$ catkin_make
 ```
 
 ## ROS2のパッケージをビルド
 
 ```
-$ source /opt/ros/foxy/setup.bash
-$ cd ~/catkin_ws
-$ catkin_make
+$ source ~/catkin_ws/devel/setup.bash
+$ cd ros2_ws/
+$ colcon build
 ```
 
 ## ros1_bridgeのビルド
@@ -39,20 +39,24 @@ $ git clone -b foxy https://github.com/ros2/ros1_bridge.git
 ```
 $ source /opt/ros/noetic/setup.bash
 $ source /opt/ros/foxy/setup.bash
-# ROS_DISTRO was set to 'noetic' before. Please...という文がでるが問題なし。
 $ cd ~/ros1_bridge_ws
 $ colcon build --symlink-install --packages-select ros1_bridge --cmake-force-configure
 ```
+途中ROS_DISTRO was set to 'noetic' before. Please...という文が出るが問題なし。
 
 ## 実行
 
 ### ターミナルA
+
+roscoreを立ち上げる。
 ```
 $ source /opt/ros/noetic/setup.bash
 $ roscore
 ```
 
 ### ターミナルB
+
+ros1_bridgeを立ち上げる。
 ```
 $ source /opt/ros/noetic/setup.bash
 $ source /opt/ros/foxy/setup.bash
@@ -62,18 +66,23 @@ $ ros2 run ros1_bridge dynamic_bridge
 ```
 
 ### ターミナルC
+
+ros1でtopicをpublishする。
 ```
 $ source /opt/ros/noetic/setup.bash
 $ rosrun rospy_tutorials talker
 ```
 
 ### ターミナルD
+
+ros2でtopicをsubscribeする。
 ```
 $ source /opt/ros/foxy/setup.bash
 $ ros2 run demo_nodes_cpp listener
 ```
 
-ターミナルCのROS1からpublishされたメッセージを、ターミナルDのROS2ノードでsubscribeしていることが確認できれば成功。
+ターミナルCのROS1からpublishされたメッセージを、ターミナルDのROS2ノードでsubscribeしていることが確認できれば成功。<br>
+publishとsubscribeを逆にすることも可能。
 
 ## 参考
 [1]https://industrial-training-master.readthedocs.io/en/melodic/_source/session7/ROS1-ROS2-bridge.html
