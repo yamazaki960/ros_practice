@@ -97,7 +97,7 @@ https://github.com/ros2/choco-packages/releases/tag/2020-02-24
 ・tinyxml2.6.0.0.nupkg <br>
 ・log4cxx.0.10.0.nupkg <br>
 
-3.管理者権限でコマンドプロンプトを開き、以下を<Path to downloads>を置いたディレクトリに変更して実行する。
+3.管理者権限でコマンドプロンプトを開き、Path to downloadsをファイルを置いたディレクトリ名に変更して実行する。
 ```
 > choco install -y -s <Path to downloads> asio eigen tinyxml-usestl tinyxml2 log4cxx
 ```
