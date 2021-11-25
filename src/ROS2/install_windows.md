@@ -91,11 +91,11 @@ https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.1-vc15
 
 https://github.com/ros2/choco-packages/releases/tag/2020-02-24
 
-・asio.1.12.1.nupkg
-・eigen-3.3.4.nupkg
-・tinyxml-usestl.2.6.2.nupkg
-・tinyxml2.6.0.0.nupkg
-・log4cxx.0.10.0.nupkg
+・asio.1.12.1.nupkg <br>
+・eigen-3.3.4.nupkg <br>
+・tinyxml-usestl.2.6.2.nupkg <br>
+・tinyxml2.6.0.0.nupkg <br>
+・log4cxx.0.10.0.nupkg <br>
 
 3.管理者権限でコマンドプロンプトを開き、以下を<Path to downloads>を置いたディレクトリに変更して実行する。
 ```
