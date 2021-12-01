@@ -50,14 +50,13 @@ https://slproweb.com/products/Win32OpenSSL.html
 2.｢Path｣を選択し、編集をクリックする。<br>
 3.新規をクリックし、C:\OpenSSL-Win64\bin\ を追加する。<br>
 
-## Visual Studio 2017のインストール 
+## Visual Studio 2019のインストール 
 
-以下のURLからMicrosoftのアカウントにログイン後Visual Studio Community 2017 (version 15.9)をダウンロードする。
+以下のURLからMicrosoftのアカウントにログイン後Visual Studio Community 2019 (version 16.11)をダウンロードする。
 
-https://my.visualstudio.com/Downloads?q=visual%20studio%202017&wt.mc_id=o~msft~vscom~older-downloads
+https://my.visualstudio.com/Downloads?q=visual%20studio%202019&wt.mc_id=o~msft~vscom~older-downloads
 
 インストールの詳細が表示されるため、｢C++によるデスクトップ開発｣を選択し、インストールする。
-(自分は｢ユニバーサルWindowsプラットフォーム開発｣もインストールしたが、必要ないと思われる)
 
 ## OpenCVのインストール
 
