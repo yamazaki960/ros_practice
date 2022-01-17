@@ -171,13 +171,17 @@
 <br>
 <h2 id="chocolateyをインストール"><a class="header" href="#chocolateyをインストール">chocolateyをインストール</a></h2>
 <p>Chocolateyはapt-getのwindows版のようなもの。
-管理者権限でコマンドプロンプトを開き、以下を実行する。</p>
-<pre><code>&gt; @&quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &quot;iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))&quot; &amp;&amp; SET &quot;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&quot;
+管理者権限でwindows powershellを開き、以下を実行する。</p>
+<pre><code>&gt; Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 </code></pre>
-<h2 id="python-3のインストール"><a class="header" href="#python-3のインストール">Python 3のインストール</a></h2>
-<p>Chocolateyを利用してPythonをインストールする。
-（現時点ではROS2はpython3.7に対応しているらしい）</p>
-<pre><code>&gt; choco install -y python --version=3.7.5
+<h2 id="pythonのインストール"><a class="header" href="#pythonのインストール">Pythonのインストール</a></h2>
+<p>Chocolateyを利用してPythonをインストールする。</p>
+<pre><code>&gt; choco install -y python --version 3.8.3
+</code></pre>
+<p>C:\python38にインストールされていることを確認する。</p>
+<h2 id="visual-c-再配布パッケージのインストール"><a class="header" href="#visual-c-再配布パッケージのインストール">Visual C ++再配布パッケージのインストール</a></h2>
+<p>コマンドプロンプトで以下を入力してインストールする。</p>
+<pre><code>&gt; choco install -y vcredist2013 vcredist140
 </code></pre>
 <h2 id="opensslのインストール"><a class="header" href="#opensslのインストール">OpenSSLのインストール</a></h2>
 <h3 id="1インストーラーのダウンロード"><a class="header" href="#1インストーラーのダウンロード">1.インストーラーのダウンロード</a></h3>
@@ -187,20 +191,20 @@
 <p>インストーラーをすべてのオプションをデフォルトで実行し、インストールする。</p>
 <h3 id="2環境変数の設定"><a class="header" href="#2環境変数の設定">2.環境変数の設定</a></h3>
 <p>コマンドプロンプトを開き以下を実行する。</p>
-<pre><code>&gt; setx -m OPENSSL_CONF C:\OpenSSL-Win64\bin\openssl.cfg
+<pre><code>&gt; setx -m OPENSSL_CONF &quot;C:\Program Files\OpenSSL-Win64\bin\openssl.cfg&quot;
 </code></pre>
 <h3 id="3opensslをpath環境変数に追加する"><a class="header" href="#3opensslをpath環境変数に追加する">3.OpenSSLをPATH環境変数に追加する</a></h3>
 <p>1.設定を開き、｢環境変数｣で検索して｢環境変数を編集｣を選択する。<br>
 2.｢Path｣を選択し、編集をクリックする。<br>
-3.新規をクリックし、C:\OpenSSL-Win64\bin\ を追加する。<br></p>
+3.新規をクリックし、C:\Program Files\OpenSSL-Win64\bin\ を追加する。<br></p>
 <h2 id="visual-studio-2019のインストール"><a class="header" href="#visual-studio-2019のインストール">Visual Studio 2019のインストール</a></h2>
-<p>以下のURLからMicrosoftのアカウントにログイン後Visual Studio Community 2019 (version 16.11)をダウンロードする。</p>
+<p>以下のURLからMicrosoftのアカウントにログイン後Visual Studio Community 2019 をダウンロードする。</p>
 <p>https://my.visualstudio.com/Downloads?q=visual%20studio%202019&amp;wt.mc_id=o~msft~vscom~older-downloads</p>
 <p>インストールの詳細が表示されるため、｢C++によるデスクトップ開発｣を選択し、インストールする。</p>
 <h2 id="opencvのインストール"><a class="header" href="#opencvのインストール">OpenCVのインストール</a></h2>
 <h3 id="1ダウンロード"><a class="header" href="#1ダウンロード">1.ダウンロード</a></h3>
 <p>以下のURLからダウンロードして C:\opencv に解凍する。</p>
-<p>https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.1-vc15.VS2017.zip</p>
+<p>https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.6-vc16.VS2019.zip </p>
 <h3 id="2環境変数の設定-1"><a class="header" href="#2環境変数の設定-1">2.環境変数の設定</a></h3>
 <p>コマンドプロンプトを開き以下を実行する。</p>
 <pre><code>&gt; setx -m OpenCV_DIR C:\opencv
@@ -208,26 +212,32 @@
 <h3 id="3opensslをpath環境変数に追加する-1"><a class="header" href="#3opensslをpath環境変数に追加する-1">3.OpenSSLをPATH環境変数に追加する</a></h3>
 <p>1.設定を開き、｢環境変数｣で検索して｢環境変数を編集｣を選択する。<br>
 2.｢Path｣を選択し、編集をクリックする。<br>
-3.新規をクリックし、C:\OpenSSL-Win64\bin\ を追加する。<br>　</p>
+3.新規をクリックし、C:\opencv\x64\vc16\bin を追加する。<br>　</p>
 <h2 id="依存関係のインストール"><a class="header" href="#依存関係のインストール">依存関係のインストール</a></h2>
-<p>1.CMaKeのインストール</p>
+<p>1.CMaKeをインストールする。</p>
 <pre><code>&gt; choco install -y cmake
 </code></pre>
-<p>2.以下のURLから下記のファイルをダウンロードし、任意の箇所に置く。</p>
+<p>2.設定を開き、環境変数に以下のPATHを追加する。</p>
+<p>C:\Program Files\CMake\bin</p>
+<p>3.以下のURLから下記のファイルをダウンロードし、任意の箇所に置く。</p>
 <p>https://github.com/ros2/choco-packages/releases/tag/2020-02-24</p>
 <p>・asio.1.12.1.nupkg <br>
+・bullet.2.89.0.nupkg <br>
+・cunit.2.1.3.nupkg <br>
 ・eigen-3.3.4.nupkg <br>
 ・tinyxml-usestl.2.6.2.nupkg <br>
 ・tinyxml2.6.0.0.nupkg <br>
 ・log4cxx.0.10.0.nupkg <br></p>
-<p>3.管理者権限でコマンドプロンプトを開き、Path to downloadsをファイルを置いたディレクトリ名に変更して実行する。</p>
-<pre><code>&gt; choco install -y -s &lt;Path to downloads&gt; asio eigen tinyxml-usestl tinyxml2 log4cxx
+<p>4.管理者権限でコマンドプロンプトを開き、Path to downloadsをファイルを置いたディレクトリ名に変更して実行する。</p>
+<pre><code>&gt; choco install -y -s &lt;PATH\TO\DOWNLOADS&gt; asio cunit eigen tinyxml-usestl tinyxml2 log4cxx bullet
 </code></pre>
-<p>4.Python用のパッケージのインストール</p>
-<pre><code>&gt; python -m pip install -U catkin_pkg empy lark-parser opencv-python pyparsing pyyaml setuptools
+<p>5.必要パッケージのインストール</p>
+<pre><code>&gt; python -m pip install -U catkin_pkg cryptography empy ifcfg lark-parser lxml netifaces numpy opencv-python pyparsing pyyaml setuptools rosdistro
 &gt; python -m pip install -U pydot PyQt5
-&gt; python -m pip install -U lxml
+&gt; choco install graphviz
 </code></pre>
+<p>6.設定を開き、環境変数に以下のPATHを追加する。</p>
+<p>C:\Program Files (x86)\GraphvizX.XX\bin</p>
 <h2 id="ros2のインストール"><a class="header" href="#ros2のインストール">ROS2のインストール</a></h2>
 <p>1.以下のURLからWindows用の最新パッケージをダウンロードする。(2021年11月現在はros2-foxy-20211013-windows-release-amd64.zip)</p>
 <p>https://github.com/ros2/ros2/releases</p>
@@ -236,7 +246,7 @@
 ros2_windowsという名前のファイルの中にlocal_setup.batが入っているため、ファイルを外に取り出すor下記のパスに\ros2-windowsを追加する作業が必要。</p>
 <pre><code>&gt; call C:\dev\ros2\local_setup.bat
 </code></pre>
-<p>「Warning」の警告メッセージが出るが問題なし。</p>
+<p>「Warning:~」と警告メッセージが出るがノードが動けば大丈夫。</p>
 <h2 id="動作確認"><a class="header" href="#動作確認">動作確認</a></h2>
 <p>コマンドプロンプトを開いて以下を実行する。</p>
 <pre><code>&gt; call C:\dev\ros2\local_setup.bat
@@ -247,16 +257,12 @@ ros2_windowsという名前のファイルの中にlocal_setup.batが入って�
 &gt; ros2 run demo_nodes_py listener
 </code></pre>
 <p>talkerとlistenerからメッセージが出ていれば成功。</p>
-<h3 id="動作確認でエラーが出たとき"><a class="header" href="#動作確認でエラーが出たとき">動作確認でエラーが出たとき</a></h3>
-<p>・C:\dev\ros2\Scripts\ros2-script.pyの先頭行を実際のpython実行ファイルがある場所に変更する
-　例：#!C:\Program Files\Python37\python.exe
-<br><br>・listenerのdemo_nodes_pyをdemo_nodes_cppに変更する</p>
+<h2 id="追記"><a class="header" href="#追記">追記</a></h2>
+<p>pythonの別のバージョンがあると上手く動かないことがある。
+もしそうなった場合は別バージョンのpythonをアンインストールする必要がある。</p>
 <h2 id="参考"><a class="header" href="#参考">参考</a></h2>
 <p>[1]https://docs.ros.org/en/foxy/Installation/Windows-Install-Binary.html <br>
-[2]https://gbiggs.github.io/rosjp_ros2_intro/computer_prep_windows.html <br>
-[3]https://qiita.com/matryorobotics/items/beab21d4cf3199b1f6ff <br>
-[4]https://webkaru.net/dev/install-visual-studio-2017/ <br>
-[5]https://www.kkaneko.jp/tools/win/dashing.html <br></p>
+[2]https://qiita.com/matryorobotics/items/beab21d4cf3199b1f6ff <br></p>
 
                     </main>
 
