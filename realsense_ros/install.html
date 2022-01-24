@@ -180,11 +180,11 @@
 <h2 id="1-intel-realsense-sdkのインストール"><a class="header" href="#1-intel-realsense-sdkのインストール">1. Intel RealSense SDKのインストール</a></h2>
 <p><a href="https://demura.net/robot/16525.html">[1]</a>の通り, 以下のコマンドをターミナルにうつ。</p>
 <p>① サーバーの公開鍵を登録 ( ここだけ<a href="https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md">[2]</a>参照,うまくいかない場合[1]のコマンドで試してみる。)</p>
-<pre><code>$ sudo apt-key adv --keyserver keys.gnupg.net --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
+<pre><code>sudo apt-key adv --keyserver keys.gnupg.net --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
 </code></pre>
 <p>② リポジトリにIntelサーバーを追加<br />
 Ubuntu 16,18,20 LTS:</p>
-<pre><code>$ sudo add-apt-repository &quot;deb https://librealsense.intel.com/Debian/apt-repo $(lsb_release -cs) main&quot; -u
+<pre><code>sudo add-apt-repository &quot;deb https://librealsense.intel.com/Debian/apt-repo $(lsb_release -cs) main&quot; -u
 </code></pre>
 <p>③ ライブラリのインストール</p>
 <pre><code>$ sudo apt update
@@ -213,7 +213,7 @@ $ catkin_make
 </code></pre>
 <p>② 動作確認
 　以下を実行して，トピックを確認できればOK。</p>
-<pre><code>$ roslaunch realsense2_camera rs_camera.launch
+<pre><code>roslaunch realsense2_camera rs_camera.launch
 </code></pre>
 <h2 id="問題と対処"><a class="header" href="#問題と対処">問題と対処</a></h2>
 <ol>
