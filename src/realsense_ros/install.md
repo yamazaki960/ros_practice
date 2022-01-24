@@ -19,9 +19,9 @@
 
 [[1]](https://demura.net/robot/16525.html)の通り, 以下のコマンドをターミナルにうつ。  
 
-① サーバーの公開鍵を登録 ( ここだけ[[2]](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md)参照,うまくいかない場合[1]のコマンドで試してみる。)
+① サーバーの公開鍵を登録 ( 更新されていることがあります。うまくいかなかったら[[2]](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md)参照)
 ```
-sudo apt-key adv --keyserver keys.gnupg.net --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
 ```
 ② リポジトリにIntelサーバーを追加  
 Ubuntu 16,18,20 LTS:
