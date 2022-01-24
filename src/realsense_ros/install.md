@@ -21,12 +21,12 @@
 
 ① サーバーの公開鍵を登録 ( ここだけ[[2]](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md)参照,うまくいかない場合[1]のコマンドで試してみる。)
 ```
-$ sudo apt-key adv --keyserver keys.gnupg.net --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
+sudo apt-key adv --keyserver keys.gnupg.net --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
 ```
 ② リポジトリにIntelサーバーを追加  
 Ubuntu 16,18,20 LTS:
 ```
-$ sudo add-apt-repository "deb https://librealsense.intel.com/Debian/apt-repo $(lsb_release -cs) main" -u
+sudo add-apt-repository "deb https://librealsense.intel.com/Debian/apt-repo $(lsb_release -cs) main" -u
 ```
 
 ③ ライブラリのインストール
@@ -68,7 +68,7 @@ $ catkin_make
 ② 動作確認
 　以下を実行して，トピックを確認できればOK。
 ```
-$ roslaunch realsense2_camera rs_camera.launch
+roslaunch realsense2_camera rs_camera.launch
 ```
 
 
