@@ -39,3 +39,25 @@ TeX文書の利点
  ```
 
 最後に画面中央のRecompileを押して右側にフォーマットがプレビューできたら完了です。
+
+
+#### ※追記
+
+ロボット系の学会にアップロードした際に、<span style="color: red; ">
+「アップロードされたPDFファイルが当システム未対応の圧縮形式を利用してる可能性があります。」</span>と表示されることがある。
+
+latexmkrcファイルを作成し，以下のように書くことで対応できる．
+
+```perl
+$latex = 'platex'; 
+$bibtex = 'pbibtex';
+$dvipdf = 'dvipdfmx %O -o %D %S -z 0 -V 4';
+$makeindex = 'mendex -U %O -o %D %S';
+$pdf_mode = 3; 
+```
+
+これでコンパイルしたPDFはそのまま投稿できることを確認した．
+（PDFのバージョンを4にする，無圧縮を指定する）
+
+## 参考
+- [TexWorksで圧縮解除](http://c-faculty.chuo-u.ac.jp/~hideki/?p=267)
