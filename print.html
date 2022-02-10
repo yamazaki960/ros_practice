@@ -2100,6 +2100,22 @@ $makeindex = 'mendex -U %O -o %D %S';
 $pdf_mode = 3;
 </code></pre>
 <p>最後に画面中央のRecompileを押して右側にフォーマットがプレビューできたら完了です。</p>
+<h4 id="追記-1"><a class="header" href="#追記-1">※追記</a></h4>
+<p>ロボット系の学会にアップロードした際に、<span style="color: red; ">
+「アップロードされたPDFファイルが当システム未対応の圧縮形式を利用してる可能性があります。」</span>と表示されることがある。</p>
+<p>latexmkrcファイルを作成し，以下のように書くことで対応できる．</p>
+<pre><code class="language-perl">$latex = 'platex'; 
+$bibtex = 'pbibtex';
+$dvipdf = 'dvipdfmx %O -o %D %S -z 0 -V 4';
+$makeindex = 'mendex -U %O -o %D %S';
+$pdf_mode = 3; 
+</code></pre>
+<p>これでコンパイルしたPDFはそのまま投稿できることを確認した．
+（PDFのバージョンを4にする，無圧縮を指定する）</p>
+<h2 id="参考-13"><a class="header" href="#参考-13">参考</a></h2>
+<ul>
+<li><a href="http://c-faculty.chuo-u.ac.jp/%7Ehideki/?p=267">TexWorksで圧縮解除</a></li>
+</ul>
 <h1 id="softether-vpnの使い方"><a class="header" href="#softether-vpnの使い方">SoftEther VPNの使い方</a></h1>
 <p>ここではWindows10,Mac,LinuxそれぞれのOSにおけるSoftEther VPNの使用方法について説明する。</p>
 <ul>
@@ -2323,7 +2339,7 @@ standard または radius の指定: standard
 
 コマンドは正常に終了しました。
 </code></pre>
-<h2 id="参考-13"><a class="header" href="#参考-13">参考</a></h2>
+<h2 id="参考-14"><a class="header" href="#参考-14">参考</a></h2>
 <p>[1] <a href="https://ja.softether.org/">筑波大学大学院研究プロジェクト SoftEther VPN</a><br />
 [2] <a href="https://ja.softether.org/4-docs/1-manual/6/6.5">6.5 VPN Client の管理コマンドリファレンス</a><br />
 [3] <a href="https://qiita.com/ask/items/9ff1529d228ec093aa07">MacでSoftEther VPN Clientを使う</a><br />
@@ -2690,7 +2706,7 @@ ___
 <!-- コメントアウトしたい内容 複数行も可 -->
 <p><a href="MarkDown/%E5%8D%98%E8%A1%8C%E3%81%AE%E3%81%BF%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%82%A2%E3%82%A6%E3%83%88"></a></p>
 <br>
-<h2 id="参考-14"><a class="header" href="#参考-14">参考</a></h2>
+<h2 id="参考-15"><a class="header" href="#参考-15">参考</a></h2>
 <p><a href="https://qiita.com/tbpgr/items/989c6badefff69377da7">Markdown記法 サンプル集</a> <br>
 <a href="https://qiita.com/kamorits/items/6f342da395ad57468ae3">Qiita マークダウン記法 一覧表・チートシート</a><br />
 <a href="https://atmarksharp.v01.jp/posts/markdown-cheat-sheet.html">Markdownチートシート</a><br />

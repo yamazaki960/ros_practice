@@ -208,6 +208,22 @@ $makeindex = 'mendex -U %O -o %D %S';
 $pdf_mode = 3;
 </code></pre>
 <p>最後に画面中央のRecompileを押して右側にフォーマットがプレビューできたら完了です。</p>
+<h4 id="追記"><a class="header" href="#追記">※追記</a></h4>
+<p>ロボット系の学会にアップロードした際に、<span style="color: red; ">
+「アップロードされたPDFファイルが当システム未対応の圧縮形式を利用してる可能性があります。」</span>と表示されることがある。</p>
+<p>latexmkrcファイルを作成し，以下のように書くことで対応できる．</p>
+<pre><code class="language-perl">$latex = 'platex'; 
+$bibtex = 'pbibtex';
+$dvipdf = 'dvipdfmx %O -o %D %S -z 0 -V 4';
+$makeindex = 'mendex -U %O -o %D %S';
+$pdf_mode = 3; 
+</code></pre>
+<p>これでコンパイルしたPDFはそのまま投稿できることを確認した．
+（PDFのバージョンを4にする，無圧縮を指定する）</p>
+<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
+<ul>
+<li><a href="http://c-faculty.chuo-u.ac.jp/%7Ehideki/?p=267">TexWorksで圧縮解除</a></li>
+</ul>
 
                     </main>
 
