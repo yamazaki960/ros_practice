@@ -8,3 +8,6 @@ title = "ROS学習用資料"
 [output.html.fold]
 enable = true
 level = 0
+
+[output.html]
+git-repository-url = "https://github.com/tomson784/ros_practice"

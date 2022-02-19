@@ -20,7 +20,7 @@
 
 #### おまけ
 研究するにあたっての心構えについて，参考になりそうなリンクがあったので張っておきます．  
-https://speakerdeck.com/kaityo256/welcome-to-lab
+[研究をはじめる前に知っておいて欲しい7つのこと / Welcome to Lab](https://speakerdeck.com/kaityo256/welcome-to-lab)
 
 
 ### 書き方
