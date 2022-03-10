@@ -201,16 +201,16 @@ git clone https://github.com/isl-org/Open3D
 </ul>
 </li>
 <li>
-<p>色+深度画像の収集
-以下を実行すると、dataset/realsenseというフォルダが新たに生成され、そこにデータが取得される．<br />
+<p>色+深度画像の収集</p>
+<p>以下を実行すると、dataset/realsenseというフォルダが新たに生成され、そこにデータが取得される．<br />
 --output_folderによって、出力パスを決めることも出来る．</p>
 <pre><code class="language-sh">cd ~/Open3D/examples/python/reconstruction_system/scripts
 python3 scripts/realsense_recorder.py --record_imgs --output_folder ../dataset/realsense/
 </code></pre>
 </li>
 <li>
-<p>パラメータファイルの変更
-realsense.jsonを開く</p>
+<p>パラメータファイルの変更</p>
+<p>realsense.jsonを開く</p>
 <pre><code class="language-sh">sudo gedit /Open3D/examples/python/reconstruction_system/config/realsense.json
 </code></pre>
 <p>以下のように修正する</p>
@@ -235,8 +235,8 @@ realsense.jsonを開く</p>
 </code></pre>
 </li>
 <li>
-<p>reconstruction_systemの実行
-以下を実行する、割と時間がかかる．</p>
+<p>reconstruction_systemの実行</p>
+<p>以下を実行する、割と時間がかかる．</p>
 <pre><code class="language-sh">cd ~/Open3D/examples/python/reconstruction_system
 python3 run_system.py config/realsense.json --make --register --refine --integrate
 </code></pre>
