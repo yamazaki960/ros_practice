@@ -1724,6 +1724,13 @@ python3 run_system.py config/realsense.json --make --register --refine --integra
 integrated.plyという名称で生成されている．</p>
 </li>
 </ol>
+<h2 id="トラブルシューティング"><a class="header" href="#トラブルシューティング">トラブルシューティング</a></h2>
+<h3 id="realsenseで取得した画像の色がおかしい"><a class="header" href="#realsenseで取得した画像の色がおかしい"><strong>Realsenseで取得した画像の色がおかしい</strong></a></h3>
+<p>ubuntu 20.04LTS + noeticで動作したときに、エラーはでないものの画像の色が実際の色と違うことがあった．<br />
+なぜか、RGB形式に治っていないようなので、以下のように該当部分を追加修正する．</p>
+<pre><code class="language-py">   color_image = np.asanyarray(color_frame.get_data())
+   color_image = cv2.cvtColor(color_image, cv2.COLOR_BGR2RGB)
+</code></pre>
 <h1 id="raspberry-pi"><a class="header" href="#raspberry-pi">Raspberry PI</a></h1>
 <p>Raspberry Pi（ラズベリー パイ）は、ARMプロセッサを搭載したシングルボードコンピュータ。イギリスのラズベリーパイ財団によって開発されている。日本語では略称としてラズパイとも呼ばれる。</p>
 <p>教育で利用されることを想定して制作された。IoTが隆盛した2010年代後半以降は、安価に入手できるシングルボードコンピュータとして趣味や業務（試作品の開発）等としても用いられるようになった。</p>
