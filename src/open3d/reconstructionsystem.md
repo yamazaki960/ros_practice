@@ -91,3 +91,13 @@ git clone https://github.com/isl-org/Open3D
    
    生成された3Dモデルは、画像データフォルダと同じ"dataset/realsense/scene"の中にある.   
    integrated.plyという名称で生成されている．
+   
+## トラブルシューティング
+
+### **Realsenseで取得した画像の色がおかしい**  
+ubuntu 20.04LTS + noeticで動作したときに、エラーはでないものの画像の色が実際の色と違うことがあった．  
+なぜか、RGB形式に治っていないようなので、以下のように該当部分を追加修正する．
+```py
+   color_image = np.asanyarray(color_frame.get_data())
+   color_image = cv2.cvtColor(color_image, cv2.COLOR_BGR2RGB)
+```
