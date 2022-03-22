@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Dockerについて - ROS学習用資料</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../index.html"><strong aria-hidden="true">1.</strong> このサイトについて</a></li><li class="chapter-item "><a href="../SUMMARY.html"><strong aria-hidden="true">2.</strong> 目次</a></li><li class="chapter-item "><a href="../intro/index.html"><strong aria-hidden="true">3.</strong> ROS入門</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../intro/intro.html"><strong aria-hidden="true">3.1.</strong> なぜROSが必要なのか</a></li><li class="chapter-item "><a href="../intro/environment.html"><strong aria-hidden="true">3.2.</strong> 環境構築</a></li><li class="chapter-item "><a href="../intro/pub_sub.html"><strong aria-hidden="true">3.3.</strong> 基本的なデータの受け渡し</a></li><li class="chapter-item "><a href="../intro/rosbag.html"><strong aria-hidden="true">3.4.</strong> ROSに流れてくるデータの保存</a></li><li class="chapter-item "><a href="../intro/arduino_ros.html"><strong aria-hidden="true">3.5.</strong> ROSを使ったArduinoの制御</a></li></ol></li><li class="chapter-item "><a href="../simulation/index.html"><strong aria-hidden="true">4.</strong> ロボットのシミュレーション</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../simulation/husky.html"><strong aria-hidden="true">4.1.</strong> Huskyのシュミレーション</a></li></ol></li><li class="chapter-item "><a href="../Navigation/index.html"><strong aria-hidden="true">5.</strong> ナビゲーション</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../Navigation/move_base.html"><strong aria-hidden="true">5.1.</strong> move_baseによるナビゲーション</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../Navigation/param_file.html"><strong aria-hidden="true">5.1.1.</strong> パラメータの設定</a></li></ol></li></ol></li><li class="chapter-item "><a href="../yolo/index.html"><strong aria-hidden="true">6.</strong> ROSでYOLOを使う</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../yolo/install.html"><strong aria-hidden="true">6.1.</strong> YOLOv3 ROS導入</a></li><li class="chapter-item "><a href="../yolo/training.html"><strong aria-hidden="true">6.2.</strong> YOLOv3 オリジナルデータ学習</a></li></ol></li><li class="chapter-item "><a href="../realsense_ros/index.html"><strong aria-hidden="true">7.</strong> realsenseをROSで使う</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../realsense_ros/install.html"><strong aria-hidden="true">7.1.</strong> RealSenseのROSでの導入について</a></li><li class="chapter-item "><a href="../realsense_ros/imu.html"><strong aria-hidden="true">7.2.</strong> RealSenseでimuデータを取得する</a></li><li class="chapter-item "><a href="../realsense_ros/topic_list.html"><strong aria-hidden="true">7.3.</strong> rosbagで保存する際の注意点</a></li></ol></li><li class="chapter-item "><a href="../velodyne/index.html"><strong aria-hidden="true">8.</strong> Velodyne</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../velodyne/setup.html"><strong aria-hidden="true">8.1.</strong> velodyneの設定手順</a></li><li class="chapter-item "><a href="../velodyne/multi_net.html"><strong aria-hidden="true">8.2.</strong> Velodyne複数接続（ネット編）</a></li></ol></li><li class="chapter-item "><a href="../rviz/index.html"><strong aria-hidden="true">9.</strong> Rviz</a></li><li class="chapter-item "><a href="../xarm/index.html"><strong aria-hidden="true">10.</strong> xArm</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../xarm/setup.html"><strong aria-hidden="true">10.1.</strong> xArm7の使用手順</a></li></ol></li><li class="chapter-item "><a href="../slam/index.html"><strong aria-hidden="true">11.</strong> SLAM</a></li><li class="chapter-item "><a href="../turtlebot3/index.html"><strong aria-hidden="true">12.</strong> turtlebot3</a></li><li class="chapter-item "><a href="../open3d/index.html"><strong aria-hidden="true">13.</strong> Open3d</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../open3d/reconstructionsystem_sample.html"><strong aria-hidden="true">13.1.</strong> Open3dのreconstructionsystemのサンプルについて</a></li><li class="chapter-item "><a href="../open3d/reconstructionsystem.html"><strong aria-hidden="true">13.2.</strong> reconstructionsystemを自分で取得したデータで実行</a></li></ol></li><li class="chapter-item "><a href="../raspberrypi/index.html"><strong aria-hidden="true">14.</strong> Raspberry Pi</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../raspberrypi/os_install.html"><strong aria-hidden="true">14.1.</strong> Raspberry Pi OSのインストール</a></li><li class="chapter-item "><a href="../raspberrypi/ros_install.html"><strong aria-hidden="true">14.2.</strong> ROS Melodicのインストール</a></li></ol></li><li class="chapter-item "><a href="../ROS2/index.html"><strong aria-hidden="true">15.</strong> ROS2</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../ROS2/install_ubuntu.html"><strong aria-hidden="true">15.1.</strong> ubuntuでのインストール方法</a></li><li class="chapter-item "><a href="../ROS2/install_windows.html"><strong aria-hidden="true">15.2.</strong> windowsでのインストール方法</a></li><li class="chapter-item "><a href="../ROS2/bridge_setup.html"><strong aria-hidden="true">15.3.</strong> ros1_bridgeの導入</a></li></ol></li><li class="chapter-item expanded "><a href="../docker/index.html"><strong aria-hidden="true">16.</strong> Docker</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../docker/intro.html" class="active"><strong aria-hidden="true">16.1.</strong> Dockerについて</a></li><li class="chapter-item "><a href="../docker/setup.html"><strong aria-hidden="true">16.2.</strong> Dockerのセットアップ</a></li><li class="chapter-item "><a href="../docker/how_to.html"><strong aria-hidden="true">16.3.</strong> Dockerの使い方</a></li></ol></li><li class="chapter-item "><a href="../appendix/index.html"><strong aria-hidden="true">17.</strong> その他</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../appendix/advance.html"><strong aria-hidden="true">17.1.</strong> 応用</a></li><li class="chapter-item "><a href="../appendix/dualboot.html"><strong aria-hidden="true">17.2.</strong> デュアルブート</a></li><li class="chapter-item "><a href="../appendix/docker.html"><strong aria-hidden="true">17.3.</strong> Docker</a></li><li class="chapter-item "><a href="../appendix/overleaf.html"><strong aria-hidden="true">17.4.</strong> Overleaf</a></li><li class="chapter-item "><a href="../VPN/index.html"><strong aria-hidden="true">17.5.</strong> VPN</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../VPN/softether_setup.html"><strong aria-hidden="true">17.5.1.</strong> SoftEtherによるVPN</a></li></ol></li><li class="chapter-item "><a href="../MarkDown/index.html"><strong aria-hidden="true">17.6.</strong> MarkDownファイル</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../MarkDown/markdown_syntax.html"><strong aria-hidden="true">17.6.1.</strong> MarkDownファイルの書き方について</a></li></ol></li><li class="chapter-item "><a href="../battery/charge_rule.html"><strong aria-hidden="true">17.7.</strong> バッテリー充電</a></li><li class="chapter-item "><a href="../appendix/git_test.html"><strong aria-hidden="true">17.8.</strong> gitテスト</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">ROS学習用資料</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/tomson784/ros_practice" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="dockerについて"><a class="header" href="#dockerについて">Dockerについて</a></h1>
+<p>ホスト上にホスト環境とは別のOS環境を構築することができる．</p>
+<p>VirtualBoxなどのようにOS環境をエミュレーションするのではなく，Linuxのプロセス隔離の機能を使ってOS環境を再現するもの．</p>
+<p>ホストOSのカーネルを使用しているので，通常だとホストOSがLinuxならLinux系列OSのコンテナのみ動かすことができる．
+また，DockerコンテナのOSがホストOSで使用されるカーネルよりも新しいものだと正常に動作しない可能性がある．
+カーネルは後方互換性はあるのでホストOSが最新に近いものであればあまり問題は発生しない．</p>
+<p>ここまでの説明は大雑把なものであり，正確な内容を理解したい方は公式サイトなどを参照してください．</p>
+<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=Utvf4YmMJpk&amp;list=PLbUh9y6MXvjdIB5A9uhrZVrhAaXc61Pzz&amp;index=17">ロボットシステム学第12回（Docker）</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Docker_(software)">Docker (software)  Wikipedia</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../docker/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../docker/setup.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../docker/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../docker/setup.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
