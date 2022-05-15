@@ -12,27 +12,27 @@
 - 16GB MicroSDカード
 
 ## netplanの設定
-無線LAN接続に必要となるパッケージをインストール
-`sudo apt-get install network-manager`
-`sudo apt-get install wireless-tools`
+無線LAN接続に必要となるパッケージをインストール<br>
+`sudo apt-get install network-manager`<br>
+`sudo apt-get install wireless-tools`<br>
 
-ネットワーク設定用サービスが有効になっているか確認
-`systemctl is-enabled systemd-networkd`
-enabled
-`systemctl is-enabled network-manager`
-enabled
+ネットワーク設定用サービスが有効になっているか確認<br>
+`systemctl is-enabled systemd-networkd`<br>
+enabled<br>
+`systemctl is-enabled network-manager`<br>
+enabled<br>
 
-systemd-networkd はネットワーク設定を管理するシステムデーモン。
-NetworkManager はネットワークの検知と設定を自動で行いネットワークに接続する機能を有し、無線・有線両方のネットワークに使うことができる。
-NetworkManagerが起動していない場合は起動する。
-`systemctl start NetworkManager`
-`systemctl enable NetworkManager`
+systemd-networkd はネットワーク設定を管理するシステムデーモン。<br>
+NetworkManager はネットワークの検知と設定を自動で行いネットワークに接続する機能を有し、無線・有線両方のネットワークに使うことができる。<br>
+NetworkManagerが起動していない場合は起動する。<br>
+`systemctl start NetworkManager`<br>
+`systemctl enable NetworkManager`<br>
 
-次に、無線LANのアクセスポイントをスキャンして、接続するブロードバンドルーターのSSIDを確認する。
-`sudo iwlist wlan0 scan | grep ESSID`
+次に、無線LANのアクセスポイントをスキャンして、接続するブロードバンドルーターのSSIDを確認する。<br>
+`sudo iwlist wlan0 scan | grep ESSID`<br>
 
-システムが作成しているファイル(50-cloud-init.yaml)を直接編集するのはリスクがあるので、ファイルを複製してファイル名の頭数字を50よりも大きい数字にする。(99-とか)
-そうすることでシステムが50〜を読み込んだあとに99〜を読み込んでくれる。
+システムが作成しているファイル(50-cloud-init.yaml)を直接編集するのはリスクがあるので、ファイルを複製してファイル名の頭数字を50よりも大きい数字にする。(99-とか)<br>
+そうすることでシステムが50〜を読み込んだあとに99〜を読み込んでくれる。<br>
 ```
 cd /etc/netplan/
 
@@ -79,18 +79,18 @@ sudo netplan apply
 sudo ip link set wlan0 up
 ```
 
-Wi-Fiのインターフェース名を確認
-`iwconfig`
+Wi-Fiのインターフェース名を確認<br>
+`iwconfig`<br>
 
-IPアドレスを確認
-`ip addr`
+IPアドレスを確認<br>
+`ip addr`<br>
 
-最後にアップデートコマンドを実行してネットワークにつながることを確認
+最後にアップデートコマンドを実行してネットワークにつながることを確認<br>
 ```
 sudo apt update
 
 sudo apt upgrade
 ```
 
-##編集者
+## 編集者
 村山
