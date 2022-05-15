@@ -180,23 +180,23 @@
 <li>16GB MicroSDカード</li>
 </ul>
 <h2 id="netplanの設定"><a class="header" href="#netplanの設定">netplanの設定</a></h2>
-<p>無線LAN接続に必要となるパッケージをインストール
-<code>sudo apt-get install network-manager</code>
-<code>sudo apt-get install wireless-tools</code></p>
-<p>ネットワーク設定用サービスが有効になっているか確認
-<code>systemctl is-enabled systemd-networkd</code>
-enabled
-<code>systemctl is-enabled network-manager</code>
-enabled</p>
-<p>systemd-networkd はネットワーク設定を管理するシステムデーモン。
-NetworkManager はネットワークの検知と設定を自動で行いネットワークに接続する機能を有し、無線・有線両方のネットワークに使うことができる。
-NetworkManagerが起動していない場合は起動する。
-<code>systemctl start NetworkManager</code>
-<code>systemctl enable NetworkManager</code></p>
-<p>次に、無線LANのアクセスポイントをスキャンして、接続するブロードバンドルーターのSSIDを確認する。
-<code>sudo iwlist wlan0 scan | grep ESSID</code></p>
-<p>システムが作成しているファイル(50-cloud-init.yaml)を直接編集するのはリスクがあるので、ファイルを複製してファイル名の頭数字を50よりも大きい数字にする。(99-とか)
-そうすることでシステムが50〜を読み込んだあとに99〜を読み込んでくれる。</p>
+<p>無線LAN接続に必要となるパッケージをインストール<br>
+<code>sudo apt-get install network-manager</code><br>
+<code>sudo apt-get install wireless-tools</code><br></p>
+<p>ネットワーク設定用サービスが有効になっているか確認<br>
+<code>systemctl is-enabled systemd-networkd</code><br>
+enabled<br>
+<code>systemctl is-enabled network-manager</code><br>
+enabled<br></p>
+<p>systemd-networkd はネットワーク設定を管理するシステムデーモン。<br>
+NetworkManager はネットワークの検知と設定を自動で行いネットワークに接続する機能を有し、無線・有線両方のネットワークに使うことができる。<br>
+NetworkManagerが起動していない場合は起動する。<br>
+<code>systemctl start NetworkManager</code><br>
+<code>systemctl enable NetworkManager</code><br></p>
+<p>次に、無線LANのアクセスポイントをスキャンして、接続するブロードバンドルーターのSSIDを確認する。<br>
+<code>sudo iwlist wlan0 scan | grep ESSID</code><br></p>
+<p>システムが作成しているファイル(50-cloud-init.yaml)を直接編集するのはリスクがあるので、ファイルを複製してファイル名の頭数字を50よりも大きい数字にする。(99-とか)<br>
+そうすることでシステムが50〜を読み込んだあとに99〜を読み込んでくれる。<br></p>
 <pre><code>cd /etc/netplan/
 
 sudo cp 50-cloud-init.yaml 99-cloud-init.yaml
@@ -236,17 +236,17 @@ sudo vim 99-cloud-init.yaml
 
 sudo ip link set wlan0 up
 </code></pre>
-<p>Wi-Fiのインターフェース名を確認
-<code>iwconfig</code></p>
-<p>IPアドレスを確認
-<code>ip addr</code></p>
+<p>Wi-Fiのインターフェース名を確認<br>
+<code>iwconfig</code><br></p>
+<p>IPアドレスを確認<br>
+<code>ip addr</code><br></p>
 <p>最後にアップデートコマンドを実行してネットワークにつながることを確認</p>
 <pre><code>sudo apt update
 
 sudo apt upgrade
 </code></pre>
-<p>##編集者
-村山</p>
+<h2 id="編集者"><a class="header" href="#編集者">編集者</a></h2>
+<p>村山</p>
 
                     </main>
 
