@@ -35,6 +35,7 @@
 - [Raspberry Pi](./raspberrypi/index.md)
     - [Raspberry Pi OSのインストール](./raspberrypi/os_install.md)
     - [ROS Melodicのインストール](./raspberrypi/ros_install.md)
+    - [Raspberry Pi ネットワーク設定](./raspberrypi/netplan.md)
 - [ROS2](./ROS2/index.md)
     - [ubuntuでのインストール方法](./ROS2/install_ubuntu.md)
     - [windowsでのインストール方法](./ROS2/install_windows.md)
